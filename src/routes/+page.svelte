@@ -7,6 +7,7 @@
 		FREE_PROMISE,
 		GITHUB_URL,
 		GREY_AREA,
+		INSTALL_HINT,
 		INTRODUCTION,
 		PRINCIPLES,
 		SECURITY_EMAIL,
@@ -93,10 +94,12 @@
 						<p class="text-sm text-muted">{tool.platforms}</p>
 					</div>
 					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{tool.body}</p>
-					<p class="mt-5 text-sm text-muted">On a Mac with Homebrew:</p>
+					<p class="mt-5 text-sm text-muted">{INSTALL_HINT}</p>
+					<!-- One click selects the whole command, ready to copy. A copy button would need
+					     JavaScript, and the site runs none. -->
 					<pre
 						class="mt-2 overflow-x-auto rounded-lg border border-border bg-bg px-4 py-3 text-sm"><code
-							>{tool.install}</code
+							class="cursor-text select-all">{tool.install}</code
 						></pre>
 					<div class="mt-6 flex flex-wrap gap-3">
 						<a href={tool.downloadUrl} rel="external" class={secondaryButton}>Download</a>
