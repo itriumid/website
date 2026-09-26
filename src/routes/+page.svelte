@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import Seo from '$lib/Seo.svelte';
+	import { primaryButton, secondaryButton } from '$lib/styles';
 	import {
 		CONTACT_BODY,
 		CONTACT_HEADING,
@@ -28,35 +31,9 @@
 		description: DESCRIPTION,
 		sameAs: [GITHUB_URL]
 	};
-
-	// Built here rather than in the markup, where a `<script>` inside a template literal breaks the
-	// ESLint Svelte parser. The closing tag is split so it doesn't end this component's own script.
-	// A JSON-LD block is data, not a script, so the Content-Security-Policy doesn't block it.
-	const organizationTag =
-		`<script type="application/ld+json">${JSON.stringify(organization)}<` + `/script>`;
-
-	const primaryButton =
-		'inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-on-accent transition-opacity hover:opacity-85';
-	const secondaryButton =
-		'inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-surface';
 </script>
 
-<svelte:head>
-	<title>{TITLE}</title>
-	<meta name="description" content={DESCRIPTION} />
-	<link rel="canonical" href="{SITE_URL}/" />
-	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content="Itrium" />
-	<meta property="og:title" content={TITLE} />
-	<meta property="og:description" content={DESCRIPTION} />
-	<meta property="og:url" content="{SITE_URL}/" />
-	<meta property="og:image" content="{SITE_URL}/og-image.png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -- a constant built above, not user input -->
-	{@html organizationTag}
-</svelte:head>
+<Seo title={TITLE} description={DESCRIPTION} path="/" structuredData={organization} />
 
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-24 sm:px-8 sm:pt-28 sm:pb-32">
 	<h1 class="max-w-3xl text-4xl leading-tight font-bold tracking-tight text-balance sm:text-6xl">
@@ -102,7 +79,7 @@
 							class="cursor-text select-all">{tool.install}</code
 						></pre>
 					<div class="mt-6 flex flex-wrap gap-3">
-						<a href={tool.downloadUrl} rel="external" class={secondaryButton}>Download</a>
+						<a href={resolve(tool.page)} class={secondaryButton}>Download and details</a>
 						<a href={tool.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
 					</div>
 				</li>

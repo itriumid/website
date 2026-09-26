@@ -53,11 +53,12 @@ reopened — and skip it otherwise.
 
 ## This repository
 
-The itrium.id website: one prerendered page, SvelteKit with TypeScript and Tailwind CSS v4, on
+The itrium.id website: prerendered pages (home, and `/honk`), SvelteKit with TypeScript and Tailwind CSS v4, on
 Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers Builds deploys
 `main`, so **anything merged ships.**
 
-- **The copy is public, in Itrium's voice.** It all lives in `src/lib/content.ts`. Read
+- **The copy is public, in Itrium's voice.** The text lives in `src/lib/content.ts`; only short labels sit in the
+  markup. Read
   `.handbook/conventions/reference/brand.md` first, and show any wording change to the user
   before committing it.
 - **No JavaScript reaches visitors.** `src/routes/+layout.ts` sets `csr = false`, and the

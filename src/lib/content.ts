@@ -36,7 +36,7 @@ export const TOOLS = [
 		body: 'A lightweight soundboard for the desktop. Bind sounds to global hotkeys and play them from anywhere, including a menu bar popover on macOS. It makes no network requests at all.',
 		platforms: 'macOS, Windows and Linux',
 		install: 'brew install itriumid/tap/honk',
-		downloadUrl: 'https://github.com/itriumid/honk/releases/latest',
+		page: '/honk' as const,
 		sourceUrl: 'https://github.com/itriumid/honk'
 	}
 ];
@@ -77,3 +77,98 @@ export const CONTACT_BODY =
 export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
 export const FOOTNOTE = 'Itrium is the Indonesian word for yttrium: element 39.';
+
+// The Honk page, at /honk. Download links go through releases/latest/download/, which serves the
+// newest release's file of that name; the release workflow attaches copies without the version.
+const LATEST = 'https://github.com/itriumid/honk/releases/latest/download';
+
+export const HONK = {
+	title: 'Honk: a free soundboard with global hotkeys',
+	description:
+		'Honk is a free, open source soundboard for macOS, Windows and Linux. Bind sounds to global hotkeys and play them from anywhere. It makes no network requests at all.',
+	tagline: 'A lightweight soundboard for the desktop.',
+	introduction:
+		"Import your sounds, bind them to global hotkeys, and play them without leaving whatever you're doing. It's free, it's open source, and it makes no network requests at all.",
+	features: [
+		{
+			title: 'Global hotkeys',
+			body: 'Give any sound its own shortcut, and play it from whichever application you have open.'
+		},
+		{
+			title: 'A menu bar popover',
+			body: 'On macOS, search your sounds and play your favorites from the menu bar, without switching windows.'
+		},
+		{
+			title: 'Two outputs at once',
+			body: 'Play through your headphones and a virtual audio cable together, so you hear exactly what your call or stream hears.'
+		},
+		{
+			title: 'Categories',
+			body: 'Sort sounds into categories, and filter by them in the main window and the popover.'
+		},
+		{
+			title: 'Share a whole board',
+			body: "Export your sounds as one .honk file for someone else to import. Before anything is added, they see what's new and where it goes."
+		},
+		{
+			title: 'Your sounds stay yours',
+			body: 'Sounds are copied into your library, so moving the originals never breaks anything. Nothing is uploaded, ever.'
+		}
+	],
+	downloads: [
+		{
+			system: 'macOS',
+			note: 'One download for every Mac, Apple silicon or Intel.',
+			primary: { label: 'Download for Mac', url: `${LATEST}/Honk_universal.dmg` },
+			others: [],
+			install: 'brew install itriumid/tap/honk'
+		},
+		{
+			system: 'Windows',
+			note: 'Windows 10 or 11.',
+			primary: { label: 'Download for Windows', url: `${LATEST}/Honk_x64-setup.exe` },
+			others: [
+				{ label: 'Windows on ARM', url: `${LATEST}/Honk_arm64-setup.exe` },
+				{ label: '32-bit Windows', url: `${LATEST}/Honk_x86-setup.exe` }
+			]
+		},
+		{
+			system: 'Linux',
+			note: 'Debian, Ubuntu, Fedora, openSUSE and the rest.',
+			primary: { label: 'Download .deb', url: `${LATEST}/Honk_amd64.deb` },
+			others: [
+				{ label: '.rpm', url: `${LATEST}/Honk.x86_64.rpm` },
+				{ label: 'AppImage', url: `${LATEST}/Honk_amd64.AppImage` },
+				{ label: 'ARM .deb', url: `${LATEST}/Honk_arm64.deb` },
+				{ label: 'ARM .rpm', url: `${LATEST}/Honk.aarch64.rpm` },
+				{ label: 'ARM AppImage', url: `${LATEST}/Honk_aarch64.AppImage` }
+			]
+		}
+	],
+	installHint: 'Or with Homebrew (click the command to select it):',
+	allDownloads: {
+		body: 'The .msi installers, portable Windows executables and every earlier version are on the releases page.',
+		url: 'https://github.com/itriumid/honk/releases'
+	},
+	unsigned: {
+		heading: 'Your computer will ask you to confirm, once',
+		body: "Signing certificates cost money every year, and Honk is free, so it isn't signed by a verified developer yet. It's built from its public source code, on GitHub's machines, but your system can't know that, so it asks the first time.",
+		steps: [
+			{
+				system: 'macOS',
+				body: 'Open Honk once and click Done on the warning. Then open System Settings, go to Privacy & Security, and click Open Anyway next to the message about Honk.'
+			},
+			{
+				system: 'Windows',
+				body: 'When SmartScreen says "Windows protected your PC", click More info, then Run anyway.'
+			},
+			{
+				system: 'Linux',
+				body: 'No warning. For the AppImage, make it executable first: chmod +x, then run it.'
+			}
+		],
+		moreUrl:
+			'https://github.com/itriumid/honk#honk-isnt-signed-so-your-system-will-warn-you-the-first-time'
+	},
+	sourceUrl: 'https://github.com/itriumid/honk'
+};

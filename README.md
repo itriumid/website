@@ -3,7 +3,7 @@
 The website of [Itrium](https://github.com/itriumid): who we are, what we do, and our free
 tools. Live at [itrium.id](https://itrium.id).
 
-It's one page of plain HTML. It sends no JavaScript to visitors, sets no cookies, and loads
+It's plain HTML: the home page and a page for each free tool (so far, [Honk](https://itrium.id/honk)). It sends no JavaScript to visitors, sets no cookies, and loads
 nothing from anywhere else: the font is served from the site itself, and a strict
 Content-Security-Policy (in [`_headers`](_headers)) blocks everything else.
 
@@ -29,7 +29,8 @@ pnpm dev
 | Build         | `pnpm build`                        |
 | Preview build | `pnpm build && pnpm preview`        |
 
-All the words on the page are in [`src/lib/content.ts`](src/lib/content.ts).
+The text of every page is in [`src/lib/content.ts`](src/lib/content.ts); only short labels, such as
+button text, sit in the markup.
 
 ## License
 
