@@ -12,9 +12,11 @@
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
-	// Creates the DNS record for itrium.id itself. www.itrium.id is redirected to it by a
-	// Cloudflare redirect rule, not here: static files are served before the Worker runs.
+	// Creates the DNS record for itrium.id itself. There's deliberately no www.itrium.id.
 	"routes": [{ "pattern": "itrium.id", "custom_domain": true }],
 	// No logs of visitors' requests are kept.
-	"observability": { "enabled": false }
+	"observability": { "enabled": false },
+	// Cloudflare builds each pull request's branch as a Preview (`wrangler preview`), which fails
+	// without this block. Previews keep no visitor logs either.
+	"previews": { "observability": { "enabled": false } }
 }
