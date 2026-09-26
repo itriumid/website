@@ -6,6 +6,8 @@
 	import { EMAIL, FOOTNOTE, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '$lib/content';
 
 	const { children } = $props();
+	// The sections live on the home page, so the links work from every page.
+	const home = resolve('/');
 </script>
 
 <a
@@ -25,10 +27,10 @@
 	<nav aria-label="Main">
 		<ul class="flex items-center gap-5 text-sm font-medium whitespace-nowrap text-muted sm:gap-7">
 			<li class="hidden sm:block">
-				<a href="#services" class="transition-colors hover:text-text">What we do</a>
+				<a href="{home}#services" class="transition-colors hover:text-text">What we do</a>
 			</li>
-			<li><a href="#tools" class="transition-colors hover:text-text">Free tools</a></li>
-			<li><a href="#contact" class="transition-colors hover:text-text">Contact</a></li>
+			<li><a href="{home}#tools" class="transition-colors hover:text-text">Free tools</a></li>
+			<li><a href="{home}#contact" class="transition-colors hover:text-text">Contact</a></li>
 		</ul>
 	</nav>
 </header>
