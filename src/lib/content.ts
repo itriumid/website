@@ -41,6 +41,8 @@ export const TOOLS = [
 	}
 ];
 
+export const INSTALL_HINT = 'On a Mac with Homebrew (click the command to select it):';
+
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
 
