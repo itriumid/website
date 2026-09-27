@@ -78,16 +78,11 @@ export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
 export const FOOTNOTE = 'Itrium is the Indonesian word for yttrium: element 39.';
 
-// The Honk page, at /honk. From 0.2.1 on, each release also carries its main installers under
-// names without the version (Honk_universal.dmg), which
-// https://github.com/itriumid/honk/releases/latest/download/<name> always serves from the newest
-// release. 0.2.0 was published before that, and published releases can't change, so until 0.2.1
-// is out these links point at 0.2.0's own files.
-// TODO(0.2.1): make honkFile return that latest/download URL instead.
+// The Honk page, at /honk. Each release carries its main installers under names without the
+// version (Honk_universal.dmg) too, and releases/latest/download/ serves them from the newest
+// release, so these links never need changing.
 const honkFile = (name: string) =>
-	`https://github.com/itriumid/honk/releases/download/v0.2.0/${name
-		.replace(/^Honk_/, 'Honk_0.2.0_')
-		.replace(/^Honk\./, 'Honk-0.2.0-1.')}`;
+	`https://github.com/itriumid/honk/releases/latest/download/${name}`;
 
 export const HONK = {
 	title: 'Honk: a free soundboard with global hotkeys',
