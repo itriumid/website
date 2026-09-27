@@ -7,9 +7,9 @@ export const SECURITY_EMAIL = 'security@itrium.id';
 export const GITHUB_URL = 'https://github.com/itriumid';
 export const SOURCE_URL = 'https://github.com/itriumid/website';
 
-export const TITLE = 'Itrium: software help and free tools, from Indonesia';
+export const TITLE = 'Itrium: an Indonesian software studio';
 export const DESCRIPTION =
-	'We help people and small businesses with software: plain advice, applications and websites built to order, and free tools that leave your data alone.';
+	'An Indonesian software studio: plain advice, applications and websites built to order, and free tools that leave your data alone.';
 
 export const TAGLINE = 'From a quick question to a finished application.';
 export const INTRODUCTION =
