@@ -78,9 +78,16 @@ export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
 export const FOOTNOTE = 'Itrium is the Indonesian word for yttrium: element 39.';
 
-// The Honk page, at /honk. Download links go through releases/latest/download/, which serves the
-// newest release's file of that name; the release workflow attaches copies without the version.
-const LATEST = 'https://github.com/itriumid/honk/releases/latest/download';
+// The Honk page, at /honk. From 0.2.1 on, each release also carries its main installers under
+// names without the version (Honk_universal.dmg), which
+// https://github.com/itriumid/honk/releases/latest/download/<name> always serves from the newest
+// release. 0.2.0 was published before that, and published releases can't change, so until 0.2.1
+// is out these links point at 0.2.0's own files.
+// TODO(0.2.1): make honkFile return that latest/download URL instead.
+const honkFile = (name: string) =>
+	`https://github.com/itriumid/honk/releases/download/v0.2.0/${name
+		.replace(/^Honk_/, 'Honk_0.2.0_')
+		.replace(/^Honk\./, 'Honk-0.2.0-1.')}`;
 
 export const HONK = {
 	title: 'Honk: a free soundboard with global hotkeys',
@@ -119,29 +126,29 @@ export const HONK = {
 		{
 			system: 'macOS',
 			note: 'One download for every Mac, Apple silicon or Intel.',
-			primary: { label: 'Download for Mac', url: `${LATEST}/Honk_universal.dmg` },
+			primary: { label: 'Download for Mac', url: honkFile('Honk_universal.dmg') },
 			others: [],
 			install: 'brew install itriumid/tap/honk'
 		},
 		{
 			system: 'Windows',
 			note: 'Windows 10 or 11.',
-			primary: { label: 'Download for Windows', url: `${LATEST}/Honk_x64-setup.exe` },
+			primary: { label: 'Download for Windows', url: honkFile('Honk_x64-setup.exe') },
 			others: [
-				{ label: 'Windows on ARM', url: `${LATEST}/Honk_arm64-setup.exe` },
-				{ label: '32-bit Windows', url: `${LATEST}/Honk_x86-setup.exe` }
+				{ label: 'Windows on ARM', url: honkFile('Honk_arm64-setup.exe') },
+				{ label: '32-bit Windows', url: honkFile('Honk_x86-setup.exe') }
 			]
 		},
 		{
 			system: 'Linux',
 			note: 'Debian, Ubuntu, Fedora, openSUSE and the rest.',
-			primary: { label: 'Download .deb', url: `${LATEST}/Honk_amd64.deb` },
+			primary: { label: 'Download .deb', url: honkFile('Honk_amd64.deb') },
 			others: [
-				{ label: '.rpm', url: `${LATEST}/Honk.x86_64.rpm` },
-				{ label: 'AppImage', url: `${LATEST}/Honk_amd64.AppImage` },
-				{ label: 'ARM .deb', url: `${LATEST}/Honk_arm64.deb` },
-				{ label: 'ARM .rpm', url: `${LATEST}/Honk.aarch64.rpm` },
-				{ label: 'ARM AppImage', url: `${LATEST}/Honk_aarch64.AppImage` }
+				{ label: '.rpm', url: honkFile('Honk.x86_64.rpm') },
+				{ label: 'AppImage', url: honkFile('Honk_amd64.AppImage') },
+				{ label: 'ARM .deb', url: honkFile('Honk_arm64.deb') },
+				{ label: 'ARM .rpm', url: honkFile('Honk.aarch64.rpm') },
+				{ label: 'ARM AppImage', url: honkFile('Honk_aarch64.AppImage') }
 			]
 		}
 	],
