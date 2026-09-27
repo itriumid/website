@@ -1,5 +1,14 @@
 <script lang="ts">
+	import Screenshot from '$lib/Screenshot.svelte';
 	import Seo from '$lib/Seo.svelte';
+	import categoryDark from '$lib/screenshots/category-dark.webp';
+	import categoryLight from '$lib/screenshots/category-light.webp';
+	import importDark from '$lib/screenshots/import-dark.webp';
+	import importLight from '$lib/screenshots/import-light.webp';
+	import mainDark from '$lib/screenshots/main-dark.webp';
+	import mainLight from '$lib/screenshots/main-light.webp';
+	import popoverDark from '$lib/screenshots/popover-dark.webp';
+	import popoverLight from '$lib/screenshots/popover-light.webp';
 	import { primaryButton, secondaryButton } from '$lib/styles';
 	import { FREE_PROMISE, HONK, SITE_URL } from '$lib/content';
 
@@ -13,6 +22,13 @@
 		operatingSystem: 'macOS, Windows, Linux',
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 		publisher: { '@type': 'Organization', name: 'Itrium', url: SITE_URL }
+	};
+
+	// Each highlight's screenshot pair, with the files' own pixel sizes.
+	const images = {
+		popover: { dark: popoverDark, light: popoverLight, width: 640, height: 880 },
+		category: { dark: categoryDark, light: categoryLight, width: 1180, height: 548 },
+		import: { dark: importDark, light: importLight, width: 1160, height: 880 }
 	};
 
 	const link = 'underline underline-offset-4 hover:text-text';
@@ -33,10 +49,44 @@
 	</div>
 </section>
 
+<!-- The main window, with its own shadow baked in, so it sits straight on the page. -->
+<div class="mx-auto max-w-5xl px-2 pb-16 sm:px-4">
+	<Screenshot
+		dark={mainDark}
+		light={mainLight}
+		alt={HONK.screenshot}
+		width={2000}
+		height={1373}
+		lazy={false}
+	/>
+</div>
+
 <section class="border-t border-border">
-	<ul
-		class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-3"
-	>
+	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
+		{#each HONK.highlights as highlight, index (highlight.title)}
+			{@const image = images[highlight.image]}
+			<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+				<div class={index % 2 === 1 ? 'md:order-last' : ''}>
+					<h2 class="text-2xl font-semibold tracking-tight">{highlight.title}</h2>
+					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
+				</div>
+				<div class={highlight.image === 'popover' ? 'mx-auto w-full max-w-xs' : ''}>
+					<Screenshot
+						dark={image.dark}
+						light={image.light}
+						alt={highlight.alt}
+						width={image.width}
+						height={image.height}
+						class="rounded-xl border border-border"
+					/>
+				</div>
+			</div>
+		{/each}
+	</div>
+</section>
+
+<section class="border-t border-border">
+	<ul class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-3 sm:px-8">
 		{#each HONK.features as feature (feature.title)}
 			<li>
 				<h2 class="font-semibold">{feature.title}</h2>

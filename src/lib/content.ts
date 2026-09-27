@@ -96,26 +96,37 @@ export const HONK = {
 	tagline: 'A lightweight soundboard for the desktop.',
 	introduction:
 		"Import your sounds, bind them to global hotkeys, and play them without leaving whatever you're doing. It's free, it's open source, and it makes no network requests at all.",
+	screenshot:
+		"Honk's main window: a grid of sound pads in three categories, with Sad Trombone playing",
+	// Shown beside a screenshot each; `image` names the pair in src/lib/screenshots.
+	highlights: [
+		{
+			title: 'A menu bar popover',
+			body: 'On macOS, search your sounds and play your favorites from the menu bar, without switching windows.',
+			image: 'popover',
+			alt: 'The menu bar popover: a search field, category chips and six favorite sounds'
+		},
+		{
+			title: 'Categories',
+			body: 'Sort sounds into categories, and filter by them in the main window and the popover.',
+			image: 'category',
+			alt: 'The main window showing only the four sounds in the Goose Mode category'
+		},
+		{
+			title: 'Share a whole board',
+			body: "Export your sounds as one .honk file for someone else to import. Before anything is added, they see what's new and where it goes, and hotkeys only come along if they say so.",
+			image: 'import',
+			alt: 'The import preview: 13 new sounds, where each goes, and an unticked box to import their hotkeys'
+		}
+	] as const,
 	features: [
 		{
 			title: 'Global hotkeys',
 			body: 'Give any sound its own shortcut, and play it from whichever application you have open.'
 		},
 		{
-			title: 'A menu bar popover',
-			body: 'On macOS, search your sounds and play your favorites from the menu bar, without switching windows.'
-		},
-		{
 			title: 'Two outputs at once',
 			body: 'Play through your headphones and a virtual audio cable together, so you hear exactly what your call or stream hears.'
-		},
-		{
-			title: 'Categories',
-			body: 'Sort sounds into categories, and filter by them in the main window and the popover.'
-		},
-		{
-			title: 'Share a whole board',
-			body: "Export your sounds as one .honk file for someone else to import. Before anything is added, they see what's new and where it goes."
 		},
 		{
 			title: 'Your sounds stay yours',
