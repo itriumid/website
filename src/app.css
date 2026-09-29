@@ -23,7 +23,7 @@
 		--surface: #ffffff;
 		--border: #e4e4e4;
 		--text: #2b2b2b;
-		/* #AAAAAA is too faint to read on white, so light mode uses a darker grey. */
+		/* #AAAAAA is too faint to read on white, so light mode uses a darker gray. */
 		--muted: #6b6b6b;
 		color-scheme: light;
 	}
