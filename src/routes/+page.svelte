@@ -9,7 +9,7 @@
 		EMAIL,
 		FREE_PROMISE,
 		GITHUB_URL,
-		GREY_AREA,
+		GRAY_AREA,
 		INSTALL_HINT,
 		INTRODUCTION,
 		PRINCIPLES,
@@ -93,7 +93,7 @@
 	<div class="mx-auto grid max-w-5xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2">
 		<div>
 			<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">How we work</h2>
-			{#each GREY_AREA as paragraph, index (index)}
+			{#each GRAY_AREA as paragraph, index (index)}
 				<p class="mt-6 text-xl leading-relaxed {index === 0 ? '' : 'text-muted'}">{paragraph}</p>
 			{/each}
 		</div>

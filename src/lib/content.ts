@@ -46,9 +46,9 @@ export const INSTALL_HINT = 'On a Mac with Homebrew (click the command to select
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
 
-export const GREY_AREA = [
+export const GRAY_AREA = [
 	'Very little in software is one size fits all. Every person, business and problem is its own case, and the honest answer usually starts with "it depends". Our job is to find out what it depends on.',
-	"That's why our colour is graphite, not black: a grey, with pink running through it."
+	"That's why our color is graphite, not black: a gray, with pink running through it."
 ];
 
 export const PRINCIPLES = [
