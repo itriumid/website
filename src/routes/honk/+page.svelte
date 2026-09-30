@@ -86,7 +86,9 @@
 </section>
 
 <section class="border-t border-border">
-	<ul class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-3 sm:px-8">
+	<ul
+		class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-4"
+	>
 		{#each HONK.features as feature (feature.title)}
 			<li>
 				<h2 class="font-semibold">{feature.title}</h2>
