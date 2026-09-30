@@ -126,6 +126,10 @@ export const HONK = {
 		{
 			title: 'Your sounds stay yours',
 			body: 'Sounds are copied into your library, so moving the originals never breaks anything. Nothing is uploaded, ever.'
+		},
+		{
+			title: 'Pick your colors',
+			body: 'Stay with Rhodonite, our graphite and pink, or switch to Catppuccin Mocha, Macchiato or Frappé. Each comes in light and dark, and every one is checked for readable contrast.'
 		}
 	],
 	downloads: [
