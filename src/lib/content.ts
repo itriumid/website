@@ -38,6 +38,14 @@ export const TOOLS = [
 		install: 'brew install itriumid/tap/honk',
 		page: '/honk' as const,
 		sourceUrl: 'https://github.com/itriumid/honk'
+	},
+	{
+		name: 'Hindsight',
+		body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
+		platforms: 'macOS, Windows and Linux',
+		install: 'brew install itriumid/tap/hindsight',
+		page: '/hindsight' as const,
+		sourceUrl: 'https://github.com/itriumid/hindsight'
 	}
 ];
 
@@ -188,4 +196,106 @@ export const HONK = {
 			'https://github.com/itriumid/honk#honk-isnt-signed-so-your-system-will-warn-you-the-first-time'
 	},
 	sourceUrl: 'https://github.com/itriumid/honk'
+};
+
+const hindsightFile = (name: string) =>
+	`https://github.com/itriumid/hindsight/releases/latest/download/${name}`;
+
+export const HINDSIGHT = {
+	title: 'Hindsight: keep the last few minutes of what was said',
+	description:
+		'Hindsight is a free, open source app for macOS, Windows and Linux that keeps the last few minutes of what was said in memory, so you can save it when it turns out to matter. Encrypted, local, and it never goes online.',
+	tagline: "Keep the last few minutes, so you don't have to.",
+	introduction:
+		"Someone walks up and says something you'll want to check later, but it's over before you'd think to record. Hindsight was already listening: it keeps the last few minutes in memory and forgets anything older. When it matters, you save it.",
+	promises: [
+		{
+			title: 'In memory only',
+			body: 'Nothing is written to disk until you save a clip. Until then, the last few minutes exist only in memory.'
+		},
+		{
+			title: 'Encrypted while it waits',
+			body: 'The buffer is encrypted with a key that exists only while Hindsight runs, so even if your system swaps memory to disk, it writes scrambled bytes.'
+		},
+		{
+			title: 'Never leaves your computer',
+			body: 'Hindsight makes no network requests. Clips are ordinary audio files in a folder you choose.'
+		}
+	],
+	features: [
+		{
+			title: 'From the menu bar',
+			body: 'Save the last minute, 5 minutes or 15 minutes from the menu bar or a shortcut, without opening a window.'
+		},
+		{
+			title: 'Up to three hours',
+			body: 'Keep 15 minutes or up to three hours. Three hours takes about 22 MB of memory and a little over one percent of a processor core.'
+		},
+		{
+			title: 'A fallback microphone',
+			body: 'Record from your phone or a headset; if it disconnects or goes quiet, Hindsight switches to a fallback and back again by itself.'
+		},
+		{
+			title: 'Your clips, playable anywhere',
+			body: 'Play clips inside Hindsight, or export them as WAV for any other app. Delete them for good when you no longer need them.'
+		}
+	],
+	people: {
+		heading: 'Recording people',
+		body: "In many places, recording a conversation needs the consent of everyone in it. Hindsight shows that it's recording, and your system shows its microphone indicator, but whether recording is allowed where you are is up to you. Let the people around you know."
+	},
+	downloads: [
+		{
+			system: 'macOS',
+			note: 'One download for every Mac, Apple silicon or Intel.',
+			primary: { label: 'Download for Mac', url: hindsightFile('Hindsight_universal.dmg') },
+			others: [],
+			install: 'brew install itriumid/tap/hindsight'
+		},
+		{
+			system: 'Windows',
+			note: 'Windows 10 or 11.',
+			primary: { label: 'Download for Windows', url: hindsightFile('Hindsight_x64-setup.exe') },
+			others: [
+				{ label: 'Windows on ARM', url: hindsightFile('Hindsight_arm64-setup.exe') },
+				{ label: '32-bit Windows', url: hindsightFile('Hindsight_x86-setup.exe') }
+			]
+		},
+		{
+			system: 'Linux',
+			note: 'Debian, Ubuntu, Fedora, openSUSE and the rest.',
+			primary: { label: 'Download .deb', url: hindsightFile('Hindsight_amd64.deb') },
+			others: [
+				{ label: '.rpm', url: hindsightFile('Hindsight.x86_64.rpm') },
+				{ label: 'AppImage', url: hindsightFile('Hindsight_amd64.AppImage') },
+				{ label: 'ARM .deb', url: hindsightFile('Hindsight_arm64.deb') },
+				{ label: 'ARM .rpm', url: hindsightFile('Hindsight.aarch64.rpm') },
+				{ label: 'ARM AppImage', url: hindsightFile('Hindsight_aarch64.AppImage') }
+			]
+		}
+	],
+	installHint: 'Or with Homebrew (click the command to select it):',
+	allDownloads: {
+		body: 'The .msi installers, portable Windows executables and every earlier version are on the releases page.',
+		url: 'https://github.com/itriumid/hindsight/releases'
+	},
+	unsigned: {
+		heading: 'Your computer will ask you to confirm, once',
+		body: "Signing certificates cost money every year, and Hindsight is free, so it isn't signed by a verified developer yet. It's built from its public source code, on GitHub's machines, but your system can't know that, so it asks the first time. It will also ask whether Hindsight may use the microphone.",
+		steps: [
+			{
+				system: 'macOS',
+				body: 'Open Hindsight once and click Done on the warning. Then open System Settings, go to Privacy & Security, and click Open Anyway next to the message about Hindsight.'
+			},
+			{
+				system: 'Windows',
+				body: 'When SmartScreen says "Windows protected your PC", click More info, then Run anyway.'
+			},
+			{
+				system: 'Linux',
+				body: 'No warning. For the AppImage, make it executable first: chmod +x, then run it.'
+			}
+		]
+	},
+	sourceUrl: 'https://github.com/itriumid/hindsight'
 };
