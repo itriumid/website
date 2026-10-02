@@ -209,7 +209,7 @@ export const HINDSIGHT = {
 	introduction:
 		"Someone walks up and says something you'll want to check later, but it's over before you'd think to record. Hindsight was already listening: it keeps the last few minutes in memory and forgets anything older. When it matters, you save it.",
 	screenshot:
-		"Hindsight's main window: recording from the microphone, holding the last hour and 15 minutes, with two saved clips",
+		"Hindsight's main window: recording from the microphone, holding the last hour and 14 minutes, with two saved clips",
 	// Shown beside a screenshot each; `image` names the pair in src/lib/screenshots.
 	highlights: [
 		{
