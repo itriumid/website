@@ -61,7 +61,7 @@
 		light={heroLight}
 		alt={HINDSIGHT.screenshot}
 		width={1824}
-		height={1560}
+		height={1604}
 		lazy={false}
 	/>
 </div>
