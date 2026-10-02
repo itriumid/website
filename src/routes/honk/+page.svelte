@@ -55,8 +55,8 @@
 		dark={mainDark}
 		light={mainLight}
 		alt={HONK.screenshot}
-		width={2000}
-		height={1373}
+		width={2224}
+		height={1596}
 		lazy={false}
 	/>
 </div>
