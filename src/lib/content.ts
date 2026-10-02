@@ -208,6 +208,29 @@ export const HINDSIGHT = {
 	tagline: "Keep the last few minutes, so you don't have to.",
 	introduction:
 		"Someone walks up and says something you'll want to check later, but it's over before you'd think to record. Hindsight was already listening: it keeps the last few minutes in memory and forgets anything older. When it matters, you save it.",
+	screenshot:
+		"Hindsight's main window: recording from the microphone, holding the last hour and 15 minutes, with two saved clips",
+	// Shown beside a screenshot each; `image` names the pair in src/lib/screenshots.
+	highlights: [
+		{
+			title: 'Go back to when it started',
+			body: 'Choose… opens a timeline of everything Hindsight holds, up to three hours. Quiet stretches show where a conversation began: drag the start and the end there, listen to check, and save exactly that.',
+			image: 'timeline',
+			alt: 'The timeline: an hour and 17 minutes held, a quiet stretch a third of the way in, and the 44 minutes after it chosen'
+		},
+		{
+			title: 'From the menu bar',
+			body: 'Save the last minute, 5 minutes or 15 minutes, or open the timeline, without opening a window. A shortcut you choose saves from any application.',
+			image: 'menu',
+			alt: 'The menu bar menu: what Hindsight is recording from, how much it holds, and the ways to save'
+		},
+		{
+			title: 'Pick your colors',
+			body: "Rhodonite, Itrium's own, or one of three Catppuccin flavors, each in light and dark. Every palette meets level AA contrast, which we check before any of them ships.",
+			image: 'colors',
+			alt: "Hindsight's main window in the Catppuccin Mocha palette"
+		}
+	] as const,
 	promises: [
 		{
 			title: 'In memory only',
@@ -224,10 +247,6 @@ export const HINDSIGHT = {
 	],
 	features: [
 		{
-			title: 'From the menu bar',
-			body: 'Save the last minute, 5 minutes or 15 minutes from the menu bar or a shortcut, without opening a window.'
-		},
-		{
 			title: 'Up to three hours',
 			body: 'Keep 15 minutes or up to three hours. Three hours takes about 22 MB of memory and a little over one percent of a processor core.'
 		},
@@ -237,7 +256,11 @@ export const HINDSIGHT = {
 		},
 		{
 			title: 'Your clips, playable anywhere',
-			body: 'Play clips inside Hindsight, or export them as WAV for any other app. Delete them for good when you no longer need them.'
+			body: 'Play clips inside Hindsight, or export them as WAV for any other application. Delete them for good when you no longer need them.'
+		},
+		{
+			title: 'Starts when you log in',
+			body: "Hindsight can start quietly in the menu bar when you log in. It's off until you turn it on, since starting means recording."
 		}
 	],
 	people: {

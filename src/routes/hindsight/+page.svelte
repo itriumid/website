@@ -1,5 +1,14 @@
 <script lang="ts">
+	import Screenshot from '$lib/Screenshot.svelte';
 	import Seo from '$lib/Seo.svelte';
+	import colorsDark from '$lib/screenshots/hindsight-colors-dark.webp';
+	import colorsLight from '$lib/screenshots/hindsight-colors-light.webp';
+	import heroDark from '$lib/screenshots/hindsight-hero-dark.webp';
+	import heroLight from '$lib/screenshots/hindsight-hero-light.webp';
+	import menuDark from '$lib/screenshots/hindsight-menu-dark.webp';
+	import menuLight from '$lib/screenshots/hindsight-menu-light.webp';
+	import timelineDark from '$lib/screenshots/hindsight-timeline-dark.webp';
+	import timelineLight from '$lib/screenshots/hindsight-timeline-light.webp';
 	import { primaryButton, secondaryButton } from '$lib/styles';
 	import { FREE_PROMISE, HINDSIGHT, SITE_URL } from '$lib/content';
 
@@ -13,6 +22,13 @@
 		operatingSystem: 'macOS, Windows, Linux',
 		offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 		publisher: { '@type': 'Organization', name: 'Itrium', url: SITE_URL }
+	};
+
+	// Each highlight's screenshot pair, with the files' own pixel sizes.
+	const images = {
+		timeline: { dark: timelineDark, light: timelineLight, width: 1600, height: 940 },
+		menu: { dark: menuDark, light: menuLight, width: 562, height: 518 },
+		colors: { dark: colorsDark, light: colorsLight, width: 1600, height: 1336 }
 	};
 
 	const link = 'underline underline-offset-4 hover:text-text';
@@ -35,6 +51,42 @@
 	<div class="mt-10 flex flex-wrap gap-3">
 		<a href="#download" class={primaryButton}>Download Hindsight</a>
 		<a href={HINDSIGHT.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
+	</div>
+</section>
+
+<!-- The main window, with its own shadow baked in, so it sits straight on the page. -->
+<div class="mx-auto max-w-4xl px-2 pb-16 sm:px-4">
+	<Screenshot
+		dark={heroDark}
+		light={heroLight}
+		alt={HINDSIGHT.screenshot}
+		width={1824}
+		height={1560}
+		lazy={false}
+	/>
+</div>
+
+<section class="border-t border-border">
+	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
+		{#each HINDSIGHT.highlights as highlight, index (highlight.title)}
+			{@const image = images[highlight.image]}
+			<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+				<div class={index % 2 === 1 ? 'md:order-last' : ''}>
+					<h2 class="text-2xl font-semibold tracking-tight">{highlight.title}</h2>
+					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
+				</div>
+				<div class={highlight.image === 'menu' ? 'mx-auto w-full max-w-xs' : ''}>
+					<Screenshot
+						dark={image.dark}
+						light={image.light}
+						alt={highlight.alt}
+						width={image.width}
+						height={image.height}
+						class="rounded-xl border border-border"
+					/>
+				</div>
+			</div>
+		{/each}
 	</div>
 </section>
 
