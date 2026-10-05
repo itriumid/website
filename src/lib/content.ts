@@ -35,21 +35,33 @@ export const TOOLS = [
 		name: 'Honk',
 		body: 'A lightweight soundboard for the desktop. Bind sounds to global hotkeys and play them from anywhere, including a menu bar popover on macOS. It makes no network requests at all.',
 		platforms: 'macOS, Windows and Linux',
+		installHint: 'On a Mac with Homebrew (click the command to select it):',
 		install: 'brew install itriumid/tap/honk',
 		page: '/honk' as const,
+		pageLabel: 'Download and details',
 		sourceUrl: 'https://github.com/itriumid/honk'
 	},
 	{
 		name: 'Hindsight',
 		body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
 		platforms: 'macOS, Windows and Linux',
+		installHint: 'On a Mac with Homebrew (click the command to select it):',
 		install: 'brew install itriumid/tap/hindsight',
 		page: '/hindsight' as const,
+		pageLabel: 'Download and details',
 		sourceUrl: 'https://github.com/itriumid/hindsight'
+	},
+	{
+		name: 'Rhodonite Theme',
+		body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, every color readable at level AA.',
+		platforms: 'Visual Studio Code, Cursor, VSCodium and more',
+		installHint: 'In Cursor, VSCodium, Windsurf or Antigravity (click the command to select it):',
+		install: 'code --install-extension itrium.rhodonite',
+		page: '/rhodonite' as const,
+		pageLabel: 'Install and details',
+		sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
 	}
 ];
-
-export const INSTALL_HINT = 'On a Mac with Homebrew (click the command to select it):';
 
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
@@ -321,4 +333,81 @@ export const HINDSIGHT = {
 		]
 	},
 	sourceUrl: 'https://github.com/itriumid/hindsight'
+};
+
+// The Rhodonite page, at /rhodonite: the palette, and the editor theme made from it. The theme is
+// on Open VSX, which most editors built on Visual Studio Code install from, but not on
+// Microsoft's marketplace, which Visual Studio Code itself uses.
+export const RHODONITE = {
+	title: 'Rhodonite: our color palette, for your editor',
+	description:
+		"Rhodonite, Itrium's palette, as a free color theme for Visual Studio Code, Cursor, VSCodium and other editors: graphite with pink running through it, in dark and light, every color readable at level AA.",
+	tagline: 'Graphite, with pink running through it.',
+	introduction:
+		'Rhodonite is our palette, named after the mineral. It colors everything we make, and now it can color your editor too: a theme for Visual Studio Code and the editors built on it, in dark and light.',
+	sample: 'A short TypeScript file in the Rhodonite theme',
+	pink: {
+		heading: 'Pink means something',
+		body: "Most of the window stays graphite and gray. Pink marks the few things worth finding at a glance: the cursor, the active tab, what has focus, and the button that does the main thing. In code, it's the keywords. Everything else gets a quieter color that sits next to the pink instead of competing with it."
+	},
+	promises: [
+		{
+			title: 'Readable, not just pretty',
+			body: 'Every color meets level AA of the Web Content Accessibility Guidelines, in dark and light, on every surface it sits on: the editor, the current line, a selection, every menu. A test checks every pairing before a version ships.'
+		},
+		{
+			title: 'Follows your system',
+			body: "Rhodonite when your computer is in dark mode, Rhodonite Light when it's in light mode, if you let it switch."
+		},
+		{
+			title: 'One palette everywhere',
+			body: 'The theme takes its colors from the same place as Honk and Hindsight, so our editor, our applications and our website never drift apart.'
+		}
+	],
+	// Shown as swatches. A color with one value is the same in dark and light.
+	colors: {
+		heading: 'The colors',
+		palette: [
+			{ name: 'Graphite', use: 'Backgrounds, and text in light mode', dark: '#2B2B2B' },
+			{ name: 'Pastel pink', use: 'The one accent', dark: '#FEBFCA' },
+			{ name: 'Deep rose', use: 'Pink as a line in light mode', dark: '#C46475' },
+			{ name: 'Off-white', use: 'Text in dark mode', dark: '#F2F2F2' },
+			{ name: 'Muted gray', use: 'Secondary text and comments', dark: '#AAAAAA', light: '#6B6B6B' }
+		],
+		code: [
+			{ name: 'Sage', use: 'Strings', dark: '#A9C9A0', light: '#3F7339' },
+			{ name: 'Sand', use: 'Numbers and constants', dark: '#E6CF98', light: '#7F6216' },
+			{ name: 'Blue', use: 'Functions and links', dark: '#9FB5D8', light: '#3A5F93' },
+			{ name: 'Teal', use: 'Types and classes', dark: '#9DCEC7', light: '#2F7069' },
+			{ name: 'Rose', use: 'Errors and deletions', dark: '#F58C9D', light: '#B03A4F' }
+		],
+		paletteLabel: 'Palette',
+		codeLabel: 'Code',
+		darkLabel: 'dark',
+		lightLabel: 'light'
+	},
+	install: {
+		heading: 'Install',
+		openVsx: {
+			heading: 'Cursor, VSCodium, Windsurf, Antigravity and other editors that use Open VSX',
+			body: 'Search for Rhodonite in the Extensions view, or run:',
+			command: 'code --install-extension itrium.rhodonite',
+			note: "with your editor's own command in place of code.",
+			linkLabel: 'Rhodonite on Open VSX',
+			url: 'https://open-vsx.org/extension/itrium/rhodonite'
+		},
+		vscode: {
+			heading: 'Visual Studio Code',
+			body: "It isn't on Microsoft's marketplace yet. Download the .vsix from the latest release, then run code --install-extension with the file.",
+			linkLabel: 'Latest release',
+			url: 'https://github.com/itriumid/vscode-theme-rhodonite/releases/latest'
+		},
+		then: 'Then choose Rhodonite or Rhodonite Light under Preferences: Color Theme. To switch with your system, add this to your settings:',
+		settings: `{
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Rhodonite",
+  "workbench.preferredLightColorTheme": "Rhodonite Light"
+}`
+	},
+	sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
 };
