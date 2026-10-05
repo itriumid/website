@@ -14,6 +14,17 @@
 	--muted: #aaaaaa;
 	--accent: #febfca;
 	--on-accent: #2b2b2b;
+	/* Pink as a line. Light mode deepens it to deep rose, which reaches 3:1 on white. */
+	--accent-edge: #febfca;
+	/* Rhodonite's code colors, for the editor theme's code sample on /rhodonite. The same values
+	   as CODE_COLORS in @itrium/palettes, which checks them at level AA on these surfaces. */
+	--code-pink: #febfca;
+	--code-rose: #f58c9d;
+	--code-sage: #a9c9a0;
+	--code-sand: #e6cf98;
+	--code-blue: #9fb5d8;
+	--code-teal: #9dcec7;
+	--code-punctuation: #d4d4d4;
 	color-scheme: dark;
 }
 
@@ -25,6 +36,15 @@
 		--text: #2b2b2b;
 		/* #AAAAAA is too faint to read on white, so light mode uses a darker gray. */
 		--muted: #6b6b6b;
+		--accent-edge: #c46475;
+		/* Pink is never text on a light background, so light mode's code pink is a deep rose. */
+		--code-pink: #a84d60;
+		--code-rose: #b03a4f;
+		--code-sage: #3f7339;
+		--code-sand: #7f6216;
+		--code-blue: #3a5f93;
+		--code-teal: #2f7069;
+		--code-punctuation: #4a4a4a;
 		color-scheme: light;
 	}
 }
@@ -38,6 +58,14 @@
 	--color-muted: var(--muted);
 	--color-accent: var(--accent);
 	--color-on-accent: var(--on-accent);
+	--color-accent-edge: var(--accent-edge);
+	--color-code-pink: var(--code-pink);
+	--color-code-rose: var(--code-rose);
+	--color-code-sage: var(--code-sage);
+	--color-code-sand: var(--code-sand);
+	--color-code-blue: var(--code-blue);
+	--color-code-teal: var(--code-teal);
+	--color-code-punctuation: var(--code-punctuation);
 }
 
 html {
