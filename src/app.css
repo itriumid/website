@@ -4,7 +4,8 @@
 /*
  * Rhodonite: graphite with pastel pink running through it. The same tokens as Honk's interface;
  * see .handbook/conventions/reference/brand.md for the rules. In short: pink marks the primary
- * action and focus, nothing else, and text on pink is always graphite.
+ * action and focus, nothing else, and text on pink is always graphite. In light mode, focus is
+ * outlined in graphite: pink is too faint to see as a line on white.
  */
 :root {
 	--bg: #2b2b2b;
@@ -16,6 +17,8 @@
 	--on-accent: #2b2b2b;
 	/* Pink as a line. Light mode deepens it to deep rose, which reaches 3:1 on white. */
 	--accent-edge: #febfca;
+	/* The focus outline: pink on graphite, graphite on light backgrounds, where pink is 1.5:1. */
+	--focus: #febfca;
 	/* Rhodonite's code colors, for the editor theme's code sample on /rhodonite. The same values
 	   as CODE_COLORS in @itrium/palettes, which checks them at level AA on these surfaces. */
 	--code-pink: #febfca;
@@ -37,6 +40,7 @@
 		/* #AAAAAA is too faint to read on white, so light mode uses a darker gray. */
 		--muted: #6b6b6b;
 		--accent-edge: #c46475;
+		--focus: #2b2b2b;
 		/* Pink is never text on a light background, so light mode's code pink is a deep rose. */
 		--code-pink: #a84d60;
 		--code-rose: #b03a4f;
@@ -83,7 +87,7 @@ html {
 }
 
 :focus-visible {
-	outline: 2px solid var(--accent);
+	outline: 2px solid var(--focus);
 	outline-offset: 3px;
 	border-radius: 4px;
 }
