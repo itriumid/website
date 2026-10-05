@@ -10,7 +10,6 @@
 		FREE_PROMISE,
 		GITHUB_URL,
 		GRAY_AREA,
-		INSTALL_HINT,
 		INTRODUCTION,
 		PRINCIPLES,
 		SECURITY_EMAIL,
@@ -71,7 +70,7 @@
 						<p class="text-sm text-muted">{tool.platforms}</p>
 					</div>
 					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{tool.body}</p>
-					<p class="mt-5 text-sm text-muted">{INSTALL_HINT}</p>
+					<p class="mt-5 text-sm text-muted">{tool.installHint}</p>
 					<!-- One click selects the whole command, ready to copy. A copy button would need
 					     JavaScript, and the site runs none. -->
 					<pre
@@ -79,7 +78,7 @@
 							class="cursor-text select-all">{tool.install}</code
 						></pre>
 					<div class="mt-6 flex flex-wrap gap-3">
-						<a href={resolve(tool.page)} class={secondaryButton}>Download and details</a>
+						<a href={resolve(tool.page)} class={secondaryButton}>{tool.pageLabel}</a>
 						<a href={tool.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
 					</div>
 				</li>
