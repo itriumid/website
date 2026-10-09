@@ -63,6 +63,17 @@ export const TOOLS = [
 	}
 ];
 
+// The tools that run in the browser, on their own site (tools.itrium.id): they need JavaScript,
+// which this site promises not to send, so they live on a subdomain with its own policy.
+export const WEB_TOOLS = {
+	name: 'Web tools',
+	body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
+	platforms: 'In any browser',
+	url: 'https://tools.itrium.id',
+	label: 'Open the tools',
+	sourceUrl: 'https://github.com/itriumid/website-tools'
+};
+
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
 
