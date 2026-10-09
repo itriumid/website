@@ -65,6 +65,7 @@ Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers 
   Content-Security-Policy in `_headers` allows no scripts. Don't add client-side code, analytics,
   or anything loaded from another domain (fonts, images, embeds): the site's claim that it has no
   cookies, analytics or trackers has to stay true.
+- **Cloudflare must not add its analytics.** `_headers` sends `Cache-Control: … no-transform` on every page, which makes Cloudflare leave pages unchanged. Without it, Cloudflare's Web Analytics (enabled by default for sites it proxies) injects a script the policy then blocks, and "no analytics" would rest on the policy alone. `src/headers.test.ts` guards it.
 - **No inline styles or `data:` URLs.** The policy blocks them. Use Tailwind classes, and keep
   `build.assetsInlineLimit: 0` in `vite.config.ts`.
 - **Colors come from the tokens in `src/app.css`,** the same ones Honk uses. Pink marks the
