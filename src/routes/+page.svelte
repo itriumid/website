@@ -18,7 +18,7 @@
 		TAGLINE,
 		TITLE,
 		TOOLS,
-		WEB_TOOLS
+		WEB_APPS
 	} from '$lib/content';
 
 	const organization = {
@@ -84,17 +84,19 @@
 					</div>
 				</li>
 			{/each}
-			<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
-				<div class="flex flex-wrap items-baseline justify-between gap-2">
-					<h3 class="text-2xl font-semibold">{WEB_TOOLS.name}</h3>
-					<p class="text-sm text-muted">{WEB_TOOLS.platforms}</p>
-				</div>
-				<p class="mt-3 max-w-2xl leading-relaxed text-muted">{WEB_TOOLS.body}</p>
-				<div class="mt-6 flex flex-wrap gap-3">
-					<a href={WEB_TOOLS.url} rel="external" class={secondaryButton}>{WEB_TOOLS.label}</a>
-					<a href={WEB_TOOLS.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-				</div>
-			</li>
+			{#each WEB_APPS as app (app.name)}
+				<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+					<div class="flex flex-wrap items-baseline justify-between gap-2">
+						<h3 class="text-2xl font-semibold">{app.name}</h3>
+						<p class="text-sm text-muted">{app.platforms}</p>
+					</div>
+					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{app.body}</p>
+					<div class="mt-6 flex flex-wrap gap-3">
+						<a href={app.url} rel="external" class={secondaryButton}>{app.label}</a>
+						<a href={app.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
+					</div>
+				</li>
+			{/each}
 		</ul>
 		<p class="mt-8 max-w-3xl leading-relaxed text-muted">{FREE_PROMISE}</p>
 	</div>
