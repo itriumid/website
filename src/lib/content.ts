@@ -432,3 +432,142 @@ export const RHODONITE = {
 	},
 	sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
 };
+
+// What we make to play: free, like the tools, each with its own page.
+export const GAMES = [
+	{
+		name: 'Felterra: Tall Order',
+		body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
+		platforms: 'Windows, macOS and Linux',
+		page: '/tall-order' as const,
+		pageLabel: 'Download and details',
+		sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
+	}
+];
+
+// The Felterra: Tall Order page, at /tall-order. Its builds are named without the version
+// (FelterraTallOrder_windows_x86_64.zip), and releases/latest/download/ serves them from the
+// newest release, so these links never need changing.
+const tallOrderFile = (name: string) =>
+	`https://github.com/itriumid/felterra-tall-order/releases/latest/download/${name}`;
+
+export const TALL_ORDER = {
+	title: 'Felterra: Tall Order, a free game of cats against giants',
+	description:
+		'Felterra: Tall Order is a free pixel art game for Windows, macOS and Linux: a cat named Tompel and his village take their forest back from the company clearing it, one area at a time.',
+	tagline: 'A crew of cats against giants.',
+	introduction:
+		"A company has stamped Tompel's forest idle land and sent its machines in. Fight your way through it area by area, bring your village back from ruin, and find out who's behind it all. It's early days: the game is a work in progress, and we're building it in the open.",
+	screenshot:
+		'Tompel in a fight: rats closing in from every side, a company worker towering over him, and three cards to choose his next upgrade from',
+	// Shown beside a screenshot each; `image` names it in src/lib/screenshots.
+	highlights: [
+		{
+			title: 'You steer, the cat fights',
+			body: "Tompel's weapons aim and strike on their own, one in his mouth and one in his tail, while you move him, dodge, and choose what he grows into. Every level brings a choice of three cards: a new weapon, gear he wears where you can see it, or a new trick for his dodge.",
+			image: 'fight',
+			alt: 'Tompel in a fight, with three upgrade cards to choose from'
+		},
+		{
+			title: 'Free the forest, area by area',
+			body: "Seven hand-made places, each with its own goal and its own boss: break the rat nests, free the caged, wreck the saws. Each looks wrecked while the company holds it, and grows green again once it's free. Or play Endless, a fresh clearing every run, for the highest score.",
+			image: 'map',
+			alt: 'The map of the forest: three areas freed and green, the next still held by the company, the rest under mist'
+		},
+		{
+			title: 'A village that comes back',
+			body: "Every cat you free comes home, and the story brings the village back with them: a smith for the forge, a weaver for new looks, a carpenter for the longhouse. Jogiboy, who lives next door to the Elder, finds you things while you're out.",
+			image: 'village',
+			alt: 'The village restored: painted huts, a market stall, a watchtower, and the cats who live there'
+		},
+		{
+			title: 'Everyone speaks for themselves',
+			body: 'The cast tell the story in their own words, with a portrait for every mood. Every scene can be hurried along or skipped, or set to wait until you have read each line.',
+			image: 'dialog',
+			alt: 'The Elder welcoming Tompel home, his portrait beside his words'
+		}
+	] as const,
+	features: [
+		{
+			title: 'Honest physics',
+			body: 'Anything that moves, falls or breaks does it through the physics, never a canned animation. A felled giant crushes whatever is under him, his own dogs included.'
+		},
+		{
+			title: 'Fair warning',
+			body: "Every hit is shown before it lands: a shadow before a boot comes down, a crouch before a dog leaps. A card's rarity shows in its shape as well as its color."
+		},
+		{
+			title: 'Everything has a story',
+			body: 'Every weapon, piece of gear and trick has a line on where it came from, many of them from Indonesia: the kris, the golok, the bamboo spear.'
+		},
+		{
+			title: 'Satire, not cynicism',
+			body: "The company is made up, and so is the agency it works with, but the way the land gets cleared isn't. The joke is the system, never the people caught up in it."
+		}
+	],
+	free: {
+		heading: 'Free, and how it will pay for itself',
+		body: "Tall Order is free to download and play, with no advertisements and nothing that tracks you. We haven't worked out yet how it can pay its own way. Whatever we choose, we'll say so plainly before it happens, and the game you can download stays free."
+	},
+	art: {
+		heading: 'How the art is made, for now',
+		body: "For now, the game's pixel art, sounds and music are made with AI tools. They're placeholders: a way to build and test a whole game before there's money to pay anyone for it. Once Tall Order earns enough, we want real artists and musicians to replace them, piece by piece, and to credit them by name."
+	},
+	together: {
+		heading: 'Make it with us',
+		body: "If you draw pixel art, make sound or music, or build games, and Tall Order is something you'd like to work on, write to us. We'd love to hear from you."
+	},
+	downloads: [
+		{
+			system: 'Windows',
+			note: 'Windows 10 or 11, 64-bit.',
+			primary: {
+				label: 'Download for Windows',
+				url: tallOrderFile('FelterraTallOrder_windows_x86_64.zip')
+			},
+			others: []
+		},
+		{
+			system: 'macOS',
+			note: 'One download for every Mac, Apple silicon or Intel.',
+			primary: {
+				label: 'Download for Mac',
+				url: tallOrderFile('FelterraTallOrder_macos_universal.zip')
+			},
+			others: []
+		},
+		{
+			system: 'Linux',
+			note: 'Any distribution, on 64-bit Intel and AMD, or ARM.',
+			primary: {
+				label: 'Download for Linux',
+				url: tallOrderFile('FelterraTallOrder_linux_x86_64.zip')
+			},
+			others: [{ label: 'ARM', url: tallOrderFile('FelterraTallOrder_linux_arm64.zip') }]
+		}
+	],
+	downloadsNote: 'Each is a zip: unzip it and run the game inside.',
+	allDownloads: {
+		body: 'Every earlier version, and checksums for each download, are on the releases page.',
+		url: 'https://github.com/itriumid/felterra-tall-order/releases'
+	},
+	unsigned: {
+		heading: 'Your computer will ask you to confirm, once',
+		body: "Signing certificates cost money every year, and Tall Order is free, so it isn't signed by a verified developer yet. It's built from its public source code, on GitHub's machines, but your system can't know that, so it asks the first time.",
+		steps: [
+			{
+				system: 'Windows',
+				body: 'When SmartScreen says "Windows protected your PC", click More info, then Run anyway.'
+			},
+			{
+				system: 'macOS',
+				body: 'Open the game once and click Done on the warning. Then open System Settings, go to Privacy & Security, and click Open Anyway next to the message about Felterra Tall Order.'
+			},
+			{
+				system: 'Linux',
+				body: 'No warning. Make the game executable first if your file manager asks: chmod +x, then run it.'
+			}
+		]
+	},
+	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
+};
