@@ -18,6 +18,7 @@
 		TAGLINE,
 		TITLE,
 		TOOLS,
+		GAMES,
 		WEB_APPS
 	} from '$lib/content';
 
@@ -99,6 +100,27 @@
 			{/each}
 		</ul>
 		<p class="mt-8 max-w-3xl leading-relaxed text-muted">{FREE_PROMISE}</p>
+	</div>
+</section>
+
+<section id="games" class="scroll-mt-8 border-t border-border">
+	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">Free games</h2>
+		<ul class="mt-8 space-y-4">
+			{#each GAMES as game (game.name)}
+				<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+					<div class="flex flex-wrap items-baseline justify-between gap-2">
+						<h3 class="text-2xl font-semibold">{game.name}</h3>
+						<p class="text-sm text-muted">{game.platforms}</p>
+					</div>
+					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{game.body}</p>
+					<div class="mt-6 flex flex-wrap gap-3">
+						<a href={resolve(game.page)} class={secondaryButton}>{game.pageLabel}</a>
+						<a href={game.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
+					</div>
+				</li>
+			{/each}
+		</ul>
 	</div>
 </section>
 
