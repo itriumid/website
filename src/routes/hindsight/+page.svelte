@@ -1,16 +1,16 @@
 <script lang="ts">
-	import Screenshot from '$lib/Screenshot.svelte';
-	import Seo from '$lib/Seo.svelte';
-	import colorsDark from '$lib/screenshots/hindsight-colors-dark.webp';
-	import colorsLight from '$lib/screenshots/hindsight-colors-light.webp';
-	import heroDark from '$lib/screenshots/hindsight-hero-dark.webp';
-	import heroLight from '$lib/screenshots/hindsight-hero-light.webp';
-	import menuDark from '$lib/screenshots/hindsight-menu-dark.webp';
-	import menuLight from '$lib/screenshots/hindsight-menu-light.webp';
-	import timelineDark from '$lib/screenshots/hindsight-timeline-dark.webp';
-	import timelineLight from '$lib/screenshots/hindsight-timeline-light.webp';
-	import { primaryButton, secondaryButton } from '$lib/styles';
-	import { FREE_PROMISE, HINDSIGHT, SITE_URL } from '$lib/content';
+	import Screenshot from '#lib/Screenshot.svelte';
+	import Seo from '#lib/Seo.svelte';
+	import colorsDark from '#lib/screenshots/hindsight-colors-dark.webp';
+	import colorsLight from '#lib/screenshots/hindsight-colors-light.webp';
+	import heroDark from '#lib/screenshots/hindsight-hero-dark.webp';
+	import heroLight from '#lib/screenshots/hindsight-hero-light.webp';
+	import menuDark from '#lib/screenshots/hindsight-menu-dark.webp';
+	import menuLight from '#lib/screenshots/hindsight-menu-light.webp';
+	import timelineDark from '#lib/screenshots/hindsight-timeline-dark.webp';
+	import timelineLight from '#lib/screenshots/hindsight-timeline-light.webp';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { FREE_PROMISE, HINDSIGHT, SITE_URL } from '#lib/content.js';
 
 	const application = {
 		'@context': 'https://schema.org',

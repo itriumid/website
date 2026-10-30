@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Screenshot from '$lib/Screenshot.svelte';
-	import Seo from '$lib/Seo.svelte';
-	import dialog from '$lib/screenshots/tall-order-dialog.webp';
-	import fight from '$lib/screenshots/tall-order-fight.webp';
-	import map from '$lib/screenshots/tall-order-map.webp';
-	import village from '$lib/screenshots/tall-order-village.webp';
-	import { primaryButton, secondaryButton } from '$lib/styles';
-	import { EMAIL, FREE_PROMISE, SITE_URL, TALL_ORDER } from '$lib/content';
+	import Screenshot from '#lib/Screenshot.svelte';
+	import Seo from '#lib/Seo.svelte';
+	import dialog from '#lib/screenshots/tall-order-dialog.webp';
+	import fight from '#lib/screenshots/tall-order-fight.webp';
+	import map from '#lib/screenshots/tall-order-map.webp';
+	import village from '#lib/screenshots/tall-order-village.webp';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { EMAIL, FREE_PROMISE, SITE_URL, TALL_ORDER } from '#lib/content.js';
 
 	const game = {
 		'@context': 'https://schema.org',

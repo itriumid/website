@@ -1,16 +1,16 @@
 <script lang="ts">
-	import Screenshot from '$lib/Screenshot.svelte';
-	import Seo from '$lib/Seo.svelte';
-	import categoryDark from '$lib/screenshots/category-dark.webp';
-	import categoryLight from '$lib/screenshots/category-light.webp';
-	import importDark from '$lib/screenshots/import-dark.webp';
-	import importLight from '$lib/screenshots/import-light.webp';
-	import mainDark from '$lib/screenshots/main-dark.webp';
-	import mainLight from '$lib/screenshots/main-light.webp';
-	import popoverDark from '$lib/screenshots/popover-dark.webp';
-	import popoverLight from '$lib/screenshots/popover-light.webp';
-	import { primaryButton, secondaryButton } from '$lib/styles';
-	import { FREE_PROMISE, HONK, SITE_URL } from '$lib/content';
+	import Screenshot from '#lib/Screenshot.svelte';
+	import Seo from '#lib/Seo.svelte';
+	import categoryDark from '#lib/screenshots/category-dark.webp';
+	import categoryLight from '#lib/screenshots/category-light.webp';
+	import importDark from '#lib/screenshots/import-dark.webp';
+	import importLight from '#lib/screenshots/import-light.webp';
+	import mainDark from '#lib/screenshots/main-dark.webp';
+	import mainLight from '#lib/screenshots/main-light.webp';
+	import popoverDark from '#lib/screenshots/popover-dark.webp';
+	import popoverLight from '#lib/screenshots/popover-light.webp';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { FREE_PROMISE, HONK, SITE_URL } from '#lib/content.js';
 
 	const application = {
 		'@context': 'https://schema.org',

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import { resolve } from '$app/paths';
-	import lockupOnDark from '$lib/itrium-lockup-on-dark.svg';
-	import lockupOnLight from '$lib/itrium-lockup-on-light.svg';
-	import { EMAIL, FOOTNOTE, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '$lib/content';
+	import lockupOnDark from '#lib/itrium-lockup-on-dark.svg';
+	import lockupOnLight from '#lib/itrium-lockup-on-light.svg';
+	import { EMAIL, FOOTNOTE, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '#lib/content.js';
 
 	const { children } = $props();
 	// The sections live on the home page, so the links work from every page.

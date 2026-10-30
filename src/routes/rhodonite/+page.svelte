@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Seo from '$lib/Seo.svelte';
-	import { primaryButton, secondaryButton } from '$lib/styles';
-	import { FREE_PROMISE, RHODONITE, SITE_URL } from '$lib/content';
+	import Seo from '#lib/Seo.svelte';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { FREE_PROMISE, RHODONITE, SITE_URL } from '#lib/content.js';
 
 	const application = {
 		'@context': 'https://schema.org',

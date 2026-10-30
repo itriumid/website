@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SITE_URL } from '$lib/content';
+	import { SITE_URL } from '#lib/content.js';
 
 	interface SeoProps {
 		title: string;
