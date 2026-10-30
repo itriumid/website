@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Seo from '$lib/Seo.svelte';
-	import { primaryButton, secondaryButton } from '$lib/styles';
+	import Seo from '#lib/Seo.svelte';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
 	import {
 		CONTACT_BODY,
 		CONTACT_HEADING,
@@ -20,7 +20,7 @@
 		TOOLS,
 		GAMES,
 		WEB_APPS
-	} from '$lib/content';
+	} from '#lib/content.js';
 
 	const organization = {
 		'@context': 'https://schema.org',
