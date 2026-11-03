@@ -29,6 +29,10 @@
 			<li class="hidden sm:block">
 				<a href="{home}#services" class="transition-colors hover:text-text">What we do</a>
 			</li>
+			<!-- Hidden on phones with "What we do": four items don't fit beside the logo there. -->
+			<li class="hidden sm:block">
+				<a href="{home}#work" class="transition-colors hover:text-text">Our work</a>
+			</li>
 			<li>
 				<a href={resolve('/free-stuff')} class="transition-colors hover:text-text">Free stuff</a>
 			</li>
