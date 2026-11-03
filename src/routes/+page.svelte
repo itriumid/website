@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Screenshot from '#lib/Screenshot.svelte';
 	import Seo from '#lib/Seo.svelte';
+	import lintechDark from '#lib/screenshots/lintech-home-dark.webp';
+	import lintechLight from '#lib/screenshots/lintech-home-light.webp';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
 	import {
 		CONTACT_BODY,
@@ -12,12 +15,14 @@
 		GITHUB_URL,
 		GRAY_AREA,
 		INTRODUCTION,
+		LINTECH,
 		PRINCIPLES,
 		SECURITY_EMAIL,
 		SERVICES,
 		SITE_URL,
 		TAGLINE,
-		TITLE
+		TITLE,
+		WORK
 	} from '#lib/content.js';
 
 	const organization = {
@@ -63,6 +68,30 @@
 				</li>
 			{/each}
 		</ul>
+	</div>
+</section>
+
+<section id="work" class="scroll-mt-8 border-t border-border">
+	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">{WORK.label}</h2>
+		<a
+			href={resolve('/work/lintech-shipping')}
+			class="mt-8 grid items-center gap-8 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-text md:grid-cols-2"
+		>
+			<Screenshot
+				dark={lintechDark}
+				light={lintechLight}
+				alt=""
+				width={1440}
+				height={960}
+				class="rounded-xl border border-border"
+			/>
+			<div>
+				<h3 class="text-2xl font-semibold tracking-tight">{LINTECH.name}</h3>
+				<p class="mt-3 text-lg leading-relaxed text-muted">{LINTECH.summary}</p>
+				<p class="mt-4 underline underline-offset-4">{WORK.more}</p>
+			</div>
+		</a>
 	</div>
 </section>
 

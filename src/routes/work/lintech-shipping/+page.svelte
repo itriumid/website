@@ -1,0 +1,93 @@
+<script lang="ts">
+	import Screenshot from '#lib/Screenshot.svelte';
+	import Seo from '#lib/Seo.svelte';
+	import drajatDark from '#lib/screenshots/lintech-drajat-dark.webp';
+	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp';
+	import facilityDark from '#lib/screenshots/lintech-facility-dark.webp';
+	import facilityLight from '#lib/screenshots/lintech-facility-light.webp';
+	import homeDark from '#lib/screenshots/lintech-home-dark.webp';
+	import homeLight from '#lib/screenshots/lintech-home-light.webp';
+	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { EMAIL, LINTECH } from '#lib/content.js';
+
+	// Each highlight's screenshot pair: the client's site at 1440 by 960, in each theme.
+	const images = {
+		drajat: { dark: drajatDark, light: drajatLight },
+		facility: { dark: facilityDark, light: facilityLight }
+	};
+</script>
+
+<Seo title={LINTECH.title} description={LINTECH.description} path="/work/lintech-shipping" />
+
+<section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
+	<p class="text-sm font-semibold tracking-widest text-muted uppercase">Client work</p>
+	<h1 class="mt-3 text-5xl font-bold tracking-tight text-balance sm:text-7xl">{LINTECH.name}</h1>
+	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
+		{LINTECH.tagline}
+	</p>
+	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.introduction}</p>
+	<div class="mt-10 flex flex-wrap gap-3">
+		<a href={LINTECH.siteUrl} rel="external" class={primaryButton}>{LINTECH.siteLabel}</a>
+	</div>
+</section>
+
+<!-- The client's site in a frame of our border, so its own colors don't run into ours. -->
+<div class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
+	<Screenshot
+		dark={homeDark}
+		light={homeLight}
+		alt={LINTECH.screenshot}
+		width={1440}
+		height={960}
+		lazy={false}
+		class="rounded-2xl border border-border"
+	/>
+</div>
+
+<section class="border-t border-border">
+	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
+		{#each LINTECH.highlights as highlight, index (highlight.title)}
+			{@const image = images[highlight.image]}
+			<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+				<div class={index % 2 === 1 ? 'md:order-last' : ''}>
+					<h2 class="text-2xl font-semibold tracking-tight">{highlight.title}</h2>
+					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
+				</div>
+				<Screenshot
+					dark={image.dark}
+					light={image.light}
+					alt={highlight.alt}
+					width={1440}
+					height={960}
+					class="rounded-2xl border border-border"
+				/>
+			</div>
+		{/each}
+	</div>
+</section>
+
+<section class="border-t border-border">
+	<ul
+		class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-4"
+	>
+		{#each LINTECH.features as feature (feature.title)}
+			<li>
+				<h2 class="font-semibold">{feature.title}</h2>
+				<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
+			</li>
+		{/each}
+	</ul>
+</section>
+
+<section class="border-t border-border">
+	<div class="mx-auto max-w-5xl px-5 py-24 sm:px-8">
+		<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+			{LINTECH.closing.heading}
+		</h2>
+		<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.closing.body}</p>
+		<div class="mt-8 flex flex-wrap gap-3">
+			<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
+			<a href={LINTECH.siteUrl} rel="external" class={secondaryButton}>{LINTECH.siteLabel}</a>
+		</div>
+	</div>
+</section>
