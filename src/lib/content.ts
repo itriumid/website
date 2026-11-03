@@ -620,3 +620,80 @@ export const TALL_ORDER = {
 	},
 	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
 };
+
+// Client work, shown with each client's permission. The home page lists every entry under "Our
+// work" with its `summary`; each has its own page at /work/<slug>. Facts about a client (what they
+// do, when the site went live) come from them, and the page says only what we did.
+export const WORK = {
+	label: 'Our work',
+	more: 'Read about it'
+};
+
+export const LINTECH = {
+	title: 'Lintech Energy Shipping: a company website by Itrium',
+	description:
+		'The website we built for PT. Lintech Energy Shipping, a shipyard and energy logistics company in East Java: two languages, light and dark, a 360° view of its shipyard, and articles its team can publish themselves.',
+	name: 'Lintech Energy Shipping',
+	summary:
+		'A company website for a shipyard in East Java: two languages, a 360° view of the yard, and articles its team can publish themselves.',
+	tagline: 'A shipyard, online in two languages.',
+	introduction:
+		'PT. Lintech Energy Shipping repairs and builds ships at its yard on the coast of East Java, and carries cargo by tug and barge. It needed a website that shows that work to customers who read Indonesian or English, and that its own team can keep up to date. We designed and built it, and it went live in October 2026.',
+	siteUrl: 'https://lintechshipping.co.id',
+	siteLabel: 'Visit lintechshipping.co.id',
+	screenshot:
+		"The site's home page: the company's name, a line about its team, and its video, paused on an aerial view of the shipyard",
+	// Shown beside a screenshot each; `image` names it in src/lib/screenshots (lintech-<image>-*).
+	highlights: [
+		{
+			title: 'Every project, with its photos',
+			body: "Fourteen projects, each with its own page: what was done, for whom and when, with a row of photos from the yard. We picked them from the company's own folders and videos, cropped off the burned-in timestamps, and stripped the location data that drone photos carry.",
+			image: 'drajat',
+			alt: 'The page for the ferry KMP Drajat, opening with a drone photo of the ship on the slipway'
+		},
+		{
+			title: 'The shipyard from the air, in 360°',
+			body: 'We stitched 26 drone photos into one panorama that visitors can turn and zoom. It loads only when someone starts it, so the rest of the site stays light.',
+			image: 'facility',
+			alt: 'The facility page, with an aerial view of the coast and a button to start the 360° view'
+		}
+	] as const,
+	features: [
+		{
+			title: 'A video everyone can follow',
+			body: "The company video plays on the home page with captions in both languages, and in a version with audio description for people who can't see it."
+		},
+		{
+			title: 'Articles without us',
+			body: 'The team writes articles in an online editor. The site rebuilds itself and publishes them within a few minutes.'
+		},
+		{
+			title: 'Indonesian and English',
+			body: 'Every page in both languages, and search engines told which is which.'
+		},
+		{
+			title: 'Light and dark',
+			body: "In the company's colors, following the visitor's device unless they choose otherwise."
+		},
+		{
+			title: 'Nothing from third parties',
+			body: "No trackers and no advertisements, and nothing loads from YouTube or anyone else. The video comes from the company's own server."
+		},
+		{
+			title: 'Readable by everyone',
+			body: 'It meets level AA of the Web Content Accessibility Guidelines, in both languages and both themes.'
+		},
+		{
+			title: 'Quick on a phone',
+			body: 'Every page is built ahead of time, and the heavy parts, the video and the panorama, wait until the rest has loaded.'
+		},
+		{
+			title: 'No new bills',
+			body: 'It runs on the hosting the company was already paying for.'
+		}
+	],
+	closing: {
+		heading: 'Need a website like this?',
+		body: "Tell us about your business and what the site should do. The first conversation is free, and before we start, we tell you what it will cost and what it won't do."
+	}
+};
