@@ -8,6 +8,7 @@
 		DESCRIPTION,
 		EMAIL,
 		FREE_PROMISE,
+		FREE_STUFF,
 		GITHUB_URL,
 		GRAY_AREA,
 		INTRODUCTION,
@@ -16,10 +17,7 @@
 		SERVICES,
 		SITE_URL,
 		TAGLINE,
-		TITLE,
-		TOOLS,
-		GAMES,
-		WEB_APPS
+		TITLE
 	} from '#lib/content.js';
 
 	const organization = {
@@ -43,7 +41,7 @@
 	<p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{INTRODUCTION}</p>
 	<div class="mt-10 flex flex-wrap gap-3">
 		<a href="#contact" class={primaryButton}>Say hello</a>
-		<a href="#tools" class={secondaryButton}>See our free tools</a>
+		<a href={resolve('/free-stuff')} class={secondaryButton}>See our free stuff</a>
 	</div>
 </section>
 
@@ -55,69 +53,13 @@
 				<li class="rounded-2xl border border-border bg-surface p-6">
 					<h3 class="text-lg font-semibold">{service.title}</h3>
 					<p class="mt-3 leading-relaxed text-muted">{service.body}</p>
-				</li>
-			{/each}
-		</ul>
-	</div>
-</section>
-
-<section id="tools" class="scroll-mt-8 border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">Free tools</h2>
-		<ul class="mt-8 space-y-4">
-			{#each TOOLS as tool (tool.name)}
-				<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
-					<div class="flex flex-wrap items-baseline justify-between gap-2">
-						<h3 class="text-2xl font-semibold">{tool.name}</h3>
-						<p class="text-sm text-muted">{tool.platforms}</p>
-					</div>
-					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{tool.body}</p>
-					<p class="mt-5 text-sm text-muted">{tool.installHint}</p>
-					<!-- One click selects the whole command, ready to copy. A copy button would need
-					     JavaScript, and the site runs none. -->
-					<pre
-						class="mt-2 overflow-x-auto rounded-lg border border-border bg-bg px-4 py-3 text-sm"><code
-							class="cursor-text select-all">{tool.install}</code
-						></pre>
-					<div class="mt-6 flex flex-wrap gap-3">
-						<a href={resolve(tool.page)} class={secondaryButton}>{tool.pageLabel}</a>
-						<a href={tool.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-					</div>
-				</li>
-			{/each}
-			{#each WEB_APPS as app (app.name)}
-				<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
-					<div class="flex flex-wrap items-baseline justify-between gap-2">
-						<h3 class="text-2xl font-semibold">{app.name}</h3>
-						<p class="text-sm text-muted">{app.platforms}</p>
-					</div>
-					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{app.body}</p>
-					<div class="mt-6 flex flex-wrap gap-3">
-						<a href={app.url} rel="external" class={secondaryButton}>{app.label}</a>
-						<a href={app.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-					</div>
-				</li>
-			{/each}
-		</ul>
-		<p class="mt-8 max-w-3xl leading-relaxed text-muted">{FREE_PROMISE}</p>
-	</div>
-</section>
-
-<section id="games" class="scroll-mt-8 border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">Free games</h2>
-		<ul class="mt-8 space-y-4">
-			{#each GAMES as game (game.name)}
-				<li class="rounded-2xl border border-border bg-surface p-6 sm:p-8">
-					<div class="flex flex-wrap items-baseline justify-between gap-2">
-						<h3 class="text-2xl font-semibold">{game.name}</h3>
-						<p class="text-sm text-muted">{game.platforms}</p>
-					</div>
-					<p class="mt-3 max-w-2xl leading-relaxed text-muted">{game.body}</p>
-					<div class="mt-6 flex flex-wrap gap-3">
-						<a href={resolve(game.page)} class={secondaryButton}>{game.pageLabel}</a>
-						<a href={game.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-					</div>
+					{#if service.page}
+						<p class="mt-4">
+							<a href={resolve(service.page)} class="underline underline-offset-4 hover:text-text"
+								>{FREE_STUFF.more}</a
+							>
+						</p>
+					{/if}
 				</li>
 			{/each}
 		</ul>
@@ -140,6 +82,39 @@
 				</div>
 			{/each}
 		</dl>
+	</div>
+</section>
+
+<section id="free-stuff" class="scroll-mt-8 border-t border-border">
+	<!-- This section used to be two, #tools and #games. Links to them may still be out there, in
+	     chats and posts we can't search, so both land here. -->
+	<span id="tools" class="block scroll-mt-8"></span>
+	<span id="games" class="block scroll-mt-8"></span>
+	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">{FREE_STUFF.label}</h2>
+		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			{#each FREE_STUFF.groups as group (group.id)}
+				{#each group.items as item (item.name)}
+					<li>
+						<a
+							href={'page' in item ? resolve(item.page) : item.url}
+							rel={'page' in item ? undefined : 'external'}
+							class="block h-full rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-text"
+						>
+							<p class="text-xs font-semibold tracking-widest text-muted uppercase">
+								{group.heading}
+							</p>
+							<h3 class="mt-2 text-lg font-semibold">{item.name}</h3>
+							<p class="mt-2 leading-relaxed text-muted">{item.summary}</p>
+						</a>
+					</li>
+				{/each}
+			{/each}
+		</ul>
+		<p class="mt-8 max-w-3xl leading-relaxed text-muted">{FREE_PROMISE}</p>
+		<div class="mt-8">
+			<a href={resolve('/free-stuff')} class={secondaryButton}>{FREE_STUFF.more}</a>
+		</div>
 	</div>
 </section>
 

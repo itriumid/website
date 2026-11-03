@@ -6,7 +6,7 @@
 	import { EMAIL, FOOTNOTE, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '#lib/content.js';
 
 	const { children } = $props();
-	// The sections live on the home page, so the links work from every page.
+	// What we do and Contact are sections of the home page, so these links work from every page.
 	const home = resolve('/');
 </script>
 
@@ -29,7 +29,9 @@
 			<li class="hidden sm:block">
 				<a href="{home}#services" class="transition-colors hover:text-text">What we do</a>
 			</li>
-			<li><a href="{home}#tools" class="transition-colors hover:text-text">Free tools</a></li>
+			<li>
+				<a href={resolve('/free-stuff')} class="transition-colors hover:text-text">Free stuff</a>
+			</li>
 			<li><a href="{home}#contact" class="transition-colors hover:text-text">Contact</a></li>
 		</ul>
 	</nav>
