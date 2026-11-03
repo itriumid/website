@@ -1,9 +1,10 @@
 <script lang="ts">
 	// A screenshot in both themes: the browser picks the one matching the visitor's, the same way
-	// the logo in the header does. Width and height are the files' own, so the page doesn't jump
+	// the logo in the header does. Without `dark`, everyone sees the light one: a client's site is
+	// shown the way it looks best, whatever our theme. Width and height are the files' own, so the page doesn't jump
 	// while the image loads.
 	interface ScreenshotProps {
-		dark: string;
+		dark?: string;
 		light: string;
 		alt: string;
 		width: number;
@@ -25,7 +26,9 @@
 </script>
 
 <picture>
-	<source srcset={dark} media="(prefers-color-scheme: dark)" />
+	{#if dark}
+		<source srcset={dark} media="(prefers-color-scheme: dark)" />
+	{/if}
 	<img
 		src={light}
 		{alt}

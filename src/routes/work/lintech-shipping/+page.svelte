@@ -1,20 +1,15 @@
 <script lang="ts">
 	import Screenshot from '#lib/Screenshot.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import drajatDark from '#lib/screenshots/lintech-drajat-dark.webp';
 	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp';
-	import facilityDark from '#lib/screenshots/lintech-facility-dark.webp';
 	import facilityLight from '#lib/screenshots/lintech-facility-light.webp';
-	import homeDark from '#lib/screenshots/lintech-home-dark.webp';
 	import homeLight from '#lib/screenshots/lintech-home-light.webp';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
 	import { EMAIL, LINTECH } from '#lib/content.js';
 
-	// Each highlight's screenshot pair: the client's site at 1440 by 960, in each theme.
-	const images = {
-		drajat: { dark: drajatDark, light: drajatLight },
-		facility: { dark: facilityDark, light: facilityLight }
-	};
+	// Each highlight's screenshot: the client's site at 1440 by 960, in its light theme for every
+	// visitor (its ivory and blue sit better beside our colors than its navy does).
+	const images = { drajat: drajatLight, facility: facilityLight };
 </script>
 
 <Seo title={LINTECH.title} description={LINTECH.description} path="/work/lintech-shipping" />
@@ -34,7 +29,6 @@
 <!-- The client's site in a frame of our border, so its own colors don't run into ours. -->
 <div class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
 	<Screenshot
-		dark={homeDark}
 		light={homeLight}
 		alt={LINTECH.screenshot}
 		width={1440}
@@ -54,8 +48,7 @@
 					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
 				</div>
 				<Screenshot
-					dark={image.dark}
-					light={image.light}
+					light={image}
 					alt={highlight.alt}
 					width={1440}
 					height={960}
