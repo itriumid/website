@@ -2,7 +2,6 @@
 	import { resolve } from '$app/paths';
 	import Screenshot from '#lib/Screenshot.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import lintechDark from '#lib/screenshots/lintech-home-dark.webp';
 	import lintechLight from '#lib/screenshots/lintech-home-light.webp';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
 	import {
@@ -79,7 +78,6 @@
 			class="mt-8 grid items-center gap-8 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-text md:grid-cols-2"
 		>
 			<Screenshot
-				dark={lintechDark}
 				light={lintechLight}
 				alt=""
 				width={1440}
