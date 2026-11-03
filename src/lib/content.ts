@@ -11,11 +11,11 @@ export const SOURCE_URL = 'https://github.com/itriumid/website';
 
 export const TITLE = 'Itrium: an Indonesian software studio';
 export const DESCRIPTION =
-	'An Indonesian software studio: plain advice, applications and websites built to order, and free tools that leave your data alone.';
+	'An Indonesian software studio: plain advice, applications and websites built to order, and free applications, tools and games that leave your data alone.';
 
 export const TAGLINE = 'From a quick question to a finished application.';
 export const INTRODUCTION =
-	'We help people and small businesses with software, from Indonesia. And we make free tools that leave your data alone.';
+	'We help people and small businesses with software, from Indonesia. And we make free applications, tools and games that leave your data alone.';
 
 export const SERVICES = [
 	{
@@ -27,64 +27,123 @@ export const SERVICES = [
 		body: "Applications, websites and landing pages, built to order. Before we start, we tell you what it will cost and what it won't do."
 	},
 	{
-		title: 'Free tools',
-		body: 'Small, useful software that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device.'
+		title: 'Free stuff',
+		body: 'Applications, tools and games that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device.',
+		page: '/free-stuff' as const
 	}
 ];
 
-export const TOOLS = [
-	{
-		name: 'Honk',
-		body: 'A lightweight soundboard for the desktop. Bind sounds to global hotkeys and play them from anywhere, including a menu bar popover on macOS. It makes no network requests at all.',
-		platforms: 'macOS, Windows and Linux',
-		installHint: 'On a Mac with Homebrew (click the command to select it):',
-		install: 'brew install itriumid/tap/honk',
-		page: '/honk' as const,
-		pageLabel: 'Download and details',
-		sourceUrl: 'https://github.com/itriumid/honk'
-	},
-	{
-		name: 'Hindsight',
-		body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
-		platforms: 'macOS, Windows and Linux',
-		installHint: 'On a Mac with Homebrew (click the command to select it):',
-		install: 'brew install itriumid/tap/hindsight',
-		page: '/hindsight' as const,
-		pageLabel: 'Download and details',
-		sourceUrl: 'https://github.com/itriumid/hindsight'
-	},
-	{
-		name: 'Rhodonite Theme',
-		body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, every color readable at level AA.',
-		platforms: 'Visual Studio Code, Cursor, VSCodium and more',
-		installHint: 'In Cursor, VSCodium, Windsurf or Antigravity (click the command to select it):',
-		install: 'code --install-extension itrium.rhodonite',
-		page: '/rhodonite' as const,
-		pageLabel: 'Install and details',
-		sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
-	}
-];
+// Everything we make for free, grouped by where it runs rather than by what it is: whether
+// something is an application or a tool matters less to a visitor than whether they have to
+// install it. The home page shows each item's `summary`; /free-stuff shows the full `body`. An item
+// links to its own page on this site (`page`) or to where it runs (`url`): what runs in the
+// browser lives on its own subdomain, since it needs JavaScript, which this site promises not to
+// send. Install commands stay on each item's own page, below the download buttons.
+type FreeItem = {
+	name: string;
+	summary: string;
+	body: string;
+	platforms: string;
+	label: string;
+	sourceUrl: string;
+} & ({ page: '/honk' | '/hindsight' | '/rhodonite' | '/tall-order' } | { url: string });
 
-// What runs in the browser, each on its own subdomain: they need JavaScript, which this site
-// promises not to send, so they live apart, each with its own policy.
-export const WEB_APPS = [
-	{
-		name: 'Amber',
-		body: 'Lists for to-dos and bucket lists, with categories, tags, steps and search. It works offline and installs to your home screen, and your lists stay on your device: no account, and nobody else can read them.',
-		platforms: 'In any browser',
-		url: 'https://amber.itrium.id',
-		label: 'Open Amber',
-		sourceUrl: 'https://github.com/itriumid/amber'
-	},
-	{
-		name: 'Web tools',
-		body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
-		platforms: 'In any browser',
-		url: 'https://tools.itrium.id',
-		label: 'Open the tools',
-		sourceUrl: 'https://github.com/itriumid/website-tools'
-	}
-];
+const AMBER: FreeItem = {
+	name: 'Amber',
+	summary: 'Lists for to-dos and bucket lists that stay on your device.',
+	body: 'Lists for to-dos and bucket lists, with categories, tags, steps and search. It works offline and installs to your home screen, and your lists stay on your device: no account, and nobody else can read them.',
+	platforms: 'In any browser',
+	url: 'https://amber.itrium.id',
+	label: 'Open Amber',
+	sourceUrl: 'https://github.com/itriumid/amber'
+};
+
+const WEB_TOOLS: FreeItem = {
+	name: 'Web tools',
+	summary: 'A WhatsApp chat link from any number, and a fair way to split a bill.',
+	body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
+	platforms: 'In any browser',
+	url: 'https://tools.itrium.id',
+	label: 'Open the tools',
+	sourceUrl: 'https://github.com/itriumid/website-tools'
+};
+
+const HONK_ITEM: FreeItem = {
+	name: 'Honk',
+	summary: 'A soundboard: play any sound with a keyboard shortcut.',
+	body: 'A lightweight soundboard. Give each sound its own keyboard shortcut and play it from whatever you have open, or from the menu bar on a Mac. It never goes online.',
+	platforms: 'Mac, Windows and Linux',
+	page: '/honk',
+	label: 'Download and details',
+	sourceUrl: 'https://github.com/itriumid/honk'
+};
+
+const HINDSIGHT_ITEM: FreeItem = {
+	name: 'Hindsight',
+	summary: 'Keeps the last few minutes of what was said, so you can save it.',
+	body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
+	platforms: 'Mac, Windows and Linux',
+	page: '/hindsight',
+	label: 'Download and details',
+	sourceUrl: 'https://github.com/itriumid/hindsight'
+};
+
+const TALL_ORDER_ITEM: FreeItem = {
+	name: 'Felterra: Tall Order',
+	summary: 'A pixel art game of cats against giants, to play alone or with friends.',
+	body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
+	platforms: 'Windows, Mac and Linux',
+	page: '/tall-order',
+	label: 'Download and details',
+	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
+};
+
+const RHODONITE_ITEM: FreeItem = {
+	name: 'Rhodonite Theme',
+	summary: 'Our graphite and pink, as a color theme for your code editor.',
+	body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, and every color checked to be easy to read.',
+	platforms: 'Visual Studio Code, Cursor, VSCodium and more',
+	page: '/rhodonite',
+	label: 'Install and details',
+	sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
+};
+
+export const FREE_STUFF = {
+	title: 'Free stuff: everything Itrium makes for free',
+	description:
+		'Free applications, tools and games from Itrium, for your browser, Mac, Windows and Linux. No account, no advertisements, and nothing that tracks you.',
+	label: 'Free stuff',
+	heading: 'Everything we make for free',
+	introduction:
+		'Applications, tools and games that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device. Some open right in your browser; others you download once.',
+	more: 'See everything we make for free',
+	groups: [
+		{
+			id: 'browser',
+			heading: 'In your browser',
+			body: 'Nothing to install. Open it on your phone or your computer, and start.',
+			items: [AMBER, WEB_TOOLS]
+		},
+		{
+			id: 'computer',
+			heading: 'On your computer',
+			body: 'Download once, for Mac, Windows or Linux. Your computer will ask you to confirm the first time you open it, and each page shows you how.',
+			items: [HONK_ITEM, HINDSIGHT_ITEM]
+		},
+		{
+			id: 'games',
+			heading: 'Games',
+			body: 'Free to download and play, with no advertisements.',
+			items: [TALL_ORDER_ITEM]
+		},
+		{
+			id: 'programmers',
+			heading: 'For programmers',
+			body: "If you write code, this one is for you. If you don't, you can safely skip it.",
+			items: [RHODONITE_ITEM]
+		}
+	]
+};
 
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
@@ -434,18 +493,6 @@ export const RHODONITE = {
 	},
 	sourceUrl: 'https://github.com/itriumid/vscode-theme-rhodonite'
 };
-
-// What we make to play: free, like the tools, each with its own page.
-export const GAMES = [
-	{
-		name: 'Felterra: Tall Order',
-		body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
-		platforms: 'Windows, macOS and Linux',
-		page: '/tall-order' as const,
-		pageLabel: 'Download and details',
-		sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
-	}
-];
 
 // The Felterra: Tall Order page, at /tall-order. Its builds are named without the version
 // (FelterraTallOrder_windows_x86_64.zip), and releases/latest/download/ serves them from the
