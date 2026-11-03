@@ -3,6 +3,8 @@
 
 export const SITE_URL = 'https://itrium.id';
 export const EMAIL = 'hello@itrium.id';
+// Itrium's Discord server. The invite never expires; a new one must be set to never expire too.
+export const DISCORD_URL = 'https://discord.gg/ARpBjrD77C';
 export const SECURITY_EMAIL = 'security@itrium.id';
 export const GITHUB_URL = 'https://github.com/itriumid';
 export const SOURCE_URL = 'https://github.com/itriumid/website';
@@ -515,7 +517,7 @@ export const TALL_ORDER = {
 	},
 	together: {
 		heading: 'Make it with us',
-		body: "If you draw pixel art, make sound or music, or build games, and Tall Order is something you'd like to work on, write to us. We'd love to hear from you."
+		body: "If you draw pixel art, make sound or music, or build games, and Tall Order is something you'd like to work on, write to us or find us on Discord. We'd love to hear from you."
 	},
 	downloads: [
 		{

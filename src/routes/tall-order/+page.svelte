@@ -6,7 +6,7 @@
 	import map from '#lib/screenshots/tall-order-map.webp';
 	import village from '#lib/screenshots/tall-order-village.webp';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
-	import { EMAIL, FREE_PROMISE, SITE_URL, TALL_ORDER } from '#lib/content.js';
+	import { DISCORD_URL, EMAIL, FREE_PROMISE, SITE_URL, TALL_ORDER } from '#lib/content.js';
 
 	const game = {
 		'@context': 'https://schema.org',
@@ -45,6 +45,7 @@
 	<div class="mt-10 flex flex-wrap gap-3">
 		<a href="#download" class={primaryButton}>Download Tall Order</a>
 		<a href={TALL_ORDER.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
+		<a href={DISCORD_URL} rel="external" class={secondaryButton}>Join us on Discord</a>
 	</div>
 </section>
 
@@ -103,7 +104,10 @@
 				<h2 class="text-lg font-semibold">{part.heading}</h2>
 				<p class="mt-3 leading-relaxed text-muted">{part.body}</p>
 				{#if part === TALL_ORDER.together}
-					<p class="mt-4"><a href="mailto:{EMAIL}" class={link}>{EMAIL}</a></p>
+					<p class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+						<a href="mailto:{EMAIL}" class={link}>{EMAIL}</a>
+						<a href={DISCORD_URL} rel="external" class={link}>Discord</a>
+					</p>
 				{/if}
 			</li>
 		{/each}
