@@ -3,7 +3,7 @@
 	import { resolve } from '$app/paths';
 	import lockupOnDark from '#lib/itrium-lockup-on-dark.svg';
 	import lockupOnLight from '#lib/itrium-lockup-on-light.svg';
-	import { EMAIL, FOOTNOTE, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '#lib/content.js';
+	import { EMAIL, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '#lib/content.js';
 
 	const { children } = $props();
 	// What we do and Contact are sections of the home page, so these links work from every page.
@@ -52,7 +52,6 @@
 		<div class="space-y-2">
 			<p>© {new Date().getFullYear()} Itrium</p>
 			<p>{NO_TRACKING}</p>
-			<p>{FOOTNOTE}</p>
 		</div>
 		<ul class="flex shrink-0 gap-5 sm:flex-col sm:gap-2 sm:text-right">
 			<li><a href="mailto:{EMAIL}" class="transition-colors hover:text-text">{EMAIL}</a></li>

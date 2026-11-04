@@ -13,7 +13,9 @@ export const TITLE = 'Itrium: an Indonesian software studio';
 export const DESCRIPTION =
 	'An Indonesian software studio: plain advice, applications and websites built to order, and free applications, tools and games that leave your data alone.';
 
-export const TAGLINE = 'From a quick question to a finished application.';
+// The hero sets the second half in pink, so the tagline is kept in its two halves.
+export const TAGLINE_PARTS = ['From a quick question to', 'a finished application.'] as const;
+export const TAGLINE = TAGLINE_PARTS.join(' ');
 export const INTRODUCTION =
 	'We help people and small businesses with software, from Indonesia. And we make free applications, tools and games that leave your data alone.';
 
@@ -63,7 +65,7 @@ type FreeItem = {
 	sourceUrl: string;
 } & ({ page: '/honk' | '/hindsight' | '/rhodonite' | '/tall-order' } | { url: string });
 
-const AMBER: FreeItem = {
+export const AMBER: FreeItem = {
 	name: 'Amber',
 	summary: 'Lists for to-dos and bucket lists that stay on your device.',
 	body: 'Lists for to-dos and bucket lists, with categories, tags, steps and search. It works offline and installs to your home screen, and your lists stay on your device: no account, and nobody else can read them.',
@@ -73,7 +75,7 @@ const AMBER: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/amber'
 };
 
-const WEB_TOOLS: FreeItem = {
+export const WEB_TOOLS: FreeItem = {
 	name: 'Web tools',
 	summary: 'A WhatsApp chat link from any number, and a fair way to split a bill.',
 	body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
@@ -83,7 +85,7 @@ const WEB_TOOLS: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/website-tools'
 };
 
-const HONK_ITEM: FreeItem = {
+export const HONK_ITEM: FreeItem = {
 	name: 'Honk',
 	summary: 'A soundboard: play any sound with a keyboard shortcut.',
 	body: 'A lightweight soundboard. Give each sound its own keyboard shortcut and play it from whatever you have open, or from the menu bar on a Mac. It never goes online.',
@@ -93,7 +95,7 @@ const HONK_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/honk'
 };
 
-const HINDSIGHT_ITEM: FreeItem = {
+export const HINDSIGHT_ITEM: FreeItem = {
 	name: 'Hindsight',
 	summary: 'Keeps the last few minutes of what was said, so you can save it.',
 	body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
@@ -103,7 +105,7 @@ const HINDSIGHT_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/hindsight'
 };
 
-const TALL_ORDER_ITEM: FreeItem = {
+export const TALL_ORDER_ITEM: FreeItem = {
 	name: 'Felterra: Tall Order',
 	summary: 'A pixel art game of cats against giants, to play alone or with friends.',
 	body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
@@ -113,7 +115,7 @@ const TALL_ORDER_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
 };
 
-const RHODONITE_ITEM: FreeItem = {
+export const RHODONITE_ITEM: FreeItem = {
 	name: 'Rhodonite Theme',
 	summary: 'Our graphite and pink, as a color theme for your code editor.',
 	body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, and every color checked to be easy to read.',
@@ -193,7 +195,11 @@ export const CONTACT_BODY =
 
 export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
-export const FOOTNOTE = 'Itrium is the Indonesian word for yttrium: element 39.';
+// Why the name, on the home page beside how we work. It replaced a footnote in the footer.
+export const NAME_STORY = {
+	heading: 'Why Itrium',
+	body: "Itrium is the Indonesian word for yttrium, element 39. Hardly anyone has heard of it, yet it's in many of the white lights and screens people look at every day: quiet, useful and out of sight, which is how we think good software should be. Read it another way and it's IT with -rium, the Latin ending of aquarium and auditorium that makes a word into a place: a place for IT."
+};
 
 // The Honk page, at /honk. Each release carries its main installers under names without the
 // version (Honk_universal.dmg) too, and releases/latest/download/ serves them from the newest

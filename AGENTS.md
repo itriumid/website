@@ -68,8 +68,10 @@ Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers 
 - **Cloudflare must not add its analytics.** `_headers` sends `Cache-Control: … no-transform` on every page, which makes Cloudflare leave pages unchanged. Without it, Cloudflare's Web Analytics (enabled by default for sites it proxies) injects a script the policy then blocks, and "no analytics" would rest on the policy alone. `src/headers.test.ts` guards it.
 - **No inline styles or `data:` URLs.** The policy blocks them. Use Tailwind classes, and keep
   `build.assetsInlineLimit: 0` in `vite.config.ts`.
-- **Colors come from the tokens in `src/app.css`,** the same ones Honk uses. Pink marks the
-  primary action and focus, nothing else.
+- **Colors come from the tokens in `src/app.css`,** the same ones Honk uses. This site uses pink
+  more freely than the applications: the primary action and focus, and also section labels,
+  links and highlights. Pink text on light backgrounds is `--accent-text` (deep rose), never
+  pastel pink.
 - **`static/.well-known/security.txt` expires.** A test fails a month before its `Expires`
   date; push it out another year when it does.
 - **Brand files** (`src/lib/*.svg`, the icons and `og-image.png` in `static/`) are copies from
