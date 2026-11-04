@@ -12,7 +12,12 @@
 	const images = { drajat: drajatLight, facility: facilityLight };
 </script>
 
-<Seo title={LINTECH.title} description={LINTECH.description} path="/work/lintech-shipping" />
+<Seo
+	title={LINTECH.title}
+	description={LINTECH.description}
+	path="/work/lintech-shipping"
+	image={LINTECH.socialImage}
+/>
 
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
 	<p class="text-sm font-semibold tracking-widest text-muted uppercase">Client work</p>

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import Screenshot from '#lib/Screenshot.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import lintechLight from '#lib/screenshots/lintech-home-light.webp';
+	import WorkCard from '#lib/WorkCard.svelte';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
 	import {
 		CONTACT_BODY,
@@ -14,7 +13,6 @@
 		GITHUB_URL,
 		GRAY_AREA,
 		INTRODUCTION,
-		LINTECH,
 		PRINCIPLES,
 		SECURITY_EMAIL,
 		SERVICES,
@@ -54,16 +52,16 @@
 		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">What we do</h2>
 		<ul class="mt-8 grid gap-4 sm:grid-cols-3">
 			{#each SERVICES as service (service.title)}
-				<li class="rounded-2xl border border-border bg-surface p-6">
+				<li class="flex flex-col rounded-2xl border border-border bg-surface p-6">
 					<h3 class="text-lg font-semibold">{service.title}</h3>
 					<p class="mt-3 leading-relaxed text-muted">{service.body}</p>
-					{#if service.page}
-						<p class="mt-4">
-							<a href={resolve(service.page)} class="underline underline-offset-4 hover:text-text"
-								>{FREE_STUFF.more}</a
-							>
-						</p>
-					{/if}
+					<!-- Each card leads to what comes next: a conversation, our work, or the free stuff. -->
+					<p class="mt-auto pt-4">
+						<a
+							href={'page' in service ? resolve(service.page) : service.hash}
+							class="underline underline-offset-4 hover:text-text">{service.more}</a
+						>
+					</p>
 				</li>
 			{/each}
 		</ul>
@@ -73,23 +71,7 @@
 <section id="work" class="scroll-mt-8 border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
 		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">{WORK.label}</h2>
-		<a
-			href={resolve('/work/lintech-shipping')}
-			class="mt-8 grid items-center gap-8 rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-text md:grid-cols-2"
-		>
-			<Screenshot
-				light={lintechLight}
-				alt=""
-				width={1440}
-				height={960}
-				class="rounded-xl border border-border"
-			/>
-			<div>
-				<h3 class="text-2xl font-semibold tracking-tight">{LINTECH.name}</h3>
-				<p class="mt-3 text-lg leading-relaxed text-muted">{LINTECH.summary}</p>
-				<p class="mt-4 underline underline-offset-4">{WORK.more}</p>
-			</div>
-		</a>
+		<div class="mt-8"><WorkCard /></div>
 	</div>
 </section>
 

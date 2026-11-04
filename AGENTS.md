@@ -53,7 +53,7 @@ reopened — and skip it otherwise.
 
 ## This repository
 
-The itrium.id website: prerendered pages (home, and `/honk`), SvelteKit with TypeScript and Tailwind CSS v4, on
+The itrium.id website: prerendered pages (home, `/free-stuff`, a page per free application or game, and `/work` with a page per client), SvelteKit with TypeScript and Tailwind CSS v4, on
 Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers Builds deploys
 `main`, so **anything merged ships.**
 
