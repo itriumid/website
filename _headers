@@ -2,8 +2,10 @@
 # no-transform on Cache-Control tells it not to. That keeps "no analytics" true of this
 # site's own code, whatever the dashboard says. Everything else in the value is the default
 # for pages, to always check for a newer one.
+# connect-src 'self' lets audits such as Lighthouse fetch /robots.txt from inside the page. Only
+# scripts make such requests, and the policy allows none, so it opens nothing for visitors.
 /*
-  Content-Security-Policy: default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   Referrer-Policy: no-referrer
   X-Content-Type-Options: nosniff
   Permissions-Policy: camera=(), microphone=(), geolocation=()
