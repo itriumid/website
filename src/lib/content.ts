@@ -17,19 +17,34 @@ export const TAGLINE = 'From a quick question to a finished application.';
 export const INTRODUCTION =
 	'We help people and small businesses with software, from Indonesia. And we make free applications, tools and games that leave your data alone.';
 
-export const SERVICES = [
+// The free stuff link's label, on its card in "What we do" and under the free stuff section.
+const SEE_FREE_STUFF = 'See everything we make for free';
+
+// Each card in "What we do" links to what comes next: a page on this site, or a section of the
+// home page.
+type Service = { title: string; body: string; more: string } & (
+	{ page: '/work' | '/free-stuff' } | { hash: `#${string}` }
+);
+
+export const SERVICES: Service[] = [
 	{
 		title: 'Advice',
-		body: "Plain answers about software and technology: what to build, what to buy, what to avoid, and how to fix what's broken. No jargon, unless you use it first."
+		body: "Plain answers about software and technology: what to build, what to buy, what to avoid, and how to fix what's broken. No jargon, unless you use it first.",
+		// Advice is the conversation itself, so its card leads to the contact section.
+		more: 'Ask us something',
+		hash: '#contact'
 	},
 	{
 		title: 'Projects',
-		body: "Applications, websites and landing pages, built to order. Before we start, we tell you what it will cost and what it won't do."
+		body: "Applications, websites and landing pages, built to order. Before we start, we tell you what it will cost and what it won't do.",
+		more: 'See our work',
+		page: '/work'
 	},
 	{
 		title: 'Free stuff',
 		body: 'Applications, tools and games that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device.',
-		page: '/free-stuff' as const
+		more: SEE_FREE_STUFF,
+		page: '/free-stuff'
 	}
 ];
 
@@ -116,7 +131,7 @@ export const FREE_STUFF = {
 	heading: 'Everything we make for free',
 	introduction:
 		'Applications, tools and games that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device. Some open right in your browser; others you download once.',
-	more: 'See everything we make for free',
+	more: SEE_FREE_STUFF,
 	groups: [
 		{
 			id: 'browser',
@@ -621,12 +636,41 @@ export const TALL_ORDER = {
 	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
 };
 
-// Client work, shown with each client's permission. The home page lists every entry under "Our
-// work" with its `summary`; each has its own page at /work/<slug>. Facts about a client (what they
-// do, when the site went live) come from them, and the page says only what we did.
+// Client work, shown with each client's permission. /work lists every entry, and the home page's
+// "Our work" section shows them too, each with its `summary`; each has its own page at
+// /work/<slug>. Facts about a client (what they do, when the site went live) come from them, and
+// the page says only what we did. The process describes steps, never prices: an estimate is
+// written per project.
 export const WORK = {
 	label: 'Our work',
-	more: 'Read about it'
+	more: 'Read about it',
+	title: 'Our work: websites and applications built by Itrium',
+	description:
+		'Websites and applications we have built for clients, shown with their permission, and how a project with us goes.',
+	heading: 'Our work',
+	introduction:
+		'What we have built for clients, shown with their permission. Each has its own page: what they needed, and what we made.',
+	process: {
+		heading: 'How a project goes',
+		steps: [
+			{
+				title: 'A first conversation',
+				body: "Free. Tell us what you need, and we'll tell you honestly whether we're the right people for it."
+			},
+			{
+				title: 'A written estimate',
+				body: "What it will cost, how long it will take, and what it won't do, in writing, before any work starts."
+			},
+			{
+				title: 'Building it',
+				body: "You follow the work on a private preview as it grows, and we change course with you when something isn't right."
+			},
+			{
+				title: 'Handing it over',
+				body: 'It runs on accounts you own, and you get what you need to keep it up to date yourself, or we can keep looking after it for you.'
+			}
+		]
+	}
 };
 
 export const LINTECH = {
@@ -641,6 +685,8 @@ export const LINTECH = {
 		'PT. Lintech Energy Shipping repairs and builds ships at its yard on the coast of East Java, and carries cargo by tug and barge. It needed a website that shows that work to customers who read Indonesian or English, and that its own team can keep up to date. We designed and built it, and it went live in October 2026.',
 	siteUrl: 'https://lintechshipping.co.id',
 	siteLabel: 'Visit lintechshipping.co.id',
+	// The preview where the page is shared: the client's home page, 1200 by 630, in static/social.
+	socialImage: { path: '/social/lintech-shipping.jpg', width: 1200, height: 630 },
 	screenshot:
 		"The site's home page: the company's name, a line about its team, and its video, paused on an aerial view of the shipyard",
 	// Shown beside a screenshot each; `image` names it in src/lib/screenshots (lintech-<image>-*).
