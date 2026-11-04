@@ -536,19 +536,19 @@ export const TALL_ORDER = {
 			title: 'Free the forest, area by area',
 			body: "Seven hand-made places, each with its own goal and its own boss: break the rat nests, free the caged, wreck the saws. Each looks wrecked while the company holds it, and grows green again once it's free. Or play Endless, a fresh clearing every run, for the highest score.",
 			image: 'map',
-			alt: 'The map of the forest: three areas freed and green, the next still held by the company, the rest under mist'
+			alt: 'The map of the forest: five areas freed under our flags, the log slide still held by the company, the rest not yet found'
 		},
 		{
 			title: 'A village that comes back',
 			body: "Every cat you free comes home, and the story brings the village back with them: a smith for the forge, a weaver for new looks, a carpenter for the longhouse. Jogiboy, who lives next door to the Elder, finds you things while you're out.",
 			image: 'village',
-			alt: 'The village restored: painted huts, a market stall, a watchtower, and the cats who live there'
+			alt: 'The village restored: thatched huts, a well, a market stall, and the cats who live there'
 		},
 		{
 			title: 'Everyone speaks for themselves',
 			body: 'The cast tell the story in their own words, with a portrait for every mood. Every scene can be hurried along or skipped, or set to wait until you have read each line.',
 			image: 'dialog',
-			alt: 'The Elder welcoming Tompel home, his portrait beside his words'
+			alt: 'The Elder welcoming Tompel home: "Look at you. Did nobody feed you down there?"'
 		}
 	] as const,
 	features: [
