@@ -42,7 +42,7 @@
 />
 
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-muted uppercase">Free tool</p>
+	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">Free tool</p>
 	<h1 class="mt-3 text-5xl font-bold tracking-tight sm:text-7xl">Hindsight</h1>
 	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
 		{HINDSIGHT.tagline}

@@ -10,7 +10,7 @@
 <Seo title={FREE_STUFF.title} description={FREE_STUFF.description} path="/free-stuff" />
 
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-16 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-muted uppercase">{FREE_STUFF.label}</p>
+	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">{FREE_STUFF.label}</p>
 	<h1 class="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-balance sm:text-6xl">
 		{FREE_STUFF.heading}
 	</h1>
