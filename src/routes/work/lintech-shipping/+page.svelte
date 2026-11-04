@@ -1,5 +1,7 @@
 <script lang="ts">
+	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
+	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp';
 	import facilityLight from '#lib/screenshots/lintech-facility-light.webp';
@@ -19,35 +21,32 @@
 	image={LINTECH.socialImage}
 />
 
-<section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">Client work</p>
-	<h1 class="mt-3 text-5xl font-bold tracking-tight text-balance sm:text-7xl">{LINTECH.name}</h1>
-	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
-		{LINTECH.tagline}
-	</p>
-	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.introduction}</p>
-	<div class="mt-10 flex flex-wrap gap-3">
+<PageHero
+	label="Client work"
+	title={LINTECH.name}
+	tagline={LINTECH.tagline}
+	introduction={LINTECH.introduction}
+>
+	{#snippet actions()}
 		<a href={LINTECH.siteUrl} rel="external" class={primaryButton}>{LINTECH.siteLabel}</a>
-	</div>
-</section>
+	{/snippet}
+	{#snippet media()}
+		<Screenshot
+			light={homeLight}
+			alt={LINTECH.screenshot}
+			width={1440}
+			height={960}
+			lazy={false}
+			class="rounded-2xl border border-border"
+		/>
+	{/snippet}
+</PageHero>
 
-<!-- The client's site in a frame of our border, so its own colors don't run into ours. -->
-<div class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
-	<Screenshot
-		light={homeLight}
-		alt={LINTECH.screenshot}
-		width={1440}
-		height={960}
-		lazy={false}
-		class="rounded-2xl border border-border"
-	/>
-</div>
-
-<section class="border-t border-border">
+<section>
 	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
 		{#each LINTECH.highlights as highlight, index (highlight.title)}
 			{@const image = images[highlight.image]}
-			<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+			<div class="reveal grid items-center gap-8 md:grid-cols-2 md:gap-12">
 				<div class={index % 2 === 1 ? 'md:order-last' : ''}>
 					<h2 class="text-2xl font-semibold tracking-tight">{highlight.title}</h2>
 					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
@@ -77,15 +76,13 @@
 	</ul>
 </section>
 
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-24 sm:px-8">
-		<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-			{LINTECH.closing.heading}
-		</h2>
-		<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.closing.body}</p>
-		<div class="mt-8 flex flex-wrap gap-3">
-			<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
-			<a href={LINTECH.siteUrl} rel="external" class={secondaryButton}>{LINTECH.siteLabel}</a>
-		</div>
+<ClosingPanel>
+	<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+		{LINTECH.closing.heading}
+	</h2>
+	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.closing.body}</p>
+	<div class="mt-8 flex flex-wrap gap-3">
+		<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
+		<a href={LINTECH.siteUrl} rel="external" class={secondaryButton}>{LINTECH.siteLabel}</a>
 	</div>
-</section>
+</ClosingPanel>

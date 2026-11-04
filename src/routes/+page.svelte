@@ -111,7 +111,7 @@
 <section class="px-3 sm:px-5">
 	<div class="band mx-auto max-w-6xl overflow-hidden rounded-3xl">
 		<div
-			class="grid items-center gap-12 px-6 py-14 sm:px-10 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24"
+			class="grid items-start gap-12 px-6 py-14 sm:px-10 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24"
 		>
 			<div>
 				<h1 class="text-4xl leading-tight font-bold tracking-tight text-balance sm:text-6xl">
@@ -123,7 +123,8 @@
 					<a href={resolve('/work')} class={secondaryButton}>See our work</a>
 				</div>
 			</div>
-			<div class="relative aspect-[5/4]" aria-hidden="true">
+			<!-- Held to the top, not centered on the text: centered, it jumped when the font arrived. -->
+			<div class="relative aspect-[5/4] lg:mt-6" aria-hidden="true">
 				<div class="glow absolute -inset-[15%]"></div>
 				<div class="absolute top-0 right-[6%] w-[66%]">
 					<Screenshot

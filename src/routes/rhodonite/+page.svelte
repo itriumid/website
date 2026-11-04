@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import ClosingPanel from '#lib/ClosingPanel.svelte';
+	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
-	import { FREE_PROMISE, RHODONITE, SITE_URL } from '#lib/content.js';
+	import { FREE_PROMISE, FREE_STUFF, RHODONITE, SITE_URL } from '#lib/content.js';
 
 	const application = {
 		'@context': 'https://schema.org',
@@ -157,7 +160,8 @@
 		{ label: RHODONITE.colors.codeLabel, colors: RHODONITE.colors.code }
 	];
 
-	const link = 'underline underline-offset-4 hover:text-text';
+	const link =
+		'underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text';
 </script>
 
 <Seo
@@ -167,22 +171,21 @@
 	structuredData={application}
 />
 
-<section class="mx-auto max-w-5xl px-5 pt-16 pb-16 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">Free tool</p>
-	<h1 class="mt-3 text-5xl font-bold tracking-tight sm:text-7xl">Rhodonite</h1>
-	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
-		{RHODONITE.tagline}
-	</p>
-	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{RHODONITE.introduction}</p>
-	<div class="mt-10 flex flex-wrap gap-3">
+<PageHero
+	label="Free tool"
+	title="Rhodonite"
+	tagline={RHODONITE.tagline}
+	introduction={RHODONITE.introduction}
+>
+	{#snippet actions()}
 		<a href="#install" class={primaryButton}>Install the theme</a>
 		<a href={RHODONITE.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-	</div>
-</section>
+	{/snippet}
+</PageHero>
 
 <!-- An editor window in the theme: the active tab carries the pink line, as it does in the
      editor. Real text, so it follows the visitor's light or dark setting like the rest of the page. -->
-<figure class="mx-auto max-w-4xl px-5 pb-20 sm:px-8" aria-label={RHODONITE.sample}>
+<figure class="reveal mx-auto max-w-4xl px-5 pt-16 pb-20 sm:px-8" aria-label={RHODONITE.sample}>
 	<div class="overflow-hidden rounded-xl border border-border bg-bg">
 		<div class="flex border-b border-border text-sm" aria-hidden="true">
 			<span class="border-t-2 border-r border-t-accent-edge border-r-border px-4 py-2"
@@ -294,8 +297,9 @@
 	</div>
 </section>
 
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<p class="max-w-3xl text-xl leading-relaxed">{FREE_PROMISE}</p>
+<ClosingPanel>
+	<p class="max-w-3xl text-2xl leading-snug font-medium text-balance sm:text-3xl">{FREE_PROMISE}</p>
+	<div class="mt-8">
+		<a href={resolve('/free-stuff')} class={secondaryButton}>{FREE_STUFF.more}</a>
 	</div>
-</section>
+</ClosingPanel>
