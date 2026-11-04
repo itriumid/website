@@ -255,6 +255,7 @@ export const HONK = {
 			note: 'One download for every Mac, Apple silicon or Intel.',
 			primary: { label: 'Download for Mac', url: honkFile('Honk_universal.dmg') },
 			others: [],
+			installHint: 'Or with Homebrew (click the command to select it):',
 			install: 'brew install itriumid/tap/honk'
 		},
 		{
@@ -264,7 +265,9 @@ export const HONK = {
 			others: [
 				{ label: 'Windows on ARM', url: honkFile('Honk_arm64-setup.exe') },
 				{ label: '32-bit Windows', url: honkFile('Honk_x86-setup.exe') }
-			]
+			],
+			installHint: 'Or with winget, in a terminal (click the command to select it):',
+			install: 'winget install Itrium.Honk'
 		},
 		{
 			system: 'Linux',
@@ -279,7 +282,6 @@ export const HONK = {
 			]
 		}
 	],
-	installHint: 'Or with Homebrew (click the command to select it):',
 	allDownloads: {
 		body: 'The .msi installers, portable Windows executables and every earlier version are on the releases page.',
 		url: 'https://github.com/itriumid/honk/releases'

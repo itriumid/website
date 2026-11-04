@@ -119,7 +119,7 @@
 						</ul>
 					{/if}
 					{#if download.install}
-						<p class="mt-5 text-sm text-muted">{HONK.installHint}</p>
+						<p class="mt-5 text-sm text-muted">{download.installHint}</p>
 						<pre
 							class="mt-2 rounded-lg border border-border bg-bg px-4 py-3 text-sm whitespace-pre-wrap"><code
 								class="cursor-text select-all">{download.install}</code
