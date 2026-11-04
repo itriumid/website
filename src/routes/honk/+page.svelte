@@ -37,7 +37,7 @@
 <Seo title={HONK.title} description={HONK.description} path="/honk" structuredData={application} />
 
 <section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-muted uppercase">Free tool</p>
+	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">Free tool</p>
 	<h1 class="mt-3 text-5xl font-bold tracking-tight sm:text-7xl">Honk</h1>
 	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
 		{HONK.tagline}
@@ -119,7 +119,7 @@
 						</ul>
 					{/if}
 					{#if download.install}
-						<p class="mt-5 text-sm text-muted">{HONK.installHint}</p>
+						<p class="mt-5 text-sm text-muted">{download.installHint}</p>
 						<pre
 							class="mt-2 rounded-lg border border-border bg-bg px-4 py-3 text-sm whitespace-pre-wrap"><code
 								class="cursor-text select-all">{download.install}</code

@@ -13,7 +13,9 @@ export const TITLE = 'Itrium: an Indonesian software studio';
 export const DESCRIPTION =
 	'An Indonesian software studio: plain advice, applications and websites built to order, and free applications, tools and games that leave your data alone.';
 
-export const TAGLINE = 'From a quick question to a finished application.';
+// The hero sets the second half in pink, so the tagline is kept in its two halves.
+export const TAGLINE_PARTS = ['From a quick question to', 'a finished application.'] as const;
+export const TAGLINE = TAGLINE_PARTS.join(' ');
 export const INTRODUCTION =
 	'We help people and small businesses with software, from Indonesia. And we make free applications, tools and games that leave your data alone.';
 
@@ -63,7 +65,7 @@ type FreeItem = {
 	sourceUrl: string;
 } & ({ page: '/honk' | '/hindsight' | '/rhodonite' | '/tall-order' } | { url: string });
 
-const AMBER: FreeItem = {
+export const AMBER: FreeItem = {
 	name: 'Amber',
 	summary: 'Lists for to-dos and bucket lists that stay on your device.',
 	body: 'Lists for to-dos and bucket lists, with categories, tags, steps and search. It works offline and installs to your home screen, and your lists stay on your device: no account, and nobody else can read them.',
@@ -73,7 +75,7 @@ const AMBER: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/amber'
 };
 
-const WEB_TOOLS: FreeItem = {
+export const WEB_TOOLS: FreeItem = {
 	name: 'Web tools',
 	summary: 'A WhatsApp chat link from any number, and a fair way to split a bill.',
 	body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
@@ -83,7 +85,7 @@ const WEB_TOOLS: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/website-tools'
 };
 
-const HONK_ITEM: FreeItem = {
+export const HONK_ITEM: FreeItem = {
 	name: 'Honk',
 	summary: 'A soundboard: play any sound with a keyboard shortcut.',
 	body: 'A lightweight soundboard. Give each sound its own keyboard shortcut and play it from whatever you have open, or from the menu bar on a Mac. It never goes online.',
@@ -93,7 +95,7 @@ const HONK_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/honk'
 };
 
-const HINDSIGHT_ITEM: FreeItem = {
+export const HINDSIGHT_ITEM: FreeItem = {
 	name: 'Hindsight',
 	summary: 'Keeps the last few minutes of what was said, so you can save it.',
 	body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
@@ -103,7 +105,7 @@ const HINDSIGHT_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/hindsight'
 };
 
-const TALL_ORDER_ITEM: FreeItem = {
+export const TALL_ORDER_ITEM: FreeItem = {
 	name: 'Felterra: Tall Order',
 	summary: 'A pixel art game of cats against giants, to play alone or with friends.',
 	body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
@@ -113,7 +115,7 @@ const TALL_ORDER_ITEM: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
 };
 
-const RHODONITE_ITEM: FreeItem = {
+export const RHODONITE_ITEM: FreeItem = {
 	name: 'Rhodonite Theme',
 	summary: 'Our graphite and pink, as a color theme for your code editor.',
 	body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, and every color checked to be easy to read.',
@@ -193,7 +195,11 @@ export const CONTACT_BODY =
 
 export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
-export const FOOTNOTE = 'Itrium is the Indonesian word for yttrium: element 39.';
+// Why the name, on the home page beside how we work. It replaced a footnote in the footer.
+export const NAME_STORY = {
+	heading: 'Why Itrium',
+	body: "Itrium is the Indonesian word for yttrium, element 39. Hardly anyone has heard of it, yet it's in many of the white lights and screens people look at every day: quiet, useful and out of sight, which is how we think good software should be. Read it another way and it's IT with -rium, the Latin ending of aquarium and auditorium that makes a word into a place: a place for IT."
+};
 
 // The Honk page, at /honk. Each release carries its main installers under names without the
 // version (Honk_universal.dmg) too, and releases/latest/download/ serves them from the newest
@@ -255,6 +261,7 @@ export const HONK = {
 			note: 'One download for every Mac, Apple silicon or Intel.',
 			primary: { label: 'Download for Mac', url: honkFile('Honk_universal.dmg') },
 			others: [],
+			installHint: 'Or with Homebrew (click the command to select it):',
 			install: 'brew install itriumid/tap/honk'
 		},
 		{
@@ -264,7 +271,9 @@ export const HONK = {
 			others: [
 				{ label: 'Windows on ARM', url: honkFile('Honk_arm64-setup.exe') },
 				{ label: '32-bit Windows', url: honkFile('Honk_x86-setup.exe') }
-			]
+			],
+			installHint: 'Or with winget, in a terminal (click the command to select it):',
+			install: 'winget install Itrium.Honk'
 		},
 		{
 			system: 'Linux',
@@ -279,7 +288,6 @@ export const HONK = {
 			]
 		}
 	],
-	installHint: 'Or with Homebrew (click the command to select it):',
 	allDownloads: {
 		body: 'The .msi installers, portable Windows executables and every earlier version are on the releases page.',
 		url: 'https://github.com/itriumid/honk/releases'
@@ -536,19 +544,19 @@ export const TALL_ORDER = {
 			title: 'Free the forest, area by area',
 			body: "Seven hand-made places, each with its own goal and its own boss: break the rat nests, free the caged, wreck the saws. Each looks wrecked while the company holds it, and grows green again once it's free. Or play Endless, a fresh clearing every run, for the highest score.",
 			image: 'map',
-			alt: 'The map of the forest: three areas freed and green, the next still held by the company, the rest under mist'
+			alt: 'The map of the forest: five areas freed under our flags, the log slide still held by the company, the rest not yet found'
 		},
 		{
 			title: 'A village that comes back',
 			body: "Every cat you free comes home, and the story brings the village back with them: a smith for the forge, a weaver for new looks, a carpenter for the longhouse. Jogiboy, who lives next door to the Elder, finds you things while you're out.",
 			image: 'village',
-			alt: 'The village restored: painted huts, a market stall, a watchtower, and the cats who live there'
+			alt: 'The village restored: thatched huts, a well, a market stall, and the cats who live there'
 		},
 		{
 			title: 'Everyone speaks for themselves',
 			body: 'The cast tell the story in their own words, with a portrait for every mood. Every scene can be hurried along or skipped, or set to wait until you have read each line.',
 			image: 'dialog',
-			alt: 'The Elder welcoming Tompel home, his portrait beside his words'
+			alt: 'The Elder welcoming Tompel home: "Look at you. Did nobody feed you down there?"'
 		}
 	] as const,
 	features: [
@@ -643,7 +651,7 @@ export const TALL_ORDER = {
 // written per project.
 export const WORK = {
 	label: 'Our work',
-	more: 'Read about it',
+	more: 'Read the case study',
 	title: 'Our work: websites and applications built by Itrium',
 	description:
 		'Websites and applications we have built for clients, shown with their permission, and how a project with us goes.',
@@ -681,6 +689,13 @@ export const LINTECH = {
 	summary:
 		'A company website for a shipyard in East Java: two languages, a 360° view of the yard, and articles its team can publish themselves.',
 	tagline: 'A shipyard, online in two languages.',
+	// Shown as chips on its card, on the home page and on /work.
+	facts: [
+		'Company website',
+		'Indonesian and English',
+		'Articles by its own team',
+		'Live since October 2026'
+	],
 	introduction:
 		'PT. Lintech Energy Shipping repairs and builds ships at its yard on the coast of East Java, and carries cargo by tug and barge. It needed a website that shows that work to customers who read Indonesian or English, and that its own team can keep up to date. We designed and built it, and it went live in October 2026.',
 	siteUrl: 'https://lintechshipping.co.id',
