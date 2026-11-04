@@ -19,16 +19,16 @@
 
 <section class="border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-muted uppercase">
+		<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">
 			{WORK.process.heading}
 		</h2>
 		<ol class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
 			{#each WORK.process.steps as step, index (step.title)}
 				<li>
-					<p class="text-sm font-semibold text-muted" aria-hidden="true">
+					<p class="text-3xl font-bold text-accent-text tabular-nums" aria-hidden="true">
 						{String(index + 1).padStart(2, '0')}
 					</p>
-					<h3 class="mt-2 font-semibold">{step.title}</h3>
+					<h3 class="mt-3 font-semibold">{step.title}</h3>
 					<p class="mt-2 leading-relaxed text-muted">{step.body}</p>
 				</li>
 			{/each}

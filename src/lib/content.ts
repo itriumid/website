@@ -651,7 +651,7 @@ export const TALL_ORDER = {
 // written per project.
 export const WORK = {
 	label: 'Our work',
-	more: 'Read about it',
+	more: 'Read the case study',
 	title: 'Our work: websites and applications built by Itrium',
 	description:
 		'Websites and applications we have built for clients, shown with their permission, and how a project with us goes.',
@@ -689,6 +689,13 @@ export const LINTECH = {
 	summary:
 		'A company website for a shipyard in East Java: two languages, a 360° view of the yard, and articles its team can publish themselves.',
 	tagline: 'A shipyard, online in two languages.',
+	// Shown as chips on its card, on the home page and on /work.
+	facts: [
+		'Company website',
+		'Indonesian and English',
+		'Articles by its own team',
+		'Live since October 2026'
+	],
 	introduction:
 		'PT. Lintech Energy Shipping repairs and builds ships at its yard on the coast of East Java, and carries cargo by tug and barge. It needed a website that shows that work to customers who read Indonesian or English, and that its own team can keep up to date. We designed and built it, and it went live in October 2026.',
 	siteUrl: 'https://lintechshipping.co.id',
