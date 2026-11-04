@@ -3,12 +3,19 @@
 	import { resolve } from '$app/paths';
 	import lockupOnDark from '#lib/itrium-lockup-on-dark.svg';
 	import lockupOnLight from '#lib/itrium-lockup-on-light.svg';
+	// The font's Latin file, the only one an English page needs. Fetched early, it's ready before
+	// the first paint, so headings don't reflow (and push the page down) when it arrives.
+	import latinFont from '@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url';
 	import { EMAIL, GITHUB_URL, NO_TRACKING, SOURCE_URL } from '#lib/content.js';
 
 	const { children } = $props();
 	// What we do and Contact are sections of the home page, so these links work from every page.
 	const home = resolve('/');
 </script>
+
+<svelte:head>
+	<link rel="preload" href={latinFont} as="font" type="font/woff2" crossorigin="anonymous" />
+</svelte:head>
 
 <a
 	href="#main"
