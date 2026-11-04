@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
+	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import colorsDark from '#lib/screenshots/hindsight-colors-dark.webp';
 	import colorsLight from '#lib/screenshots/hindsight-colors-light.webp';
@@ -10,7 +13,7 @@
 	import timelineDark from '#lib/screenshots/hindsight-timeline-dark.webp';
 	import timelineLight from '#lib/screenshots/hindsight-timeline-light.webp';
 	import { primaryButton, secondaryButton } from '#lib/styles.js';
-	import { FREE_PROMISE, HINDSIGHT, SITE_URL } from '#lib/content.js';
+	import { FREE_PROMISE, FREE_STUFF, HINDSIGHT, SITE_URL } from '#lib/content.js';
 
 	const application = {
 		'@context': 'https://schema.org',
@@ -31,7 +34,8 @@
 		colors: { dark: colorsDark, light: colorsLight, width: 1600, height: 1336 }
 	};
 
-	const link = 'underline underline-offset-4 hover:text-text';
+	const link =
+		'underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text';
 </script>
 
 <Seo
@@ -41,36 +45,33 @@
 	structuredData={application}
 />
 
-<section class="mx-auto max-w-5xl px-5 pt-16 pb-20 sm:px-8 sm:pt-24">
-	<p class="text-sm font-semibold tracking-widest text-accent-text uppercase">Free tool</p>
-	<h1 class="mt-3 text-5xl font-bold tracking-tight sm:text-7xl">Hindsight</h1>
-	<p class="mt-5 max-w-2xl text-2xl leading-snug font-medium text-balance sm:text-3xl">
-		{HINDSIGHT.tagline}
-	</p>
-	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{HINDSIGHT.introduction}</p>
-	<div class="mt-10 flex flex-wrap gap-3">
+<PageHero
+	label="Free tool"
+	title="Hindsight"
+	tagline={HINDSIGHT.tagline}
+	introduction={HINDSIGHT.introduction}
+>
+	{#snippet actions()}
 		<a href="#download" class={primaryButton}>Download Hindsight</a>
 		<a href={HINDSIGHT.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
-	</div>
-</section>
+	{/snippet}
+	{#snippet media()}
+		<Screenshot
+			dark={heroDark}
+			light={heroLight}
+			alt={HINDSIGHT.screenshot}
+			width={1824}
+			height={1604}
+			lazy={false}
+		/>
+	{/snippet}
+</PageHero>
 
-<!-- The main window, with its own shadow baked in, so it sits straight on the page. -->
-<div class="mx-auto max-w-4xl px-2 pb-16 sm:px-4">
-	<Screenshot
-		dark={heroDark}
-		light={heroLight}
-		alt={HINDSIGHT.screenshot}
-		width={1824}
-		height={1604}
-		lazy={false}
-	/>
-</div>
-
-<section class="border-t border-border">
+<section>
 	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
 		{#each HINDSIGHT.highlights as highlight, index (highlight.title)}
 			{@const image = images[highlight.image]}
-			<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+			<div class="reveal grid items-center gap-8 md:grid-cols-2 md:gap-12">
 				<div class={index % 2 === 1 ? 'md:order-last' : ''}>
 					<h2 class="text-2xl font-semibold tracking-tight">{highlight.title}</h2>
 					<p class="mt-3 text-lg leading-relaxed text-muted">{highlight.body}</p>
@@ -175,8 +176,9 @@
 	</div>
 </section>
 
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<p class="max-w-3xl text-xl leading-relaxed">{FREE_PROMISE}</p>
+<ClosingPanel>
+	<p class="max-w-3xl text-2xl leading-snug font-medium text-balance sm:text-3xl">{FREE_PROMISE}</p>
+	<div class="mt-8">
+		<a href={resolve('/free-stuff')} class={secondaryButton}>{FREE_STUFF.more}</a>
 	</div>
-</section>
+</ClosingPanel>

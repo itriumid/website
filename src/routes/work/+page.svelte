@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ClosingPanel from '#lib/ClosingPanel.svelte';
+	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import WorkCard from '#lib/WorkCard.svelte';
 	import { primaryButton } from '#lib/styles.js';
@@ -7,13 +9,10 @@
 
 <Seo title={WORK.title} description={WORK.description} path="/work" />
 
-<section class="mx-auto max-w-5xl px-5 pt-16 pb-12 sm:px-8 sm:pt-24">
-	<h1 class="text-5xl font-bold tracking-tight sm:text-7xl">{WORK.heading}</h1>
-	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{WORK.introduction}</p>
-</section>
+<PageHero label="Client work" title={WORK.heading} introduction={WORK.introduction} />
 
 <!-- One card per client, each as wide as the page, so a single entry looks deliberate. -->
-<section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8" aria-label={WORK.heading}>
+<section class="mx-auto max-w-5xl px-5 py-20 sm:px-8" aria-label={WORK.heading}>
 	<WorkCard level="h2" />
 </section>
 
@@ -36,14 +35,12 @@
 	</div>
 </section>
 
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-24 sm:px-8">
-		<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-			{CONTACT_HEADING}
-		</h2>
-		<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{CONTACT_BODY}</p>
-		<div class="mt-8">
-			<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
-		</div>
+<ClosingPanel>
+	<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+		{CONTACT_HEADING}
+	</h2>
+	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{CONTACT_BODY}</p>
+	<div class="mt-8">
+		<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
 	</div>
-</section>
+</ClosingPanel>
