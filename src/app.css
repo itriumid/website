@@ -141,7 +141,7 @@ html {
 
 /*
  * Motion, in CSS only, and only for visitors who haven't asked for less. Pages cross-fade into
- * each other, and sections rise into place as they scroll in. Content is visible by default:
+ * each other, and sections rise into place as they scroll in. Content is visible throughout:
  * a browser without scroll-driven animations simply shows it, never a blank page.
  */
 @media (prefers-reduced-motion: no-preference) {
@@ -158,9 +158,9 @@ html {
 	}
 }
 
+/* Movement only, never a fade: text waiting below the fold keeps its full contrast. */
 @keyframes reveal {
 	from {
-		opacity: 0;
-		translate: 0 1.5rem;
+		translate: 0 2rem;
 	}
 }
