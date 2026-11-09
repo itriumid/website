@@ -1,0 +1,14 @@
+{
+	"detector": {
+		"ignoreRules": [],
+		"ignoreFiles": [],
+		"ignoreValues": [
+			{
+				"rule": "design-system-font",
+				"value": "plus jakarta sans",
+				"createdAt": "2026-11-09T07:26:04.161Z",
+				"reason": "False positive: DESIGN.md declares 'Plus Jakarta Sans Variable'; decision sketches load the same face's static Google Fonts family"
+			}
+		]
+	}
+}
