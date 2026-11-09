@@ -18,7 +18,7 @@
 	--on-accent: #2b2b2b;
 	/* Pink as a line. Light mode deepens it to deep rose, which reaches 3:1 on white. */
 	--accent-edge: #febfca;
-	/* Pink as text: pastel on graphite, a deep rose on light backgrounds (7:1 on off-white). */
+	/* Pink as text: pastel on graphite, a deep rose on light backgrounds (4.8:1 on off-white, 5.2:1 on the page). */
 	--accent-text: #febfca;
 	/* The focus outline: pink on graphite, graphite on light backgrounds, where pink is 1.5:1. */
 	--focus: #febfca;
@@ -86,6 +86,15 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* No paragraph ends on a single stranded word. Headings balance with text-balance instead. */
+@layer base {
+	p,
+	li,
+	dd {
+		text-wrap: pretty;
+	}
+}
+
 ::selection {
 	background-color: var(--accent);
 	color: var(--on-accent);
@@ -128,15 +137,6 @@ html {
 		--surface: #3d3d3d;
 		--border: #4f4f4f;
 	}
-}
-
-/* A soft pink light behind the hero's screenshots. */
-.glow {
-	background-image: radial-gradient(
-		closest-side,
-		color-mix(in srgb, var(--accent) 28%, transparent),
-		transparent
-	);
 }
 
 /*

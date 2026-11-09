@@ -3,13 +3,20 @@
 	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import WorkCard from '#lib/WorkCard.svelte';
-	import { primaryButton } from '#lib/styles.js';
-	import { CONTACT_BODY, CONTACT_HEADING, EMAIL, WORK } from '#lib/content.js';
+	import { buttonStack, primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
+	import {
+		CONTACT_BODY,
+		CONTACT_HEADING,
+		CONTACT_HINT,
+		EMAIL,
+		THREADS_URL,
+		WORK
+	} from '#lib/content.js';
 </script>
 
 <Seo title={WORK.title} description={WORK.description} path="/work" />
 
-<PageHero label="Client work" title={WORK.heading} introduction={WORK.introduction} />
+<PageHero title={WORK.heading} introduction={WORK.introduction} />
 
 <!-- One card per client, each as wide as the page, so a single entry looks deliberate. -->
 <section class="mx-auto max-w-5xl px-5 py-20 sm:px-8" aria-label={WORK.heading}>
@@ -18,7 +25,7 @@
 
 <section class="border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">
+		<h2 class={sectionHeading}>
 			{WORK.process.heading}
 		</h2>
 		<ol class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -40,7 +47,10 @@
 		{CONTACT_HEADING}
 	</h2>
 	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{CONTACT_BODY}</p>
-	<div class="mt-8">
-		<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
+	<div class="mt-8 {buttonStack}">
+		<!-- Threads leads: most clients first meet us there. Email is for whoever prefers it. -->
+		<a href={THREADS_URL} rel="external" class={primaryButton}>Message us on Threads</a>
+		<a href="mailto:{EMAIL}" class={secondaryButton}>{EMAIL}</a>
 	</div>
+	<p class="mt-6 max-w-xl leading-relaxed text-muted">{CONTACT_HINT}</p>
 </ClosingPanel>

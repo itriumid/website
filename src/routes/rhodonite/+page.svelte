@@ -3,7 +3,7 @@
 	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import { FREE_PROMISE, FREE_STUFF, RHODONITE, SITE_URL } from '#lib/content.js';
 
 	const application = {
@@ -171,12 +171,7 @@
 	structuredData={application}
 />
 
-<PageHero
-	label="Free tool"
-	title="Rhodonite"
-	tagline={RHODONITE.tagline}
-	introduction={RHODONITE.introduction}
->
+<PageHero title="Rhodonite" tagline={RHODONITE.tagline} introduction={RHODONITE.introduction}>
 	{#snippet actions()}
 		<a href="#install" class={primaryButton}>Install the theme</a>
 		<a href={RHODONITE.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
@@ -203,8 +198,8 @@
 
 <section class="border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-3xl font-bold tracking-tight">{RHODONITE.pink.heading}</h2>
-		<p class="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{RHODONITE.pink.body}</p>
+		<h2 class={sectionHeading}>{RHODONITE.pink.heading}</h2>
+		<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{RHODONITE.pink.body}</p>
 	</div>
 </section>
 
@@ -221,11 +216,11 @@
 
 <section class="border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-3xl font-bold tracking-tight">{RHODONITE.colors.heading}</h2>
+		<h2 class={sectionHeading}>{RHODONITE.colors.heading}</h2>
 		<div class="mt-10 grid gap-12 lg:grid-cols-2">
 			{#each groups as group (group.label)}
 				<div>
-					<h3 class="text-sm font-semibold tracking-widest text-accent-text uppercase">
+					<h3 class="text-lg font-semibold">
 						{group.label}
 					</h3>
 					<ul class="mt-5 space-y-4">
@@ -263,9 +258,9 @@
 
 <section id="install" class="scroll-mt-8 border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-3xl font-bold tracking-tight">{RHODONITE.install.heading}</h2>
+		<h2 class={sectionHeading}>{RHODONITE.install.heading}</h2>
 		<ul class="mt-8 grid gap-4 lg:grid-cols-2">
-			<li class="flex flex-col rounded-2xl border border-border bg-surface p-6">
+			<li class="flex min-w-0 flex-col rounded-2xl border border-border bg-surface p-6">
 				<h3 class="text-xl font-semibold text-balance">{RHODONITE.install.openVsx.heading}</h3>
 				<p class="mt-3 text-muted">{RHODONITE.install.openVsx.body}</p>
 				<pre
@@ -279,7 +274,7 @@
 					>
 				</p>
 			</li>
-			<li class="flex flex-col rounded-2xl border border-border bg-surface p-6">
+			<li class="flex min-w-0 flex-col rounded-2xl border border-border bg-surface p-6">
 				<h3 class="text-xl font-semibold">{RHODONITE.install.vscode.heading}</h3>
 				<p class="mt-3 text-muted">{RHODONITE.install.vscode.body}</p>
 				<div class="mt-5">

@@ -6,8 +6,8 @@
 	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp';
 	import facilityLight from '#lib/screenshots/lintech-facility-light.webp';
 	import homeLight from '#lib/screenshots/lintech-home-light.webp';
-	import { primaryButton, secondaryButton } from '#lib/styles.js';
-	import { EMAIL, LINTECH } from '#lib/content.js';
+	import { buttonStack, primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
+	import { CONTACT_HINT, EMAIL, LINTECH, THREADS_URL } from '#lib/content.js';
 
 	// Each highlight's screenshot: the client's site at 1440 by 960, in its light theme for every
 	// visitor (its ivory and blue sit better beside our colors than its navy does).
@@ -21,14 +21,10 @@
 	image={LINTECH.socialImage}
 />
 
-<PageHero
-	label="Client work"
-	title={LINTECH.name}
-	tagline={LINTECH.tagline}
-	introduction={LINTECH.introduction}
->
+<PageHero title={LINTECH.name} tagline={LINTECH.tagline} introduction={LINTECH.introduction}>
 	{#snippet actions()}
-		<a href={LINTECH.siteUrl} rel="external" class={primaryButton}>{LINTECH.siteLabel}</a>
+		<!-- Secondary: pink is for the conversation, at the end, not for leaving at the top. -->
+		<a href={LINTECH.siteUrl} rel="external" class={secondaryButton}>{LINTECH.siteLabel}</a>
 	{/snippet}
 	{#snippet media()}
 		<Screenshot
@@ -37,7 +33,7 @@
 			width={1440}
 			height={960}
 			lazy={false}
-			class="rounded-2xl border border-border"
+			class="rounded-xl border border-border"
 		/>
 	{/snippet}
 </PageHero>
@@ -56,7 +52,7 @@
 					alt={highlight.alt}
 					width={1440}
 					height={960}
-					class="rounded-2xl border border-border"
+					class="rounded-xl border border-border"
 				/>
 			</div>
 		{/each}
@@ -64,16 +60,17 @@
 </section>
 
 <section class="border-t border-border">
-	<ul
-		class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-4"
-	>
-		{#each LINTECH.features as feature (feature.title)}
-			<li>
-				<h2 class="font-semibold">{feature.title}</h2>
-				<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
-			</li>
-		{/each}
-	</ul>
+	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class={sectionHeading}>What else it does</h2>
+		<ul class="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+			{#each LINTECH.features as feature (feature.title)}
+				<li>
+					<h3 class="font-semibold">{feature.title}</h3>
+					<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </section>
 
 <ClosingPanel>
@@ -81,8 +78,10 @@
 		{LINTECH.closing.heading}
 	</h2>
 	<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{LINTECH.closing.body}</p>
-	<div class="mt-8 flex flex-wrap gap-3">
-		<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
-		<a href={LINTECH.siteUrl} rel="external" class={secondaryButton}>{LINTECH.siteLabel}</a>
+	<div class="mt-8 {buttonStack}">
+		<!-- Threads leads: most clients first meet us there. Email is for whoever prefers it. -->
+		<a href={THREADS_URL} rel="external" class={primaryButton}>Message us on Threads</a>
+		<a href="mailto:{EMAIL}" class={secondaryButton}>{EMAIL}</a>
 	</div>
+	<p class="mt-6 max-w-xl leading-relaxed text-muted">{CONTACT_HINT}</p>
 </ClosingPanel>
