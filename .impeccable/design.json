@@ -1,0 +1,350 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-11-09T12:00:00Z",
+	"title": "Design System: itrium.id",
+	"extensions": {
+		"colorMeta": {
+			"graphite": {
+				"role": "neutral",
+				"displayName": "Graphite",
+				"canonical": "#2b2b2b",
+				"tonalRamp": [
+					"#151515",
+					"#202020",
+					"#2b2b2b",
+					"#343434",
+					"#3d3d3d",
+					"#474747",
+					"#6b6b6b",
+					"#aaaaaa"
+				]
+			},
+			"graphite-surface": {
+				"role": "neutral",
+				"displayName": "Graphite surface",
+				"canonical": "#343434",
+				"tonalRamp": [
+					"#1a1a1a",
+					"#252525",
+					"#2b2b2b",
+					"#343434",
+					"#3d3d3d",
+					"#4f4f4f",
+					"#6b6b6b",
+					"#aaaaaa"
+				]
+			},
+			"graphite-border": {
+				"role": "neutral",
+				"displayName": "Graphite border",
+				"canonical": "#474747"
+			},
+			"graphite-raised": {
+				"role": "neutral",
+				"displayName": "Graphite raised",
+				"canonical": "#3d3d3d"
+			},
+			"graphite-raised-border": {
+				"role": "neutral",
+				"displayName": "Graphite raised border",
+				"canonical": "#4f4f4f"
+			},
+			"off-white": {
+				"role": "neutral",
+				"displayName": "Off-white",
+				"canonical": "#f2f2f2",
+				"tonalRamp": [
+					"#4a4a4a",
+					"#6b6b6b",
+					"#aaaaaa",
+					"#d4d4d4",
+					"#e4e4e4",
+					"#f2f2f2",
+					"#fafafa",
+					"#ffffff"
+				]
+			},
+			"muted-gray-on-dark": {
+				"role": "neutral",
+				"displayName": "Muted gray on dark",
+				"canonical": "#aaaaaa"
+			},
+			"pastel-pink": {
+				"role": "primary",
+				"displayName": "Pastel pink",
+				"canonical": "#febfca",
+				"tonalRamp": [
+					"#5c2430",
+					"#843a4a",
+					"#a84d60",
+					"#c46475",
+					"#e48a9b",
+					"#febfca",
+					"#ffdde3",
+					"#fff2f4"
+				]
+			},
+			"paper": {
+				"role": "neutral",
+				"displayName": "Paper",
+				"canonical": "#fafafa"
+			},
+			"paper-surface": {
+				"role": "neutral",
+				"displayName": "Paper surface",
+				"canonical": "#ffffff"
+			},
+			"paper-border": {
+				"role": "neutral",
+				"displayName": "Paper border",
+				"canonical": "#e4e4e4"
+			},
+			"muted-gray-on-light": {
+				"role": "neutral",
+				"displayName": "Muted gray on light",
+				"canonical": "#6b6b6b"
+			},
+			"deep-rose": {
+				"role": "primary",
+				"displayName": "Deep rose (lines on light)",
+				"canonical": "#c46475"
+			},
+			"rose-text": {
+				"role": "primary",
+				"displayName": "Rose text (text on light)",
+				"canonical": "#a84d60"
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Every page's title in its graphite panel, the home greeting included; 3rem on phones. In the greeting the studio's name is pink."
+			},
+			"headline": {
+				"displayName": "Headline",
+				"purpose": "Section headings (sectionHeading), the work card tagline and closing-panel headings; sentence case, 1.875rem on phones."
+			},
+			"index-title": {
+				"displayName": "Index title",
+				"purpose": "An index row title: 1.25rem on phones, 1.875rem from 640 px, 2.25rem from 1024 px."
+			},
+			"tagline": {
+				"displayName": "Tagline",
+				"purpose": "The pink line under a page title, and the closing promise on free-stuff pages."
+			},
+			"subheading": {
+				"displayName": "Subheading",
+				"purpose": "A highlight's heading beside its screenshot; bold for free-stuff card names and download systems."
+			},
+			"title": {
+				"displayName": "Title",
+				"purpose": "Small card headings, semibold."
+			},
+			"lead": {
+				"displayName": "Lead",
+				"purpose": "Hero introductions and summaries, muted; the letter's note rises to 1.25rem."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Card bodies and feature descriptions, muted."
+			},
+			"button": {
+				"displayName": "Button",
+				"purpose": "Button labels; navigation at medium weight."
+			},
+			"small": {
+				"displayName": "Small",
+				"purpose": "Bylines after headings, the signature, platform lines, first-launch steps, footer."
+			}
+		},
+		"shadows": [
+			{
+				"name": "screenshot",
+				"value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+				"purpose": "Loose screenshots in a stack: the home enclosures and the work card pair. Raise to 0.4 or 0.5 on graphite and for the top of a stack. Nothing else casts a shadow, and nothing glows behind them."
+			}
+		],
+		"motion": [
+			{
+				"name": "hover-transition",
+				"value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+				"purpose": "Tailwind's default transition for color, opacity and the 4 px hover moves. Card lifts and arrow moves only under motion-safe."
+			},
+			{
+				"name": "reveal",
+				"value": "translate 2rem to 0, animation-timeline: view(), range entry 0% to entry 40%",
+				"purpose": "Sections rise into place as they scroll in. Movement only, never a fade. Only with no-preference for reduced motion and scroll-driven animation support."
+			},
+			{
+				"name": "page-transition",
+				"value": "@view-transition { navigation: auto }",
+				"purpose": "Pages cross-fade into each other, without any script, only with no-preference for reduced motion."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "sm",
+				"value": "640px"
+			},
+			{
+				"name": "md",
+				"value": "768px"
+			},
+			{
+				"name": "lg",
+				"value": "1024px"
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "The main action in a view; wherever contact appears, Message us on Threads.",
+			"html": "<a class=\"ds-btn-primary\" href=\"#\">Message us on Threads</a>",
+			"css": ".ds-btn-primary { display: inline-flex; align-items: center; border-radius: 9999px; background: var(--accent, #febfca); color: var(--on-accent, #2b2b2b); padding: 0.75rem 1.5rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.25rem; font-weight: 600; text-decoration: none; transition: opacity 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { opacity: 0.85; } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+		},
+		{
+			"name": "Secondary Button",
+			"kind": "button",
+			"refersTo": "button-secondary",
+			"description": "Every other action, such as email beside Threads: an outlined pill that fills with the surface color on hover.",
+			"html": "<a class=\"ds-btn-secondary\" href=\"#\">Email us</a>",
+			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid var(--border, #474747); background: transparent; color: var(--text, #f2f2f2); padding: 0.75rem 1.5rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; text-decoration: none; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: var(--surface, #343434); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+		},
+		{
+			"name": "Button Stack",
+			"kind": "custom",
+			"description": "A primary and secondary pair: side by side from 640 px, stacked full width on phones.",
+			"html": "<div class=\"ds-stack\"><a class=\"ds-stack-primary\" href=\"#\">Message us on Threads</a><a class=\"ds-stack-secondary\" href=\"#\">hello@itrium.id</a></div>",
+			"css": ".ds-stack { display: flex; flex-direction: column; gap: 0.75rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; } @media (min-width: 640px) { .ds-stack { flex-direction: row; } } .ds-stack > a { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 0.75rem 1.5rem; font-size: 0.875rem; text-decoration: none; } .ds-stack-primary { background: var(--accent, #febfca); color: var(--on-accent, #2b2b2b); font-weight: 600; } .ds-stack-primary:hover { opacity: 0.85; } .ds-stack-secondary { border: 1px solid var(--border, #474747); color: var(--text, #f2f2f2); font-weight: 500; } .ds-stack-secondary:hover { background: var(--surface, #343434); } .ds-stack > a:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+		},
+		{
+			"name": "Graphite Panel with Letter",
+			"kind": "custom",
+			"refersTo": "graphite-panel",
+			"description": "The slab every page opens with; on home, the signed note: greeting with the name in pink, one line, a signature. No label above the heading.",
+			"html": "<section class=\"ds-band\"><h1 class=\"ds-display\">Hi, we're <span>Itrium.</span></h1><p class=\"ds-note\">A small software studio in Indonesia. We build websites and applications for businesses, and make free ones for everyone.</p><p class=\"ds-signature\"><span aria-hidden=\"true\"></span>The Itrium team</p></section>",
+			"css": ".ds-band { background: #2b2b2b; color: #f2f2f2; border-radius: 1.5rem; padding: 3.5rem 1.5rem; max-width: 72rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; } @media (prefers-color-scheme: dark) { .ds-band { background: #343434; } } .ds-display { margin: 0; font-size: 3rem; line-height: 1; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; } .ds-display span { color: #febfca; } @media (min-width: 640px) { .ds-band { padding: 5rem 2.5rem; } .ds-display { font-size: 4.5rem; } } .ds-note { margin: 1.5rem 0 0; max-width: 36rem; font-size: 1.125rem; line-height: 1.625; color: #aaaaaa; } .ds-signature { margin: 1.25rem 0 0; display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; color: #aaaaaa; } .ds-signature span { display: block; width: 2rem; height: 1px; background: #febfca; }"
+		},
+		{
+			"name": "Index Row",
+			"kind": "custom",
+			"refersTo": "index-row",
+			"description": "A door in the home index: 4:3 picture, large title, one muted line, drawn pink arrow. Fills with the surface color on hover; the arrow moves only when motion is allowed.",
+			"html": "<ol class=\"ds-index\"><li><a class=\"ds-index-row\" href=\"#\"><span class=\"ds-index-pic\" aria-hidden=\"true\"></span><span><span class=\"ds-index-title\">Websites and applications</span><span class=\"ds-index-note\">Built to order, with the price and what it won't do agreed first.</span></span><svg class=\"ds-arrow\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 10h13M11 4.5 16.5 10 11 15.5\"/></svg></a></li></ol>",
+			"css": ".ds-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border, #474747); font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; color: var(--text, #f2f2f2); } .ds-index li { border-bottom: 1px solid var(--border, #474747); } .ds-index-row { display: grid; grid-template-columns: 4.5rem 1fr auto; align-items: center; gap: 1rem; margin: 0 -0.75rem; padding: 1.25rem 0.75rem; border-radius: 0.75rem; color: inherit; text-decoration: none; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-index-row:hover { background: var(--surface, #343434); } .ds-index-row:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; } .ds-index-pic { display: block; aspect-ratio: 4/3; border-radius: 0.5rem; border: 1px solid var(--border, #474747); background: var(--surface, #343434); } .ds-index-title { display: block; font-size: 1.25rem; line-height: 1.25; font-weight: 700; letter-spacing: -0.025em; } .ds-index-note { display: block; margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted, #aaaaaa); } .ds-index-row .ds-arrow { color: var(--accent-text, #febfca); font-size: 1.25rem; } .ds-arrow { display: inline-block; width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; transition: transform 150ms cubic-bezier(0.4,0,0.2,1); } @media (prefers-reduced-motion: no-preference) { .ds-index-row:hover .ds-arrow { transform: translateX(0.25rem); } } @media (min-width: 640px) { .ds-index-row { grid-template-columns: 8rem 1fr auto; gap: 2rem; padding: 1.5rem 0.75rem; } .ds-index-title { font-size: 1.875rem; } .ds-index-note { font-size: 1rem; } } @media (min-width: 1024px) { .ds-index-title { font-size: 2.25rem; } }"
+		},
+		{
+			"name": "Free-stuff Card",
+			"kind": "card",
+			"refersTo": "card",
+			"description": "Picture-led card; the whole card is the link. Lifts 4 px with a pink edge on hover, only when motion is allowed. No shadow.",
+			"html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-pic\" aria-hidden=\"true\"></span><span class=\"ds-card-body\"><span class=\"ds-card-name\">Honk</span><span class=\"ds-card-summary\">A soundboard for the desktop.</span><span class=\"ds-card-meta\">Mac, Windows and Linux</span><span class=\"ds-card-action\">Download and details <svg class=\"ds-arrow\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 10h13M11 4.5 16.5 10 11 15.5\"/></svg></span></span></a>",
+			"css": ".ds-card { display: flex; flex-direction: column; max-width: 22rem; overflow: hidden; border-radius: 1rem; border: 1px solid var(--border, #474747); background: var(--surface, #343434); color: var(--text, #f2f2f2); text-decoration: none; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; transition: border-color 150ms, transform 150ms cubic-bezier(0.4,0,0.2,1); } .ds-card:hover { border-color: var(--accent-edge, #febfca); } .ds-card:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; } .ds-card-pic { display: block; aspect-ratio: 4/3; border-bottom: 1px solid var(--border, #474747); background: var(--bg, #2b2b2b); } .ds-card-body { display: flex; flex-direction: column; padding: 1.5rem; } .ds-card-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; } .ds-card-summary { margin-top: 0.5rem; line-height: 1.625; color: var(--muted, #aaaaaa); } .ds-card-meta { margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted, #aaaaaa); } .ds-card-action { display: flex; align-items: center; gap: 0.5rem; padding-top: 1.25rem; font-weight: 600; color: var(--accent-text, #febfca); } .ds-arrow { display: inline-block; width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; transition: transform 150ms cubic-bezier(0.4,0,0.2,1); } @media (prefers-reduced-motion: no-preference) { .ds-card:hover { transform: translateY(-0.25rem); } .ds-card:hover .ds-arrow { transform: translateX(0.25rem); } }"
+		},
+		{
+			"name": "Download Row",
+			"kind": "custom",
+			"description": "One row per system: name and note, pink primary, the first-launch step right under it, extra formats behind a native details disclosure.",
+			"html": "<ol class=\"ds-dl\"><li class=\"ds-dl-row\"><div><h3>Mac</h3><p class=\"ds-dl-note\">One download for every Mac, Apple silicon or Intel.</p></div><div><a class=\"ds-dl-btn\" href=\"#\">Download for Mac</a><p class=\"ds-dl-step\"><strong>The first time:</strong> right-click the app and choose Open.</p><details class=\"ds-dl-more\"><summary>Other versions <svg class=\"ds-arrow\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3.5 10h13M11 4.5 16.5 10 11 15.5\"/></svg></summary><a href=\"#\">Homebrew</a></details></div></li></ol>",
+			"css": ".ds-dl { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border, #474747); font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; color: var(--text, #f2f2f2); } .ds-dl-row { display: grid; gap: 1rem 2.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border, #474747); } @media (min-width: 1024px) { .ds-dl-row { grid-template-columns: 13rem 1fr; } } .ds-dl-row h3 { margin: 0; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; } .ds-dl-note { margin: 0.25rem 0 0; font-size: 0.875rem; color: var(--muted, #aaaaaa); } .ds-dl-btn { display: inline-flex; align-items: center; border-radius: 9999px; background: var(--accent, #febfca); color: var(--on-accent, #2b2b2b); padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; } .ds-dl-btn:hover { opacity: 0.85; } .ds-dl-btn:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; } .ds-dl-step { margin: 1rem 0 0; max-width: 36rem; font-size: 0.875rem; line-height: 1.625; color: var(--muted, #aaaaaa); } .ds-dl-step strong { color: var(--text, #f2f2f2); } .ds-dl-more { margin-top: 0.75rem; font-size: 0.875rem; } .ds-dl-more summary { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; cursor: pointer; list-style: none; font-weight: 500; color: var(--accent-text, #febfca); } .ds-dl-more summary::-webkit-details-marker { display: none; } .ds-dl-more a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent-edge, #febfca); text-decoration-thickness: 2px; text-underline-offset: 4px; } .ds-arrow { display: inline-block; width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; transition: transform 150ms cubic-bezier(0.4,0,0.2,1); } .ds-dl-more[open] .ds-arrow { transform: rotate(90deg); } @media (prefers-reduced-motion: reduce) { .ds-arrow { transition: none; } }"
+		},
+		{
+			"name": "Fact Chip",
+			"kind": "chip",
+			"refersTo": "chip-fact",
+			"description": "A fact about a client project, outlined in pink. Static: no states.",
+			"html": "<ul class=\"ds-chips\"><li class=\"ds-chip\">Two languages</li><li class=\"ds-chip\">Light and dark</li></ul>",
+			"css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; } .ds-chip { border-radius: 9999px; border: 1px solid var(--accent-edge, #c46475); padding: 0.25rem 0.75rem; color: var(--text, #2b2b2b); }"
+		},
+		{
+			"name": "Header Navigation",
+			"kind": "nav",
+			"description": "Four muted text links beside the logo, turning to the text color on hover; at least 44 px tall. Phones keep only Free stuff and Contact.",
+			"html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\">What we do</a><a href=\"#\">Our work</a><a href=\"#\">Free stuff</a><a href=\"#\">Contact</a></nav>",
+			"css": ".ds-nav { display: flex; gap: 1.75rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap; } .ds-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--muted, #aaaaaa); text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-nav a:hover { color: var(--text, #f2f2f2); } .ds-nav a:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Rhodonite Specimen",
+		"overview": "The site is a polished slice of the mineral it takes its palette from: a graphite matrix with pink veins running through it. Graphite is the body of the stone. It's the panels that open and close every page, the dark theme, and the text in the light one. Pink is the vein, and a vein runs through the stone for a reason: it marks what a visitor should find, such as a link, the main action, focus, a name, or the arrow that says a row goes somewhere. Everything else stays in the grays, because the gray is the message: very little in software is one size fits all, and the honest answer usually starts with \"it depends\".\n\nIt reads like a specimen on a bench, and like a letter left on it. The home page opens with a short signed note from the studio inside the graphite panel, with real screenshots tucked behind it like enclosures, and an index of what the studio does underneath: four rows, each a door with a picture, a big title, one line and a drawn arrow. The real work does the persuading: client sites, applications and a game, shown as screenshots in their own themes. Text is kept light: one line where a paragraph used to be. The density is calm, with generous section spacing and a content column of about 64rem; the panels are a little wider, so they feel like slabs the content sits in. Components are soft and tactile: fully rounded buttons, cards with gently curved corners that lift and take a pink edge when a pointer touches them. Nothing performs for its own sake.\n\nThe system refuses five things. It isn't a generic SaaS landing page: no gradient text, stock 3D shapes, logo walls, \"trusted by\" strips, invented metrics, icon-card rows or values grids. It isn't an agency showreel: no autoplaying full-bleed media, no scroll-jacking, no type sized to show off. It's never pure black and white. Pink is never decoration. And no heading wears a small label above it.",
+		"keyCharacteristics": [
+			"Graphite panels (`.band`) open and close every page, in both themes.",
+			"One accent, pastel pink, with a deep rose for text and a separate one for lines on light backgrounds.",
+			"Light and dark follow the visitor's system. There's no toggle, because there's no script.",
+			"Section headings are real headings in sentence case, never small uppercase labels.",
+			"Real screenshots are the imagery. They're the only things that cast shadows.",
+			"One drawn arrow, everywhere a link points onward.",
+			"Motion is CSS only: page cross-fades, sections rising into place, 4 px moves on hover. All of it is off when a visitor asks for reduced motion.",
+			"No JavaScript, no inline styles, no `data:` URLs, nothing from another domain."
+		],
+		"rules": [
+			{
+				"name": "The Vein Rule",
+				"body": "Pink marks something: a link, the main action, focus, a name, or the way onward. If you can't say what a pink element marks, it should be gray.",
+				"section": "colors"
+			},
+			{
+				"name": "The Graphite Text Rule",
+				"body": "Text on pink is graphite, never white. On light backgrounds, pink text is rose text and pink lines are deep rose. Pastel pink is never text or a line there.",
+				"section": "colors"
+			},
+			{
+				"name": "The Every-Surface Rule",
+				"body": "Contrast is checked on every surface text sits on, raised cards and rows inside a panel included, not only the page background. Body text needs 4.5:1, and focus outlines and lines that show a state need 3:1.",
+				"section": "colors"
+			},
+			{
+				"name": "The One Typeface Rule",
+				"body": "Plus Jakarta Sans does everything. Never add a second family for headings, and never load a font from another domain.",
+				"section": "typography"
+			},
+			{
+				"name": "The No Kicker Rule",
+				"body": "A heading is the first thing in its block. Nothing small sits above it: no eyebrow, no category label, no client name. Who or what it belongs to follows it as a byline.",
+				"section": "typography"
+			},
+			{
+				"name": "The Slab Rule",
+				"body": "Every page opens with a graphite panel and closes with one. Between them, the content sits on the page background in a narrower column.",
+				"section": "layout"
+			},
+			{
+				"name": "The One Line Rule",
+				"body": "Text is as short as the job allows. Where a paragraph would explain, one line says it, and the picture or the next step does the rest.",
+				"section": "layout"
+			},
+			{
+				"name": "The Only Screenshots Cast Shadows Rule",
+				"body": "Cards, buttons, rows and panels never get a drop shadow. When a card needs to respond, it lifts 4 px and takes a pink edge; a row fills with the surface color.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do open and close every page with a graphite panel, and keep the content between them in the 64rem column.",
+			"Do set section headings with `sectionHeading`: a real heading in sentence case, a clear size step above the text under it.",
+			"Do put a byline after its heading, never above it.",
+			"Do make Threads the primary action wherever contact appears, with email beside it.",
+			"Do use the drawn arrow (`Arrow.svelte`) wherever a link points onward.",
+			"Do use real screenshots as the imagery, each in the theme that matches the visitor (or light, for client sites), with its width and height set so the page doesn't jump.",
+			"Do check every new color pairing against every surface it sits on, including raised cards inside a panel in the dark theme.",
+			"Do keep motion in CSS and gated on reduced motion (`prefers-reduced-motion: no-preference` or `motion-safe`), and movement only. A revealed section rises 2rem but never fades, so text below the fold keeps full contrast.",
+			"Do use Tailwind classes with the theme tokens (`bg-surface`, `text-accent-text`, `border-accent-edge`), never raw hex values in markup."
+		],
+		"donts": [
+			"Don't use pink as decoration: no pink backgrounds or borders that don't mark something.",
+			"Don't light pictures from behind with a glow or radial gradient; screenshots sit on the plain panel.",
+			"Don't put a small uppercase label, eyebrow or kicker above a heading.",
+			"Don't type arrows or chevrons as characters.",
+			"Don't use `#000000` or a pure black and white palette. Graphite is `#2b2b2b`.",
+			"Don't put white text on pink, or pastel pink text or lines on a light background.",
+			"Don't add gradient text, stock 3D shapes, logo walls, \"trusted by\" strips, invented metrics, rows of icon cards or a values grid.",
+			"Don't write a paragraph where one line will do.",
+			"Don't add autoplaying full-bleed media, scroll-jacking, or type sized to show off.",
+			"Don't give cards, buttons, rows or panels drop shadows. Only screenshots cast them.",
+			"Don't add a second typeface, inline styles, `data:` URLs, scripts, or anything loaded from another domain."
+		]
+	}
+}
