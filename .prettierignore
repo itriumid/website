@@ -4,3 +4,12 @@ pnpm-lock.yaml
 # Brand files, copied from the assets as they are
 /static/
 src/lib/*.svg
+
+# The design tool's local files, kept out of git (its critique snapshots, mock-ups, decision
+# pages and review captures ignore themselves; the hook's cache is in .git/info/exclude), which
+# Prettier would otherwise check
+.impeccable/critique/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/review/
+.impeccable/hook.cache.json

@@ -7,59 +7,62 @@ export const EMAIL = 'hello@itrium.id';
 export const DISCORD_URL = 'https://discord.gg/ARpBjrD77C';
 export const SECURITY_EMAIL = 'security@itrium.id';
 export const GITHUB_URL = 'https://github.com/itriumid';
+export const INSTAGRAM_URL = 'https://www.instagram.com/itriumid';
+export const THREADS_URL = 'https://www.threads.com/@itriumid';
 export const SOURCE_URL = 'https://github.com/itriumid/website';
 
 export const TITLE = 'Itrium: an Indonesian software studio';
 export const DESCRIPTION =
 	'An Indonesian software studio: plain advice, applications and websites built to order, and free applications, tools and games that leave your data alone.';
 
-// The hero sets the second half in pink, so the tagline is kept in its two halves.
-export const TAGLINE_PARTS = ['From a quick question to', 'a finished application.'] as const;
-export const TAGLINE = TAGLINE_PARTS.join(' ');
-export const INTRODUCTION =
-	'We help people and small businesses with software, from Indonesia. And we make free applications, tools and games that leave your data alone.';
+// The home page opens with a short note from us. The hero sets the name in pink, so the greeting
+// is kept in its two halves.
+export const LETTER = {
+	greeting: ["Hi, we're", 'Itrium.'],
+	note: 'A small software studio in Indonesia. We build websites and applications for businesses, and make free ones for everyone.',
+	signature: 'The Itrium team'
+} as const;
 
-// The free stuff link's label, on its card in "What we do" and under the free stuff section.
+// The free stuff link's label, under the home page's free stuff section and on /free-stuff.
 const SEE_FREE_STUFF = 'See everything we make for free';
 
-// Each card in "What we do" links to what comes next: a page on this site, or a section of the
-// home page.
-type Service = { title: string; body: string; more: string } & (
-	{ page: '/work' | '/free-stuff' } | { hash: `#${string}` }
+// Under the note, one row per thing we do, each leading to what comes next: a conversation, our
+// work, the free stuff, or the game. Each row's picture is set in the markup.
+type IndexRow = { id: string; title: string; note: string } & (
+	{ page: '/work' | '/tall-order' } | { hash: `#${string}` }
 );
 
-export const SERVICES: Service[] = [
+export const INDEX: IndexRow[] = [
 	{
+		id: 'advice',
 		title: 'Advice',
-		body: "Plain answers about software and technology: what to build, what to buy, what to avoid, and how to fix what's broken. No jargon, unless you use it first.",
-		// Advice is the conversation itself, so its card leads to the contact section.
-		more: 'Ask us something',
+		note: 'Plain answers. The first conversation is free.',
 		hash: '#contact'
 	},
 	{
-		title: 'Projects',
-		body: "Applications, websites and landing pages, built to order. Before we start, we tell you what it will cost and what it won't do.",
-		more: 'See our work',
+		id: 'projects',
+		title: 'Websites and applications',
+		note: "Built to order, with the price and what it won't do agreed first.",
 		page: '/work'
 	},
 	{
-		title: 'Free stuff',
-		body: 'Applications, tools and games that anyone can use at no cost. No account, no advertisements, and nothing about you leaves your device.',
-		more: SEE_FREE_STUFF,
-		page: '/free-stuff'
-	}
+		id: 'free',
+		title: 'Free applications and tools',
+		note: 'Amber, Honk, Hindsight and more. No account, no advertisements.',
+		hash: '#free-stuff'
+	},
+	{ id: 'games', title: 'Games', note: 'Felterra: Tall Order, free to play.', page: '/tall-order' }
 ];
 
 // Everything we make for free, grouped by where it runs rather than by what it is: whether
 // something is an application or a tool matters less to a visitor than whether they have to
-// install it. The home page shows each item's `summary`; /free-stuff shows the full `body`. An item
+// install it. The home page and /free-stuff both show each item's short `summary`. An item
 // links to its own page on this site (`page`) or to where it runs (`url`): what runs in the
 // browser lives on its own subdomain, since it needs JavaScript, which this site promises not to
 // send. Install commands stay on each item's own page, below the download buttons.
 type FreeItem = {
 	name: string;
 	summary: string;
-	body: string;
 	platforms: string;
 	label: string;
 	sourceUrl: string;
@@ -68,7 +71,6 @@ type FreeItem = {
 export const AMBER: FreeItem = {
 	name: 'Amber',
 	summary: 'Lists for to-dos and bucket lists that stay on your device.',
-	body: 'Lists for to-dos and bucket lists, with categories, tags, steps and search. It works offline and installs to your home screen, and your lists stay on your device: no account, and nobody else can read them.',
 	platforms: 'In any browser',
 	url: 'https://amber.itrium.id',
 	label: 'Open Amber',
@@ -78,7 +80,6 @@ export const AMBER: FreeItem = {
 export const WEB_TOOLS: FreeItem = {
 	name: 'Web tools',
 	summary: 'A WhatsApp chat link from any number, and a fair way to split a bill.',
-	body: 'Small tools that run in your browser: make a WhatsApp click-to-chat link from any phone number, or split a bill fairly, tax and service included. Nothing you type is ever sent to us.',
 	platforms: 'In any browser',
 	url: 'https://tools.itrium.id',
 	label: 'Open the tools',
@@ -88,7 +89,6 @@ export const WEB_TOOLS: FreeItem = {
 export const HONK_ITEM: FreeItem = {
 	name: 'Honk',
 	summary: 'A soundboard: play any sound with a keyboard shortcut.',
-	body: 'A lightweight soundboard. Give each sound its own keyboard shortcut and play it from whatever you have open, or from the menu bar on a Mac. It never goes online.',
 	platforms: 'Mac, Windows and Linux',
 	page: '/honk',
 	label: 'Download and details',
@@ -98,7 +98,6 @@ export const HONK_ITEM: FreeItem = {
 export const HINDSIGHT_ITEM: FreeItem = {
 	name: 'Hindsight',
 	summary: 'Keeps the last few minutes of what was said, so you can save it.',
-	body: 'Keeps the last few minutes of what was said near your computer in memory, so when something matters, you save it. Encrypted while it waits, written to disk only when you save, and it never goes online.',
 	platforms: 'Mac, Windows and Linux',
 	page: '/hindsight',
 	label: 'Download and details',
@@ -108,8 +107,7 @@ export const HINDSIGHT_ITEM: FreeItem = {
 export const TALL_ORDER_ITEM: FreeItem = {
 	name: 'Felterra: Tall Order',
 	summary: 'A pixel art game of cats against giants, to play alone or with friends.',
-	body: "A pixel art game of cats against giants. A company has stamped Tompel's forest idle land and sent its machines in: free it area by area, bring your village back from ruin, and find out who's behind it all. A work in progress, built in the open.",
-	platforms: 'Windows, Mac and Linux',
+	platforms: 'Mac, Windows and Linux',
 	page: '/tall-order',
 	label: 'Download and details',
 	sourceUrl: 'https://github.com/itriumid/felterra-tall-order'
@@ -118,7 +116,6 @@ export const TALL_ORDER_ITEM: FreeItem = {
 export const RHODONITE_ITEM: FreeItem = {
 	name: 'Rhodonite Theme',
 	summary: 'Our graphite and pink, as a color theme for your code editor.',
-	body: 'Our palette for Visual Studio Code and the editors built on it: graphite with pink running through it, in dark and light, and every color checked to be easy to read.',
 	platforms: 'Visual Studio Code, Cursor, VSCodium and more',
 	page: '/rhodonite',
 	label: 'Install and details',
@@ -165,40 +162,39 @@ export const FREE_STUFF = {
 export const FREE_PROMISE =
 	"Everything we make for free stays free: no hidden upsell, no account wall and no advertisements. It doesn't collect, track or sell anything, and it's open source, so you can check.";
 
-export const GRAY_AREA = [
-	'Very little in software is one size fits all. Every person, business and problem is its own case, and the honest answer usually starts with "it depends". Our job is to find out what it depends on.',
-	"That's why our color is graphite, not black: a gray, with pink running through it."
-];
-
-export const PRINCIPLES = [
-	{
-		title: 'Privacy by default',
-		body: "If a tool doesn't need your data, it never sees it. Client work follows the same rule: we collect only what the job needs."
-	},
-	{
-		title: 'Free means free',
-		body: 'Free tools stay free, with nothing held back to sell you later.'
-	},
-	{
-		title: 'Simple',
-		body: 'Easy to understand and easy to use. Less, done well.'
-	},
-	{
-		title: 'Honest',
-		body: "We say what a tool does and doesn't do, and what a project will and won't cost."
-	}
-];
+// "How we work" in one line: why our color is a gray.
+export const GRAY_AREA =
+	'The honest answer in software usually starts with "it depends". That\'s why our color is graphite, not black: a gray, with pink running through it.';
 
 export const CONTACT_HEADING = "Tell us what you're stuck on.";
-export const CONTACT_BODY =
-	"The first conversation is free. Tell us what you're stuck on, and we'll tell you honestly whether we can help.";
+export const CONTACT_BODY = "We'll tell you honestly whether we can help.";
+// Under the contact buttons: what to send, so a first message doesn't need a second one.
+export const CONTACT_HINT =
+	"Write it in your own words: what you're trying to do, and where it's stuck. A screenshot or a link helps, and so does a deadline, if there is one.";
 
 export const NO_TRACKING =
 	'This site has no cookies, no analytics and no trackers. It runs no scripts at all.';
-// Why the name, on the home page beside how we work. It replaced a footnote in the footer.
-export const NAME_STORY = {
-	heading: 'Why Itrium',
-	body: "Itrium is the Indonesian word for yttrium, element 39. Hardly anyone has heard of it, yet it's in many of the white lights and screens people look at every day: quiet, useful and out of sight, which is how we think good software should be. Read it another way and it's IT with -rium, the Latin ending of aquarium and auditorium that makes a word into a place: a place for IT."
+// Why the name, in one sentence beside the mark, under "How we work".
+export const NAME_STORY =
+	'Itrium is Indonesian for yttrium, element 39: quiet, useful and out of sight, which is how we think good software should be.';
+
+// The page shown for a missing address, or when something breaks.
+export const ERROR_PAGE = {
+	missing: {
+		title: "There's nothing here.",
+		body: 'The page may have moved. Most links lead to one of these:'
+	},
+	broken: { title: 'Something went wrong.', body: 'Try again in a moment, or start from here:' }
+};
+
+// The download section's own labels, shared by every page with downloads.
+export const DOWNLOADS = {
+	firstTime: 'The first time you open it:',
+	others: 'Other versions',
+	releases: 'See all releases',
+	fullSteps: 'The full steps, with details',
+	source: 'Source code',
+	phone: 'These run on a computer, not on a phone. Open this page on your computer to download.'
 };
 
 // The Honk page, at /honk. Each release carries its main installers under names without the
@@ -703,12 +699,12 @@ export const LINTECH = {
 	// The preview where the page is shared: the client's home page, 1200 by 630, in static/social.
 	socialImage: { path: '/social/lintech-shipping.jpg', width: 1200, height: 630 },
 	screenshot:
-		"The site's home page: the company's name, a line about its team, and its video, paused on an aerial view of the shipyard",
+		"The site's home page: the company's name, what it does, a button to chat on WhatsApp, and its video, paused on an aerial view of the shipyard",
 	// Shown beside a screenshot each; `image` names it in src/lib/screenshots (lintech-<image>-*).
 	highlights: [
 		{
 			title: 'Every project, with its photos',
-			body: "Fourteen projects, each with its own page: what was done, for whom and when, with a row of photos from the yard. We picked them from the company's own folders and videos, cropped off the burned-in timestamps, and stripped the location data that drone photos carry.",
+			body: "Fourteen projects, grouped as repairs, new building and shipments, each with its own page: what was done, for whom and when, with a row of photos from the yard. We picked them from the company's own folders and videos, cropped off the burned-in timestamps, and stripped the location data that drone photos carry.",
 			image: 'drajat',
 			alt: 'The page for the ferry KMP Drajat, opening with a drone photo of the ship on the slipway'
 		},
@@ -719,18 +715,39 @@ export const LINTECH = {
 			alt: 'The facility page, with an aerial view of the coast and a button to start the 360° view'
 		}
 	] as const,
+	// The business owner's gains first, then how it's made.
 	features: [
 		{
-			title: 'A video everyone can follow',
-			body: "The company video plays on the home page with captions in both languages, and in a version with audio description for people who can't see it."
+			title: 'WhatsApp on every page',
+			body: 'A customer can ask about a job from any page, in the app they already use, and the home page opens with the button.'
 		},
 		{
 			title: 'Articles without us',
 			body: 'The team writes articles in an online editor. The site rebuilds itself and publishes them within a few minutes.'
 		},
 		{
+			title: 'No new bills',
+			body: 'It runs on the hosting the company was already paying for.'
+		},
+		{
+			title: 'Certificates to check',
+			body: 'Its ISO and ASME certifications are listed with their PDFs, so a customer can read the certificate instead of taking the site at its word.'
+		},
+		{
 			title: 'Indonesian and English',
 			body: 'Every page in both languages, and search engines told which is which.'
+		},
+		{
+			title: 'Quick on a phone',
+			body: 'Every page is built ahead of time, and the heavy parts, the video and the panorama, wait until the rest has loaded.'
+		},
+		{
+			title: 'A video everyone can follow',
+			body: "The company video plays on the home page with captions in both languages, and in a version with audio description for people who can't see it."
+		},
+		{
+			title: 'Readable by everyone',
+			body: 'It meets level AA of the Web Content Accessibility Guidelines, in both languages and both themes.'
 		},
 		{
 			title: 'Light and dark',
@@ -739,18 +756,6 @@ export const LINTECH = {
 		{
 			title: 'Nothing from third parties',
 			body: "No trackers and no advertisements, and nothing loads from YouTube or anyone else. The video comes from the company's own server."
-		},
-		{
-			title: 'Readable by everyone',
-			body: 'It meets level AA of the Web Content Accessibility Guidelines, in both languages and both themes.'
-		},
-		{
-			title: 'Quick on a phone',
-			body: 'Every page is built ahead of time, and the heavy parts, the video and the panorama, wait until the rest has loaded.'
-		},
-		{
-			title: 'No new bills',
-			body: 'It runs on the hosting the company was already paying for.'
 		}
 	],
 	closing: {

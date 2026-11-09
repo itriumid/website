@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Arrow from '#lib/Arrow.svelte';
 	import { resolve } from '$app/paths';
 	import Seo from '#lib/Seo.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
@@ -10,30 +11,33 @@
 	import honkPopoverDark from '#lib/screenshots/popover-dark.webp';
 	import hindsightHeroLight from '#lib/screenshots/hindsight-hero-light.webp';
 	import hindsightHeroDark from '#lib/screenshots/hindsight-hero-dark.webp';
+	import lintechDrajat from '#lib/screenshots/lintech-drajat-light.webp';
 	import honkLight from '#lib/screenshots/main-light.webp';
+	import honkPadLight from '#lib/screenshots/honk-pad-light.webp';
+	import honkPadDark from '#lib/screenshots/honk-pad-dark.webp';
 	import honkDark from '#lib/screenshots/main-dark.webp';
-	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { buttonStack, primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import {
 		AMBER,
 		CONTACT_BODY,
+		CONTACT_HINT,
 		CONTACT_HEADING,
 		DESCRIPTION,
+		DISCORD_URL,
 		EMAIL,
-		FREE_PROMISE,
 		FREE_STUFF,
 		GITHUB_URL,
 		GRAY_AREA,
 		HINDSIGHT_ITEM,
 		HONK_ITEM,
-		INTRODUCTION,
+		INSTAGRAM_URL,
+		INDEX,
 		NAME_STORY,
-		PRINCIPLES,
 		RHODONITE_ITEM,
-		SECURITY_EMAIL,
-		SERVICES,
 		SITE_URL,
 		TALL_ORDER_ITEM,
-		TAGLINE_PARTS,
+		LETTER,
+		THREADS_URL,
 		TITLE,
 		WEB_TOOLS,
 		WORK
@@ -47,7 +51,7 @@
 		logo: `${SITE_URL}/icon-512.png`,
 		email: EMAIL,
 		description: DESCRIPTION,
-		sameAs: [GITHUB_URL]
+		sameAs: [GITHUB_URL, INSTAGRAM_URL, THREADS_URL, DISCORD_URL]
 	};
 
 	// The free stuff with pictures gets a card each; the rest are a line each below them.
@@ -78,150 +82,126 @@
 		}
 	];
 	const others = [AMBER, WEB_TOOLS, RHODONITE_ITEM];
-</script>
 
-<!-- A line icon for each card in "What we do", drawn in the text color on a pink tile. -->
-{#snippet icon(title: string)}
-	<svg
-		viewBox="0 0 24 24"
-		width="24"
-		height="24"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="2"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-	>
-		{#if title === 'Advice'}
-			<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z" />
-		{:else if title === 'Projects'}
-			<rect x="3" y="4" width="18" height="16" rx="2" />
-			<path d="M3 9h18M10 13l-2 2 2 2M14 13l2 2-2 2" />
-		{:else}
-			<rect x="3" y="8" width="18" height="4" rx="1" />
-			<path d="M5 12v8h14v-8M12 8v12M12 8C10.5 5 7 5 7 7s3 1 5 1Zm0 0c1.5-3 5-3 5-1s-3 1-5 1Z" />
-		{/if}
-	</svg>
-{/snippet}
+	// Each index row's picture, but Advice's, which is our mark on pink.
+	const pictures: Record<string, { light: string; dark?: string; width: number; height: number }> =
+		{
+			projects: { light: lintechDrajat, width: 1440, height: 960 },
+			free: { light: honkPadLight, dark: honkPadDark, width: 558, height: 418 },
+			games: { light: tallOrderVillage, width: 1280, height: 720 }
+		};
+</script>
 
 <Seo title={TITLE} description={DESCRIPTION} path="/" structuredData={organization} />
 
-<!-- The hero is a graphite panel in both themes, with the work itself beside the promise: a
-     client's site, a game and an application, stacked in a soft pink light. -->
+<!-- The home page introduces us, not one project: a short signed note, then an index of what we
+     do, each row a door with a real picture. All of it sits in one graphite panel, which on wide
+     screens holds the work behind the note like enclosures. -->
 <section class="px-3 sm:px-5">
 	<div class="band mx-auto max-w-6xl overflow-hidden rounded-3xl">
-		<div
-			class="grid items-start gap-12 px-6 py-14 sm:px-10 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:py-24"
-		>
-			<div>
-				<h1 class="text-4xl leading-tight font-bold tracking-tight text-balance sm:text-6xl">
-					{TAGLINE_PARTS[0]} <span class="text-accent">{TAGLINE_PARTS[1]}</span>
-				</h1>
-				<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">{INTRODUCTION}</p>
-				<div class="mt-10 flex flex-wrap gap-3">
-					<a href="#contact" class={primaryButton}>Say hello</a>
-					<a href={resolve('/work')} class={secondaryButton}>See our work</a>
-				</div>
-			</div>
-			<!-- Held to the top, not centered on the text: centered, it jumped when the font arrived. -->
-			<div class="relative aspect-[5/4] lg:mt-6" aria-hidden="true">
-				<div class="glow absolute -inset-[15%]"></div>
-				<div class="absolute top-0 right-[6%] w-[66%]">
-					<Screenshot
-						light={tallOrderVillage}
-						alt=""
-						width={1280}
-						height={720}
-						lazy={false}
-						class="rounded-xl border border-border shadow-2xl shadow-black/40"
-					/>
-				</div>
-				<div class="absolute bottom-[10%] left-0 w-[80%]">
-					<Screenshot
-						light={lintechHome}
-						alt=""
-						width={1440}
-						height={960}
-						lazy={false}
-						class="rounded-xl border border-border shadow-2xl shadow-black/50"
-					/>
-				</div>
-				<div class="absolute right-0 -bottom-[6%] w-[28%]">
-					<Screenshot
-						light={honkPopoverLight}
-						dark={honkPopoverDark}
-						alt=""
-						width={640}
-						height={880}
-						lazy={false}
-						class="rounded-xl border border-border shadow-2xl shadow-black/50"
-					/>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section id="services" class="scroll-mt-8">
-	<div class="mx-auto max-w-5xl px-5 pt-24 pb-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">What we do</h2>
-		<ul class="mt-8 grid gap-4 sm:grid-cols-3">
-			{#each SERVICES as service (service.title)}
-				<li
-					class="reveal flex flex-col rounded-2xl border border-border bg-surface p-6 transition hover:-translate-y-1 hover:border-accent-edge"
-				>
-					<span
-						class="flex size-12 items-center justify-center rounded-xl bg-accent text-on-accent"
-						aria-hidden="true">{@render icon(service.title)}</span
-					>
-					<h3 class="mt-5 text-lg font-semibold">{service.title}</h3>
-					<p class="mt-3 leading-relaxed text-muted">{service.body}</p>
-					<!-- Each card leads to what comes next: a conversation, our work, or the free stuff. -->
-					<p class="mt-auto pt-4">
-						<a
-							href={'page' in service ? resolve(service.page) : service.hash}
-							class="underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text"
-							>{service.more}</a
-						>
+		<div class="px-6 pt-14 pb-6 sm:px-10 sm:pt-20 lg:pb-10">
+			<div class="relative lg:min-h-[36rem]">
+				<div class="relative z-10 lg:max-w-[29rem]">
+					<h1 class="text-5xl leading-none font-bold tracking-tight text-balance sm:text-7xl">
+						{LETTER.greeting[0]} <span class="text-accent-text">{LETTER.greeting[1]}</span>
+					</h1>
+					<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">{LETTER.note}</p>
+					<p class="mt-5 flex items-center gap-3 text-sm font-medium text-muted">
+						<span class="h-px w-8 bg-accent-edge" aria-hidden="true"></span>{LETTER.signature}
 					</p>
-				</li>
-			{/each}
-		</ul>
+					<div class="mt-9 {buttonStack}">
+						<a href={THREADS_URL} rel="external" class={primaryButton}>Message us on Threads</a>
+						<a href="mailto:{EMAIL}" class={secondaryButton}>Email us</a>
+					</div>
+				</div>
+				<!-- The enclosures: a client's site, a game and an application, tucked behind the note's
+				     right edge. Only where there's room; on phones the index's pictures do this job.
+				     Held to the top, not centered on the text: centered, it jumped when the font
+				     arrived. -->
+				<div class="absolute top-0 right-0 hidden aspect-[5/4] w-[55%] lg:block" aria-hidden="true">
+					<div class="absolute top-0 right-[6%] w-[64%] rotate-3">
+						<Screenshot
+							light={tallOrderVillage}
+							alt=""
+							width={1280}
+							height={720}
+							lazy={false}
+							class="rounded-xl border border-border shadow-2xl shadow-black/40"
+						/>
+					</div>
+					<div class="absolute -bottom-[17%] -left-[20%] w-[64%] -rotate-2">
+						<Screenshot
+							light={lintechHome}
+							alt=""
+							width={1440}
+							height={960}
+							lazy={false}
+							class="rounded-xl border border-border shadow-2xl shadow-black/50"
+						/>
+					</div>
+					<div class="absolute -bottom-[22%] left-[36%] w-[26%] rotate-3">
+						<Screenshot
+							light={honkPopoverLight}
+							dark={honkPopoverDark}
+							alt=""
+							width={640}
+							height={880}
+							lazy={false}
+							class="rounded-xl border border-border shadow-2xl shadow-black/50"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<!-- What we do, as an index: a big title, one short note and a picture per row. -->
+			<h2 id="services" class="sr-only scroll-mt-8">What we do</h2>
+			<ol class="mt-14 border-t border-border sm:mt-20 lg:mt-10">
+				{#each INDEX as row (row.id)}
+					<li class="border-b border-border">
+						<a
+							href={'page' in row ? resolve(row.page) : row.hash}
+							class="group -mx-3 grid grid-cols-[4.5rem_1fr_auto] items-center gap-4 rounded-xl px-3 py-5 transition-colors hover:bg-surface sm:grid-cols-[8rem_1fr_auto] sm:gap-8 sm:py-6"
+						>
+							{#if row.id === 'advice'}
+								<span
+									class="flex aspect-[4/3] items-center justify-center rounded-lg bg-accent"
+									aria-hidden="true"
+								>
+									<img src={mark} alt="" width="96" height="96" class="size-9 sm:size-14" />
+								</span>
+							{:else}
+								{@const picture = pictures[row.id]}
+								<Screenshot
+									light={picture.light}
+									dark={picture.dark}
+									alt=""
+									width={picture.width}
+									height={picture.height}
+									class="aspect-[4/3] rounded-lg border border-border object-cover object-top"
+								/>
+							{/if}
+							<span>
+								<span
+									class="block text-xl leading-tight font-bold tracking-tight text-balance sm:text-3xl lg:text-4xl"
+									>{row.title}</span
+								>
+								<span class="mt-1 block text-sm text-muted sm:text-base">{row.note}</span>
+							</span>
+							<Arrow
+								class="text-xl font-semibold text-accent-text transition-transform motion-safe:group-hover:translate-x-1 sm:text-2xl"
+							/>
+						</a>
+					</li>
+				{/each}
+			</ol>
+		</div>
 	</div>
 </section>
 
 <section id="work" class="scroll-mt-8 border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">{WORK.label}</h2>
+		<h2 class={sectionHeading}>{WORK.label}</h2>
 		<div class="reveal mt-8"><WorkCard /></div>
-	</div>
-</section>
-
-<section id="how-we-work" class="scroll-mt-8 border-t border-border">
-	<div class="mx-auto grid max-w-5xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2">
-		<div class="reveal">
-			<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">How we work</h2>
-			{#each GRAY_AREA as paragraph, index (index)}
-				<p class="mt-6 text-xl leading-relaxed {index === 0 ? '' : 'text-muted'}">{paragraph}</p>
-			{/each}
-		</div>
-		<dl class="reveal grid gap-6 sm:grid-cols-2 lg:mt-12">
-			{#each PRINCIPLES as principle (principle.title)}
-				<div>
-					<dt class="font-semibold">{principle.title}</dt>
-					<dd class="mt-2 leading-relaxed text-muted">{principle.body}</dd>
-				</div>
-			{/each}
-		</dl>
-		<div
-			class="reveal flex flex-col gap-6 rounded-2xl border border-border bg-surface p-6 sm:flex-row sm:items-center lg:col-span-2"
-		>
-			<img src={mark} alt="" width="96" height="96" class="size-24 shrink-0" />
-			<div>
-				<h3 class="text-lg font-semibold">{NAME_STORY.heading}</h3>
-				<p class="mt-2 max-w-3xl leading-relaxed text-muted">{NAME_STORY.body}</p>
-			</div>
-		</div>
 	</div>
 </section>
 
@@ -231,15 +211,13 @@
 	<span id="tools" class="block scroll-mt-8"></span>
 	<span id="games" class="block scroll-mt-8"></span>
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-sm font-semibold tracking-widest text-accent-text uppercase">
-			{FREE_STUFF.label}
-		</h2>
+		<h2 class={sectionHeading}>{FREE_STUFF.label}</h2>
 		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{#each featured as { item, href, light, dark, width, height } (item.name)}
 				<li class="reveal">
 					<a
 						{href}
-						class="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition hover:-translate-y-1 hover:border-accent-edge"
+						class="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition hover:border-accent-edge motion-safe:hover:-translate-y-1"
 					>
 						<Screenshot
 							{light}
@@ -249,12 +227,15 @@
 							{height}
 							class="aspect-[4/3] border-b border-border object-cover object-top"
 						/>
-						<div class="p-6">
-							<p class="text-xs font-semibold tracking-widest text-muted uppercase">
-								{item.platforms}
-							</p>
-							<h3 class="mt-2 text-lg font-semibold">{item.name}</h3>
+						<div class="flex flex-1 flex-col p-6">
+							<h3 class="text-lg font-semibold">{item.name}</h3>
 							<p class="mt-2 leading-relaxed text-muted">{item.summary}</p>
+							<p class="mt-2 text-sm text-muted">{item.platforms}</p>
+							<!-- What the click does: download, open or install, before the visitor commits. -->
+							<p class="mt-auto pt-5 font-semibold text-accent-text">
+								{item.label}
+								<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
+							</p>
 						</div>
 					</a>
 				</li>
@@ -266,18 +247,40 @@
 					<a
 						href={'page' in item ? resolve(item.page) : item.url}
 						rel={'page' in item ? undefined : 'external'}
-						class="flex flex-col gap-1 px-6 py-4 transition-colors hover:text-text sm:flex-row sm:items-baseline sm:gap-4"
+						class="group flex flex-col gap-1 px-6 py-4 transition-colors hover:bg-bg sm:flex-row sm:items-baseline sm:gap-4"
 					>
 						<span class="font-semibold sm:w-44 sm:shrink-0">{item.name}</span>
-						<span class="text-muted">{item.summary}</span>
+						<span class="flex-1 text-muted">{item.summary}</span>
+						<!-- Where it runs, and for what leaves this site, where it goes. -->
+						<span class="text-sm text-muted sm:w-56 sm:shrink-0 sm:text-right">
+							{item.platforms}
+							{#if 'url' in item}
+								<span class="whitespace-nowrap text-accent-text">
+									· {new URL(item.url).host}
+									<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
+								</span>
+							{/if}
+						</span>
 					</a>
 				</li>
 			{/each}
 		</ul>
-		<p class="mt-8 max-w-3xl leading-relaxed text-muted">{FREE_PROMISE}</p>
 		<div class="mt-8">
-			<a href={resolve('/free-stuff')} class={secondaryButton}>{FREE_STUFF.more}</a>
+			<a href={resolve('/free-stuff')} class={primaryButton}>{FREE_STUFF.more}</a>
 		</div>
+	</div>
+</section>
+
+<section id="how-we-work" class="scroll-mt-8 border-t border-border">
+	<div class="reveal mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class={sectionHeading}>How we work</h2>
+		<p class="mt-6 max-w-2xl text-xl leading-relaxed">{GRAY_AREA}</p>
+		<p class="mt-8 flex max-w-2xl items-center gap-4 leading-relaxed text-muted">
+			<span
+				class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-accent"
+				aria-hidden="true"><img src={mark} alt="" width="96" height="96" class="size-8" /></span
+			>{NAME_STORY}
+		</p>
 	</div>
 </section>
 
@@ -289,17 +292,12 @@
 				{CONTACT_HEADING}
 			</h2>
 			<p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">{CONTACT_BODY}</p>
-			<div class="mt-8">
-				<a href="mailto:{EMAIL}" class={primaryButton}>{EMAIL}</a>
+			<div class="mt-8 {buttonStack}">
+				<!-- Threads leads: most clients first meet us there. Email is for whoever prefers it. -->
+				<a href={THREADS_URL} rel="external" class={primaryButton}>Message us on Threads</a>
+				<a href="mailto:{EMAIL}" class={secondaryButton}>{EMAIL}</a>
 			</div>
-			<p class="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
-				Found a security problem in something we make? Write to
-				<a
-					href="mailto:{SECURITY_EMAIL}"
-					class="underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text"
-					>{SECURITY_EMAIL}</a
-				> instead, so it stays private until it's fixed.
-			</p>
+			<p class="mt-6 max-w-xl leading-relaxed text-muted">{CONTACT_HINT}</p>
 		</div>
 	</div>
 </section>

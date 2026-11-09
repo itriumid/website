@@ -3,6 +3,7 @@
 	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
 	import PageHero from '#lib/PageHero.svelte';
+	import Downloads from '#lib/Downloads.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import categoryDark from '#lib/screenshots/category-dark.webp';
 	import categoryLight from '#lib/screenshots/category-light.webp';
@@ -12,7 +13,7 @@
 	import mainLight from '#lib/screenshots/main-light.webp';
 	import popoverDark from '#lib/screenshots/popover-dark.webp';
 	import popoverLight from '#lib/screenshots/popover-light.webp';
-	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import { FREE_PROMISE, FREE_STUFF, HONK, SITE_URL } from '#lib/content.js';
 
 	const application = {
@@ -33,14 +34,11 @@
 		category: { dark: categoryDark, light: categoryLight, width: 1180, height: 548 },
 		import: { dark: importDark, light: importLight, width: 1160, height: 880 }
 	};
-
-	const link =
-		'underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text';
 </script>
 
 <Seo title={HONK.title} description={HONK.description} path="/honk" structuredData={application} />
 
-<PageHero label="Free tool" title="Honk" tagline={HONK.tagline} introduction={HONK.introduction}>
+<PageHero title="Honk" tagline={HONK.tagline} introduction={HONK.introduction}>
 	{#snippet actions()}
 		<a href="#download" class={primaryButton}>Download Honk</a>
 		<a href={HONK.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
@@ -82,74 +80,25 @@
 </section>
 
 <section class="border-t border-border">
-	<ul
-		class="mx-auto grid max-w-5xl gap-x-10 gap-y-8 px-5 py-20 sm:grid-cols-2 sm:px-8 lg:grid-cols-4"
-	>
-		{#each HONK.features as feature (feature.title)}
-			<li>
-				<h2 class="font-semibold">{feature.title}</h2>
-				<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
-			</li>
-		{/each}
-	</ul>
-</section>
-
-<section id="download" class="scroll-mt-8 border-t border-border">
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-3xl font-bold tracking-tight">Download</h2>
-		<ul class="mt-8 grid gap-4 lg:grid-cols-3">
-			{#each HONK.downloads as download (download.system)}
-				<li class="flex flex-col rounded-2xl border border-border bg-surface p-6">
-					<h3 class="text-xl font-semibold">{download.system}</h3>
-					<p class="mt-2 text-sm text-muted">{download.note}</p>
-					<div class="mt-5">
-						<a href={download.primary.url} rel="external" class={secondaryButton}
-							>{download.primary.label}</a
-						>
-					</div>
-					{#if download.others.length > 0}
-						<ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
-							{#each download.others as other (other.url)}
-								<li><a href={other.url} rel="external" class={link}>{other.label}</a></li>
-							{/each}
-						</ul>
-					{/if}
-					{#if download.install}
-						<p class="mt-5 text-sm text-muted">{download.installHint}</p>
-						<pre
-							class="mt-2 rounded-lg border border-border bg-bg px-4 py-3 text-sm whitespace-pre-wrap"><code
-								class="cursor-text select-all">{download.install}</code
-							></pre>
-					{/if}
+		<h2 class={sectionHeading}>The details</h2>
+		<ul class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+			{#each HONK.features as feature (feature.title)}
+				<li>
+					<h3 class="font-semibold">{feature.title}</h3>
+					<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
 				</li>
 			{/each}
 		</ul>
-		<p class="mt-6 text-sm text-muted">
-			{HONK.allDownloads.body}
-			<a href={HONK.allDownloads.url} rel="external" class={link}>See all releases</a>
-		</p>
 	</div>
 </section>
 
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance">
-			{HONK.unsigned.heading}
-		</h2>
-		<p class="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{HONK.unsigned.body}</p>
-		<dl class="mt-10 grid gap-8 lg:grid-cols-3">
-			{#each HONK.unsigned.steps as step (step.system)}
-				<div>
-					<dt class="font-semibold">{step.system}</dt>
-					<dd class="mt-2 leading-relaxed text-muted">{step.body}</dd>
-				</div>
-			{/each}
-		</dl>
-		<p class="mt-8 text-sm text-muted">
-			<a href={HONK.unsigned.moreUrl} rel="external" class={link}>The full steps, with details</a>
-		</p>
-	</div>
-</section>
+<Downloads
+	downloads={HONK.downloads}
+	unsigned={HONK.unsigned}
+	allDownloads={HONK.allDownloads}
+	sourceUrl={HONK.sourceUrl}
+/>
 
 <ClosingPanel>
 	<p class="max-w-3xl text-2xl leading-snug font-medium text-balance sm:text-3xl">{FREE_PROMISE}</p>

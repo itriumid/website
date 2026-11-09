@@ -3,12 +3,13 @@
 	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
 	import PageHero from '#lib/PageHero.svelte';
+	import Downloads from '#lib/Downloads.svelte';
 	import Seo from '#lib/Seo.svelte';
 	import dialog from '#lib/screenshots/tall-order-dialog.webp';
 	import fight from '#lib/screenshots/tall-order-fight.webp';
 	import map from '#lib/screenshots/tall-order-map.webp';
 	import village from '#lib/screenshots/tall-order-village.webp';
-	import { primaryButton, secondaryButton } from '#lib/styles.js';
+	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import {
 		DISCORD_URL,
 		EMAIL,
@@ -47,14 +48,12 @@
 />
 
 <PageHero
-	label="Free game"
 	title="Felterra: Tall Order"
 	tagline={TALL_ORDER.tagline}
 	introduction={TALL_ORDER.introduction}
 >
 	{#snippet actions()}
 		<a href="#download" class={primaryButton}>Download Tall Order</a>
-		<a href={TALL_ORDER.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
 		<a href={DISCORD_URL} rel="external" class={secondaryButton}>Join us on Discord</a>
 	{/snippet}
 	{#snippet media()}
@@ -71,6 +70,21 @@
 </PageHero>
 
 <section>
+	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
+		<h2 class={sectionHeading}>{TALL_ORDER.highlights[0].title}</h2>
+		<p class="mt-3 max-w-2xl text-lg leading-relaxed text-muted">{TALL_ORDER.highlights[0].body}</p>
+		<ul class="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+			{#each TALL_ORDER.features as feature (feature.title)}
+				<li>
+					<h3 class="font-semibold">{feature.title}</h3>
+					<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
+				</li>
+			{/each}
+		</ul>
+	</div>
+</section>
+
+<section class="border-t border-border">
 	<div class="mx-auto max-w-5xl space-y-20 px-5 py-20 sm:px-8">
 		{#each TALL_ORDER.highlights.slice(1) as highlight, index (highlight.title)}
 			<div class="reveal grid items-center gap-8 md:grid-cols-2 md:gap-12">
@@ -92,21 +106,6 @@
 </section>
 
 <section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-2xl font-semibold tracking-tight">{TALL_ORDER.highlights[0].title}</h2>
-		<p class="mt-3 max-w-3xl text-lg leading-relaxed text-muted">{TALL_ORDER.highlights[0].body}</p>
-		<ul class="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-			{#each TALL_ORDER.features as feature (feature.title)}
-				<li>
-					<h3 class="font-semibold">{feature.title}</h3>
-					<p class="mt-2 leading-relaxed text-muted">{feature.body}</p>
-				</li>
-			{/each}
-		</ul>
-	</div>
-</section>
-
-<section class="border-t border-border">
 	<ul class="mx-auto grid max-w-5xl gap-4 px-5 py-20 sm:px-8 lg:grid-cols-3">
 		{#each [TALL_ORDER.free, TALL_ORDER.art, TALL_ORDER.together] as part (part.heading)}
 			<li class="rounded-2xl border border-border bg-surface p-6">
@@ -123,53 +122,13 @@
 	</ul>
 </section>
 
-<section id="download" class="scroll-mt-8 border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="text-3xl font-bold tracking-tight">Download</h2>
-		<p class="mt-3 text-muted">{TALL_ORDER.downloadsNote}</p>
-		<ul class="mt-8 grid gap-4 lg:grid-cols-3">
-			{#each TALL_ORDER.downloads as download (download.system)}
-				<li class="flex flex-col rounded-2xl border border-border bg-surface p-6">
-					<h3 class="text-xl font-semibold">{download.system}</h3>
-					<p class="mt-2 text-sm text-muted">{download.note}</p>
-					<div class="mt-5">
-						<a href={download.primary.url} rel="external" class={secondaryButton}
-							>{download.primary.label}</a
-						>
-					</div>
-					{#if download.others.length > 0}
-						<ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted">
-							{#each download.others as other (other.url)}
-								<li><a href={other.url} rel="external" class={link}>{other.label}</a></li>
-							{/each}
-						</ul>
-					{/if}
-				</li>
-			{/each}
-		</ul>
-		<p class="mt-6 text-sm text-muted">
-			{TALL_ORDER.allDownloads.body}
-			<a href={TALL_ORDER.allDownloads.url} rel="external" class={link}>See all releases</a>
-		</p>
-	</div>
-</section>
-
-<section class="border-t border-border">
-	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
-		<h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance">
-			{TALL_ORDER.unsigned.heading}
-		</h2>
-		<p class="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{TALL_ORDER.unsigned.body}</p>
-		<dl class="mt-10 grid gap-8 lg:grid-cols-3">
-			{#each TALL_ORDER.unsigned.steps as step (step.system)}
-				<div>
-					<dt class="font-semibold">{step.system}</dt>
-					<dd class="mt-2 leading-relaxed text-muted">{step.body}</dd>
-				</div>
-			{/each}
-		</dl>
-	</div>
-</section>
+<Downloads
+	downloads={TALL_ORDER.downloads}
+	unsigned={TALL_ORDER.unsigned}
+	allDownloads={TALL_ORDER.allDownloads}
+	note={TALL_ORDER.downloadsNote}
+	sourceUrl={TALL_ORDER.sourceUrl}
+/>
 
 <ClosingPanel>
 	<p class="max-w-3xl text-2xl leading-snug font-medium text-balance sm:text-3xl">{FREE_PROMISE}</p>
