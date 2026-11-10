@@ -3,9 +3,9 @@
 	import Screenshot from '#lib/Screenshot.svelte';
 	import PageHero from '#lib/PageHero.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp';
-	import facilityLight from '#lib/screenshots/lintech-facility-light.webp';
-	import homeLight from '#lib/screenshots/lintech-home-light.webp';
+	import drajatLight from '#lib/screenshots/lintech-drajat-light.webp?w=400;800;1200;1440&enhanced';
+	import facilityLight from '#lib/screenshots/lintech-facility-light.webp?w=400;800;1200;1440&enhanced';
+	import homeLight from '#lib/screenshots/lintech-home-light.webp?w=400;800;1200;1440&enhanced';
 	import { buttonStack, primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import { CONTACT_HINT, EMAIL, LINTECH, THREADS_URL } from '#lib/content.js';
 
@@ -30,8 +30,6 @@
 		<Screenshot
 			light={homeLight}
 			alt={LINTECH.screenshot}
-			width={1440}
-			height={960}
 			lazy={false}
 			class="rounded-xl border border-border"
 		/>
@@ -50,8 +48,7 @@
 				<Screenshot
 					light={image}
 					alt={highlight.alt}
-					width={1440}
-					height={960}
+					sizes="(min-width: 48rem) 30rem, 100vw"
 					class="rounded-xl border border-border"
 				/>
 			</div>

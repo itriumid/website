@@ -5,14 +5,14 @@
 	import PageHero from '#lib/PageHero.svelte';
 	import Downloads from '#lib/Downloads.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import categoryDark from '#lib/screenshots/category-dark.webp';
-	import categoryLight from '#lib/screenshots/category-light.webp';
-	import importDark from '#lib/screenshots/import-dark.webp';
-	import importLight from '#lib/screenshots/import-light.webp';
-	import mainDark from '#lib/screenshots/main-dark.webp';
-	import mainLight from '#lib/screenshots/main-light.webp';
-	import popoverDark from '#lib/screenshots/popover-dark.webp';
-	import popoverLight from '#lib/screenshots/popover-light.webp';
+	import categoryDark from '#lib/screenshots/category-dark.webp?w=400;800;1180&enhanced';
+	import categoryLight from '#lib/screenshots/category-light.webp?w=400;800;1180&enhanced';
+	import importDark from '#lib/screenshots/import-dark.webp?w=400;800;1160&enhanced';
+	import importLight from '#lib/screenshots/import-light.webp?w=400;800;1160&enhanced';
+	import mainDark from '#lib/screenshots/main-dark.webp?w=400;800;1200;1600;2224&enhanced';
+	import mainLight from '#lib/screenshots/main-light.webp?w=400;800;1200;1600;2224&enhanced';
+	import popoverDark from '#lib/screenshots/popover-dark.webp?w=400;640&enhanced';
+	import popoverLight from '#lib/screenshots/popover-light.webp?w=400;640&enhanced';
 	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import { FREE_PROMISE, FREE_STUFF, HONK, SITE_URL } from '#lib/content.js';
 
@@ -30,9 +30,9 @@
 
 	// Each highlight's screenshot pair, with the files' own pixel sizes.
 	const images = {
-		popover: { dark: popoverDark, light: popoverLight, width: 640, height: 880 },
-		category: { dark: categoryDark, light: categoryLight, width: 1180, height: 548 },
-		import: { dark: importDark, light: importLight, width: 1160, height: 880 }
+		popover: { dark: popoverDark, light: popoverLight },
+		category: { dark: categoryDark, light: categoryLight },
+		import: { dark: importDark, light: importLight }
 	};
 </script>
 
@@ -44,14 +44,7 @@
 		<a href={HONK.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
 	{/snippet}
 	{#snippet media()}
-		<Screenshot
-			dark={mainDark}
-			light={mainLight}
-			alt={HONK.screenshot}
-			width={2224}
-			height={1596}
-			lazy={false}
-		/>
+		<Screenshot dark={mainDark} light={mainLight} alt={HONK.screenshot} lazy={false} />
 	{/snippet}
 </PageHero>
 
@@ -69,8 +62,7 @@
 						dark={image.dark}
 						light={image.light}
 						alt={highlight.alt}
-						width={image.width}
-						height={image.height}
+						sizes="(min-width: 48rem) 30rem, 100vw"
 						class="rounded-xl border border-border"
 					/>
 				</div>

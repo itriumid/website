@@ -1,47 +1,41 @@
 <script lang="ts">
+	import type { Picture } from '@sveltejs/enhanced-img';
 	import { resolve } from '$app/paths';
 	import Arrow from '#lib/Arrow.svelte';
 	import ClosingPanel from '#lib/ClosingPanel.svelte';
 	import PageHero from '#lib/PageHero.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import amberDark from '#lib/screenshots/amber-dark.webp';
-	import amberLight from '#lib/screenshots/amber-light.webp';
-	import hindsightDark from '#lib/screenshots/hindsight-hero-dark.webp';
-	import hindsightLight from '#lib/screenshots/hindsight-hero-light.webp';
-	import honkDark from '#lib/screenshots/main-dark.webp';
-	import honkLight from '#lib/screenshots/main-light.webp';
-	import rhodoniteDark from '#lib/screenshots/rhodonite-sample-dark.webp';
-	import rhodoniteLight from '#lib/screenshots/rhodonite-sample-light.webp';
-	import splitBillDark from '#lib/screenshots/split-bill-dark.webp';
-	import splitBillLight from '#lib/screenshots/split-bill-light.webp';
-	import tallOrder from '#lib/screenshots/tall-order-village.webp';
+	import amberDark from '#lib/screenshots/amber-dark.webp?w=400;800;1200;1440&enhanced';
+	import amberLight from '#lib/screenshots/amber-light.webp?w=400;800;1200;1440&enhanced';
+	import hindsightDark from '#lib/screenshots/hindsight-hero-dark.webp?w=400;800;1200;1600;1824&enhanced';
+	import hindsightLight from '#lib/screenshots/hindsight-hero-light.webp?w=400;800;1200;1600;1824&enhanced';
+	import honkDark from '#lib/screenshots/main-dark.webp?w=400;800;1200;1600;2224&enhanced';
+	import honkLight from '#lib/screenshots/main-light.webp?w=400;800;1200;1600;2224&enhanced';
+	import rhodoniteDark from '#lib/screenshots/rhodonite-sample-dark.webp?w=400;800;1200;1664&enhanced';
+	import rhodoniteLight from '#lib/screenshots/rhodonite-sample-light.webp?w=400;800;1200;1664&enhanced';
+	import splitBillDark from '#lib/screenshots/split-bill-dark.webp?w=400;800;1200;1440&enhanced';
+	import splitBillLight from '#lib/screenshots/split-bill-light.webp?w=400;800;1200;1440&enhanced';
+	import tallOrder from '#lib/screenshots/tall-order-village.webp?w=640;1280&enhanced';
 	import { sectionHeading } from '#lib/styles.js';
 	import { DOWNLOADS, FREE_PROMISE, FREE_STUFF } from '#lib/content.js';
 
 	// Each item's picture, by name, with the files' own pixel sizes. `position` keeps the part of a
 	// capture that shows the thing working: the bill's split sits at the bottom of its frame, and code
 	// reads from the left.
-	const pictures: Record<
-		string,
-		{ light: string; dark?: string; width: number; height: number; position?: string }
-	> = {
-		Amber: { light: amberLight, dark: amberDark, width: 1440, height: 1080 },
+	const pictures: Record<string, { light: Picture; dark?: Picture; position?: string }> = {
+		Amber: { light: amberLight, dark: amberDark },
 		'Web tools': {
 			light: splitBillLight,
 			dark: splitBillDark,
-			width: 1440,
-			height: 1080,
 			position: 'object-bottom'
 		},
-		Honk: { light: honkLight, dark: honkDark, width: 2224, height: 1596 },
-		Hindsight: { light: hindsightLight, dark: hindsightDark, width: 1824, height: 1604 },
-		'Felterra: Tall Order': { light: tallOrder, width: 1280, height: 720 },
+		Honk: { light: honkLight, dark: honkDark },
+		Hindsight: { light: hindsightLight, dark: hindsightDark },
+		'Felterra: Tall Order': { light: tallOrder },
 		'Rhodonite Theme': {
 			light: rhodoniteLight,
 			dark: rhodoniteDark,
-			width: 1664,
-			height: 981,
 			position: 'object-left-top'
 		}
 	};
@@ -81,8 +75,7 @@
 								light={picture.light}
 								dark={picture.dark}
 								alt=""
-								width={picture.width}
-								height={picture.height}
+								sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 50vw, 100vw"
 								class="aspect-[4/3] border-b border-border object-cover {picture.position ??
 									'object-top'}"
 							/>

@@ -1,21 +1,22 @@
 <script lang="ts">
+	import type { Picture } from '@sveltejs/enhanced-img';
 	import Arrow from '#lib/Arrow.svelte';
 	import { resolve } from '$app/paths';
 	import Seo from '#lib/Seo.svelte';
 	import Screenshot from '#lib/Screenshot.svelte';
 	import WorkCard from '#lib/WorkCard.svelte';
 	import mark from '#lib/itrium-mark.svg';
-	import lintechHome from '#lib/screenshots/lintech-home-light.webp';
-	import tallOrderVillage from '#lib/screenshots/tall-order-village.webp';
-	import honkPopoverLight from '#lib/screenshots/popover-light.webp';
-	import honkPopoverDark from '#lib/screenshots/popover-dark.webp';
-	import hindsightHeroLight from '#lib/screenshots/hindsight-hero-light.webp';
-	import hindsightHeroDark from '#lib/screenshots/hindsight-hero-dark.webp';
-	import lintechDrajat from '#lib/screenshots/lintech-drajat-light.webp';
-	import honkLight from '#lib/screenshots/main-light.webp';
-	import honkPadLight from '#lib/screenshots/honk-pad-light.webp';
-	import honkPadDark from '#lib/screenshots/honk-pad-dark.webp';
-	import honkDark from '#lib/screenshots/main-dark.webp';
+	import lintechHome from '#lib/screenshots/lintech-home-light.webp?w=400;800;1200;1440&enhanced';
+	import tallOrderVillage from '#lib/screenshots/tall-order-village.webp?w=640;1280&enhanced';
+	import honkPopoverLight from '#lib/screenshots/popover-light.webp?w=400;640&enhanced';
+	import honkPopoverDark from '#lib/screenshots/popover-dark.webp?w=400;640&enhanced';
+	import hindsightHeroLight from '#lib/screenshots/hindsight-hero-light.webp?w=400;800;1200;1600;1824&enhanced';
+	import hindsightHeroDark from '#lib/screenshots/hindsight-hero-dark.webp?w=400;800;1200;1600;1824&enhanced';
+	import lintechDrajat from '#lib/screenshots/lintech-drajat-light.webp?w=400;800;1200;1440&enhanced';
+	import honkLight from '#lib/screenshots/main-light.webp?w=400;800;1200;1600;2224&enhanced';
+	import honkPadLight from '#lib/screenshots/honk-pad-light.webp?w=400;558&enhanced';
+	import honkPadDark from '#lib/screenshots/honk-pad-dark.webp?w=400;558&enhanced';
+	import honkDark from '#lib/screenshots/main-dark.webp?w=400;800;1200;1600;2224&enhanced';
 	import { buttonStack, primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import {
 		AMBER,
@@ -60,36 +61,29 @@
 			item: TALL_ORDER_ITEM,
 			href: resolve('/tall-order'),
 			light: tallOrderVillage,
-			dark: undefined,
-			width: 1280,
-			height: 720
+			dark: undefined
 		},
 		{
 			item: HINDSIGHT_ITEM,
 			href: resolve('/hindsight'),
 			light: hindsightHeroLight,
-			dark: hindsightHeroDark,
-			width: 1824,
-			height: 1604
+			dark: hindsightHeroDark
 		},
 		{
 			item: HONK_ITEM,
 			href: resolve('/honk'),
 			light: honkLight,
-			dark: honkDark,
-			width: 2224,
-			height: 1596
+			dark: honkDark
 		}
 	];
 	const others = [AMBER, WEB_TOOLS, RHODONITE_ITEM];
 
 	// Each index row's picture, but Advice's, which is our mark on pink.
-	const pictures: Record<string, { light: string; dark?: string; width: number; height: number }> =
-		{
-			projects: { light: lintechDrajat, width: 1440, height: 960 },
-			free: { light: honkPadLight, dark: honkPadDark, width: 558, height: 418 },
-			games: { light: tallOrderVillage, width: 1280, height: 720 }
-		};
+	const pictures: Record<string, { light: Picture; dark?: Picture }> = {
+		projects: { light: lintechDrajat },
+		free: { light: honkPadLight, dark: honkPadDark },
+		games: { light: tallOrderVillage }
+	};
 </script>
 
 <Seo title={TITLE} description={DESCRIPTION} path="/" structuredData={organization} />
@@ -122,9 +116,8 @@
 					<div class="absolute top-0 right-[6%] w-[64%] rotate-3">
 						<Screenshot
 							light={tallOrderVillage}
+							sizes="(min-width: 64rem) 24rem, 1px"
 							alt=""
-							width={1280}
-							height={720}
 							lazy={false}
 							class="rounded-xl border border-border shadow-2xl shadow-black/40"
 						/>
@@ -132,9 +125,8 @@
 					<div class="absolute -bottom-[17%] -left-[20%] w-[64%] -rotate-2">
 						<Screenshot
 							light={lintechHome}
+							sizes="(min-width: 64rem) 24rem, 1px"
 							alt=""
-							width={1440}
-							height={960}
 							lazy={false}
 							class="rounded-xl border border-border shadow-2xl shadow-black/50"
 						/>
@@ -142,10 +134,9 @@
 					<div class="absolute -bottom-[22%] left-[36%] w-[26%] rotate-3">
 						<Screenshot
 							light={honkPopoverLight}
+							sizes="(min-width: 64rem) 10rem, 1px"
 							dark={honkPopoverDark}
 							alt=""
-							width={640}
-							height={880}
 							lazy={false}
 							class="rounded-xl border border-border shadow-2xl shadow-black/50"
 						/>
@@ -175,8 +166,7 @@
 									light={picture.light}
 									dark={picture.dark}
 									alt=""
-									width={picture.width}
-									height={picture.height}
+									sizes="(min-width: 40rem) 8rem, 4.5rem"
 									class="aspect-[4/3] rounded-lg border border-border object-cover object-top"
 								/>
 							{/if}
@@ -213,7 +203,7 @@
 	<div class="mx-auto max-w-5xl px-5 py-20 sm:px-8">
 		<h2 class={sectionHeading}>{FREE_STUFF.label}</h2>
 		<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{#each featured as { item, href, light, dark, width, height } (item.name)}
+			{#each featured as { item, href, light, dark } (item.name)}
 				<li class="reveal">
 					<a
 						{href}
@@ -223,8 +213,7 @@
 							{light}
 							{dark}
 							alt=""
-							{width}
-							{height}
+							sizes="(min-width: 64rem) 20rem, (min-width: 40rem) 50vw, 100vw"
 							class="aspect-[4/3] border-b border-border object-cover object-top"
 						/>
 						<div class="flex flex-1 flex-col p-6">

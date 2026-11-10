@@ -5,10 +5,10 @@
 	import PageHero from '#lib/PageHero.svelte';
 	import Downloads from '#lib/Downloads.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import dialog from '#lib/screenshots/tall-order-dialog.webp';
-	import fight from '#lib/screenshots/tall-order-fight.webp';
-	import map from '#lib/screenshots/tall-order-map.webp';
-	import village from '#lib/screenshots/tall-order-village.webp';
+	import dialog from '#lib/screenshots/tall-order-dialog.webp?w=640;1280&enhanced';
+	import fight from '#lib/screenshots/tall-order-fight.webp?w=640;1280&enhanced';
+	import map from '#lib/screenshots/tall-order-map.webp?w=640;1280&enhanced';
+	import village from '#lib/screenshots/tall-order-village.webp?w=640;1280&enhanced';
 	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import {
 		DISCORD_URL,
@@ -61,8 +61,6 @@
 			dark={fight}
 			light={fight}
 			alt={TALL_ORDER.screenshot}
-			width={1280}
-			height={720}
 			lazy={false}
 			class="rounded-xl border border-border [image-rendering:pixelated]"
 		/>
@@ -96,8 +94,7 @@
 					dark={images[highlight.image]}
 					light={images[highlight.image]}
 					alt={highlight.alt}
-					width={1280}
-					height={720}
+					sizes="(min-width: 48rem) 30rem, 100vw"
 					class="rounded-xl border border-border [image-rendering:pixelated]"
 				/>
 			</div>

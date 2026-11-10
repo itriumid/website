@@ -5,14 +5,14 @@
 	import PageHero from '#lib/PageHero.svelte';
 	import Downloads from '#lib/Downloads.svelte';
 	import Seo from '#lib/Seo.svelte';
-	import colorsDark from '#lib/screenshots/hindsight-colors-dark.webp';
-	import colorsLight from '#lib/screenshots/hindsight-colors-light.webp';
-	import heroDark from '#lib/screenshots/hindsight-hero-dark.webp';
-	import heroLight from '#lib/screenshots/hindsight-hero-light.webp';
-	import menuDark from '#lib/screenshots/hindsight-menu-dark.webp';
-	import menuLight from '#lib/screenshots/hindsight-menu-light.webp';
-	import timelineDark from '#lib/screenshots/hindsight-timeline-dark.webp';
-	import timelineLight from '#lib/screenshots/hindsight-timeline-light.webp';
+	import colorsDark from '#lib/screenshots/hindsight-colors-dark.webp?w=400;800;1200;1600&enhanced';
+	import colorsLight from '#lib/screenshots/hindsight-colors-light.webp?w=400;800;1200;1600&enhanced';
+	import heroDark from '#lib/screenshots/hindsight-hero-dark.webp?w=400;800;1200;1600;1824&enhanced';
+	import heroLight from '#lib/screenshots/hindsight-hero-light.webp?w=400;800;1200;1600;1824&enhanced';
+	import menuDark from '#lib/screenshots/hindsight-menu-dark.webp?w=400;562&enhanced';
+	import menuLight from '#lib/screenshots/hindsight-menu-light.webp?w=400;562&enhanced';
+	import timelineDark from '#lib/screenshots/hindsight-timeline-dark.webp?w=400;800;1200;1600&enhanced';
+	import timelineLight from '#lib/screenshots/hindsight-timeline-light.webp?w=400;800;1200;1600&enhanced';
 	import { primaryButton, secondaryButton, sectionHeading } from '#lib/styles.js';
 	import { FREE_PROMISE, FREE_STUFF, HINDSIGHT, SITE_URL } from '#lib/content.js';
 
@@ -30,9 +30,9 @@
 
 	// Each highlight's screenshot pair, with the files' own pixel sizes.
 	const images = {
-		timeline: { dark: timelineDark, light: timelineLight, width: 1600, height: 940 },
-		menu: { dark: menuDark, light: menuLight, width: 562, height: 518 },
-		colors: { dark: colorsDark, light: colorsLight, width: 1600, height: 1336 }
+		timeline: { dark: timelineDark, light: timelineLight },
+		menu: { dark: menuDark, light: menuLight },
+		colors: { dark: colorsDark, light: colorsLight }
 	};
 </script>
 
@@ -49,14 +49,7 @@
 		<a href={HINDSIGHT.sourceUrl} rel="external" class={secondaryButton}>Source code</a>
 	{/snippet}
 	{#snippet media()}
-		<Screenshot
-			dark={heroDark}
-			light={heroLight}
-			alt={HINDSIGHT.screenshot}
-			width={1824}
-			height={1604}
-			lazy={false}
-		/>
+		<Screenshot dark={heroDark} light={heroLight} alt={HINDSIGHT.screenshot} lazy={false} />
 	{/snippet}
 </PageHero>
 
@@ -74,8 +67,7 @@
 						dark={image.dark}
 						light={image.light}
 						alt={highlight.alt}
-						width={image.width}
-						height={image.height}
+						sizes="(min-width: 48rem) 30rem, 100vw"
 						class="rounded-xl border border-border"
 					/>
 				</div>
