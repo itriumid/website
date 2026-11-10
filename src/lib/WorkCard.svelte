@@ -2,8 +2,8 @@
 	import Arrow from '#lib/Arrow.svelte';
 	import { resolve } from '$app/paths';
 	import Screenshot from '#lib/Screenshot.svelte';
-	import lintechFacility from '#lib/screenshots/lintech-facility-light.webp';
-	import lintechDrajat from '#lib/screenshots/lintech-drajat-light.webp';
+	import lintechFacility from '#lib/screenshots/lintech-facility-light.webp?w=400;800;1200;1440&enhanced';
+	import lintechDrajat from '#lib/screenshots/lintech-drajat-light.webp?w=400;800;1200;1440&enhanced';
 	import { LINTECH, WORK } from '#lib/content.js';
 
 	interface Props {
@@ -49,9 +49,8 @@
 		>
 			<Screenshot
 				light={lintechFacility}
+				sizes="(min-width: 48rem) 30rem, 88vw"
 				alt=""
-				width={1440}
-				height={960}
 				class="rounded-xl border border-border shadow-2xl shadow-black/25"
 			/>
 		</div>
@@ -60,9 +59,8 @@
 		>
 			<Screenshot
 				light={lintechDrajat}
+				sizes="(min-width: 48rem) 20rem, 62vw"
 				alt=""
-				width={1440}
-				height={960}
 				class="rounded-xl border border-border shadow-2xl shadow-black/30"
 			/>
 		</div>
