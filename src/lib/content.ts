@@ -42,7 +42,7 @@ export const INDEX: IndexRow[] = [
 	{
 		id: 'projects',
 		title: 'Websites and applications',
-		note: "Built to order, with the price and what it won't do agreed first.",
+		note: "Built to order. Before we start, we agree on the price and on what it will and won't do.",
 		page: '/work'
 	},
 	{
