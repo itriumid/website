@@ -104,6 +104,16 @@
 				"displayName": "Muted gray on light",
 				"canonical": "#6b6b6b"
 			},
+			"control-edge-on-dark": {
+				"role": "neutral",
+				"displayName": "Control edge on dark",
+				"canonical": "#8a8a8a"
+			},
+			"control-edge-on-light": {
+				"role": "neutral",
+				"displayName": "Control edge on light",
+				"canonical": "#767676"
+			},
 			"deep-rose": {
 				"role": "primary",
 				"displayName": "Deep rose (lines on light)",
@@ -211,14 +221,14 @@
 			"refersTo": "button-secondary",
 			"description": "Every other action, such as email beside Threads: an outlined pill that fills with the surface color on hover.",
 			"html": "<a class=\"ds-btn-secondary\" href=\"#\">Email us</a>",
-			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid var(--border, #474747); background: transparent; color: var(--text, #f2f2f2); padding: 0.75rem 1.5rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; text-decoration: none; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: var(--surface, #343434); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid var(--control-border, #8a8a8a); background: transparent; color: var(--text, #f2f2f2); padding: 0.75rem 1.5rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; text-decoration: none; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: var(--surface, #343434); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
 		},
 		{
 			"name": "Button Stack",
 			"kind": "custom",
 			"description": "A primary and secondary pair: side by side from 640 px, stacked full width on phones.",
 			"html": "<div class=\"ds-stack\"><a class=\"ds-stack-primary\" href=\"#\">Message us on Threads</a><a class=\"ds-stack-secondary\" href=\"#\">hello@itrium.id</a></div>",
-			"css": ".ds-stack { display: flex; flex-direction: column; gap: 0.75rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; } @media (min-width: 640px) { .ds-stack { flex-direction: row; } } .ds-stack > a { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 0.75rem 1.5rem; font-size: 0.875rem; text-decoration: none; } .ds-stack-primary { background: var(--accent, #febfca); color: var(--on-accent, #2b2b2b); font-weight: 600; } .ds-stack-primary:hover { opacity: 0.85; } .ds-stack-secondary { border: 1px solid var(--border, #474747); color: var(--text, #f2f2f2); font-weight: 500; } .ds-stack-secondary:hover { background: var(--surface, #343434); } .ds-stack > a:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
+			"css": ".ds-stack { display: flex; flex-direction: column; gap: 0.75rem; font-family: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif; } @media (min-width: 640px) { .ds-stack { flex-direction: row; } } .ds-stack > a { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: 0.75rem 1.5rem; font-size: 0.875rem; text-decoration: none; } .ds-stack-primary { background: var(--accent, #febfca); color: var(--on-accent, #2b2b2b); font-weight: 600; } .ds-stack-primary:hover { opacity: 0.85; } .ds-stack-secondary { border: 1px solid var(--control-border, #8a8a8a); color: var(--text, #f2f2f2); font-weight: 500; } .ds-stack-secondary:hover { background: var(--surface, #343434); } .ds-stack > a:focus-visible { outline: 2px solid var(--focus, #febfca); outline-offset: 3px; border-radius: 4px; }"
 		},
 		{
 			"name": "Graphite Panel with Letter",

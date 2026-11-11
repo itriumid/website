@@ -18,6 +18,9 @@
 	--on-accent: #2b2b2b;
 	/* Pink as a line. Light mode deepens it to deep rose, which reaches 3:1 on white. */
 	--accent-edge: #febfca;
+	/* The edge of a button, which people need to see to find it: 3:1 against both the page and a
+	   card. The softer --border is for dividing lines that nothing depends on. */
+	--control-border: #8a8a8a;
 	/* Pink as text: pastel on graphite, a deep rose on light backgrounds (4.8:1 on off-white, 5.2:1 on the page). */
 	--accent-text: #febfca;
 	/* The focus outline: pink on graphite, graphite on light backgrounds, where pink is 1.5:1. */
@@ -44,6 +47,7 @@
 		--muted: #6b6b6b;
 		--accent-edge: #c46475;
 		--accent-text: #a84d60;
+		--control-border: #767676;
 		--focus: #2b2b2b;
 		/* Pink is never text on a light background, so light mode's code pink is a deep rose. */
 		--code-pink: #a84d60;
@@ -68,6 +72,7 @@
 	--color-on-accent: var(--on-accent);
 	--color-accent-edge: var(--accent-edge);
 	--color-accent-text: var(--accent-text);
+	--color-control-border: var(--control-border);
 	--color-code-pink: var(--code-pink);
 	--color-code-rose: var(--code-rose);
 	--color-code-sage: var(--code-sage);
@@ -127,6 +132,7 @@ html {
 	--muted: #aaaaaa;
 	--accent-edge: #febfca;
 	--accent-text: #febfca;
+	--control-border: #8a8a8a;
 	--focus: #febfca;
 	color-scheme: dark;
 	background-color: var(--bg);

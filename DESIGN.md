@@ -14,6 +14,8 @@ colors:
   paper-surface: '#ffffff'
   paper-border: '#e4e4e4'
   muted-gray-on-light: '#6b6b6b'
+  control-edge-on-dark: '#8a8a8a'
+  control-edge-on-light: '#767676'
   deep-rose: '#c46475'
   rose-text: '#a84d60'
 typography:
@@ -219,6 +221,10 @@ the dark default and `prefers-color-scheme: light`. The binding rules come from 
   secondary text: introductions, the letter's note and signature, index notes, card bodies,
   platform lines and the navigation. The lighter one is 4.6:1 on graphite raised, the darkest
   surface it sits on.
+- **Control edge on dark** (`control-edge-on-dark`) and **control edge on light**
+  (`control-edge-on-light`): the border of a secondary button (`--control-border`), which people
+  have to see to find it. It reaches 3:1 against the page, a card and a graphite panel, where the
+  softer border colors are about 1.5:1.
 - **Paper** (`paper`), **paper surface** (`paper-surface`) and **paper border** (`paper-border`):
   the light theme's page, cards and dividers.
 
@@ -236,6 +242,9 @@ is rose text and pink lines are deep rose. Pastel pink is never text or a line t
 **The Every-Surface Rule.** Contrast is checked on every surface text sits on, raised cards and
 rows inside a panel included, not only the page background. Body text needs 4.5:1, and focus
 outlines and lines that show a state need 3:1.
+
+**The Two Borders Rule.** `--border` is for lines nothing depends on: card edges, dividers,
+hairlines around screenshots. A button someone has to find gets `--control-border`.
 
 ## Typography
 
@@ -354,7 +363,8 @@ Pressable pills. There are only two kinds, and pink is the main action.
 - **Primary:** pastel pink with graphite text. One per view, for the main action. Wherever contact
   appears, the primary is "Message us on Threads" and email is the secondary. The one exception is
   the download section, where each system's row has its own primary, since a visitor picks one.
-- **Secondary:** transparent with a 1 px border and medium weight. Every other action beside the
+- **Secondary:** transparent with a 1 px control-edge border (`--control-border`) and medium
+  weight. Every other action beside the
   primary one. Leaving for a client's site is secondary.
 - **Hover:** the primary fades to 85% opacity. The secondary fills with the surface color.
 - **Focus:** a 2 px outline 3 px away, pastel pink on graphite and graphite on light backgrounds.
