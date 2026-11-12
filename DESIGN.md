@@ -191,7 +191,7 @@ Rhodonite: graphite and grays, with one pink and its two light-background deepen
 live in `src/app.css` as `--bg`, `--surface`, `--border`, `--text`, `--muted`, `--accent`,
 `--on-accent`, `--accent-edge`, `--accent-text` and `--focus`, and each one swaps values between
 the dark default and `prefers-color-scheme: light`. The binding rules come from the handbook's
-`conventions/reference/brand.md`. This section describes how the site applies them.
+`itrium/brand.md`. This section describes how the site applies them.
 
 ### Primary
 
