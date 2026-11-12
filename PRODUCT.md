@@ -81,7 +81,7 @@ pink running through it.
   Honest about what things do and don't do.
 - **Principles the site states publicly:** privacy by default, free means free, simple, honest.
 - **Palette, typeface and color rules** are binding and live in the handbook's
-  `conventions/reference/brand.md`: the Rhodonite palette, Plus Jakarta Sans served from the site
+  `itrium/brand.md`: the Rhodonite palette, Plus Jakarta Sans served from the site
   itself, and contrast at level AA of the Web Content Accessibility Guidelines.
 - **Brand files** (`src/lib/*.svg`, the icons and `og-image.png`) are copies from
   `~/Itrium/Assets`. They're regenerated there and never edited here.

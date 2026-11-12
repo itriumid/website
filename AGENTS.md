@@ -51,14 +51,23 @@ Before acting on a task in this table, read the file it points to. The others ca
 | Unsure what an agent may write or do here (catch-all)                                         | `.handbook/conventions/rules/ai-agents.md`           |
 | Bumping a dependency or runtime version, or naming things                                     | `.handbook/conventions/rules/engineering.md`         |
 | Labeling a pull request                                                                       | `.handbook/conventions/reference/labels.md`          |
-| Choosing colors, or designing anything visual                                                 | `.handbook/conventions/reference/brand.md`           |
 | Something already went wrong — a leak, a bad push, a weakened check                           | `.handbook/conventions/reference/agent-incidents.md` |
-| Wondering why a cross-project technology choice was made                                      | `.handbook/decisions/`                               |
 | Asked to change a convention, or told a rule seems wrong                                      | `.handbook/conventions/background/`                  |
 
 `.handbook/conventions/background/` is rationale, not instructions. Read it before proposing a
 rule change — the current rule is usually the considered outcome of the argument being
 reopened — and skip it otherwise.
+
+## Itrium projects
+
+This is one of Itrium's projects, so Itrium's part of the handbook applies on top of the
+conventions above.
+
+| Doing this                                                 | Read                              |
+| ---------------------------------------------------------- | --------------------------------- |
+| Writing prose, comments or names, or building an interface | `.handbook/itrium/engineering.md` |
+| Choosing colors, or designing anything visual              | `.handbook/itrium/brand.md`       |
+| Wondering why a cross-project technology choice was made   | `.handbook/itrium/decisions/`     |
 
 ## This repository
 
@@ -68,7 +77,7 @@ Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers 
 
 - **The copy is public, in Itrium's voice.** The text lives in `src/lib/content.ts`; only short labels sit in the
   markup. Read
-  `.handbook/conventions/reference/brand.md` first, and show any wording change to the user
+  `.handbook/itrium/brand.md` first, and show any wording change to the user
   before committing it.
 - **No JavaScript reaches visitors.** `src/routes/+layout.ts` sets `csr = false`, and the
   Content-Security-Policy in `_headers` allows no scripts. Don't add client-side code, analytics,
