@@ -129,6 +129,7 @@
 	downloads={TALL_ORDER.downloads}
 	unsigned={TALL_ORDER.unsigned}
 	allDownloads={TALL_ORDER.allDownloads}
+	store={TALL_ORDER.store}
 	note={TALL_ORDER.downloadsNote}
 	sourceUrl={TALL_ORDER.sourceUrl}
 />
