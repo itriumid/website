@@ -108,6 +108,12 @@
 			<li class="rounded-2xl border border-border bg-surface p-6">
 				<h2 class="text-lg font-semibold">{part.heading}</h2>
 				<p class="mt-3 leading-relaxed text-muted">{part.body}</p>
+				{#if part === TALL_ORDER.free}
+					<p class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+						<a href={resolve('/tall-order/privacy')} class={link}>Privacy</a>
+						<a href={resolve('/tall-order/terms')} class={link}>Terms</a>
+					</p>
+				{/if}
 				{#if part === TALL_ORDER.together}
 					<p class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
 						<a href="mailto:{EMAIL}" class={link}>{EMAIL}</a>

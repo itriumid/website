@@ -575,7 +575,7 @@ export const TALL_ORDER = {
 	],
 	free: {
 		heading: 'Free, and how it will pay for itself',
-		body: "Tall Order is free to download and play, with no advertisements and nothing that tracks you. What it does send, and how to turn each off, is on its Privacy and terms page, under Settings. We haven't worked out yet how it can pay its own way. Whatever we choose, we'll say so plainly before it happens, and the game you can download stays free."
+		body: "Tall Order is free to download and play, with no advertisements and nothing that tracks you. What it does send, and how to turn each off, is in its privacy policy, and on its Privacy and terms page, under Settings. We haven't worked out yet how it can pay its own way. Whatever we choose, we'll say so plainly before it happens, and the game you can download stays free."
 	},
 	art: {
 		heading: 'How the art is made, for now',
@@ -645,6 +645,81 @@ export const TALL_ORDER = {
 // /work/<slug>. Facts about a client (what they do, when the site went live) come from them, and
 // the page says only what we did. The process describes steps, never prices: an estimate is
 // written per project.
+// Tall Order's privacy policy and terms, at /tall-order/privacy and /tall-order/terms, linked
+// from the game's page and from its Discord application. The game's own Privacy and terms page,
+// under Settings, says the same in fewer words: change both together.
+export const TALL_ORDER_PRIVACY = {
+	title: 'Privacy in Felterra: Tall Order',
+	description:
+		'What Felterra: Tall Order keeps on your computer, what it sends and where, and how to turn each off.',
+	heading: 'Privacy',
+	introduction:
+		'Tall Order keeps what it needs on your computer and sends as little as it can. This is all of it. No accounts, no advertisements, no analytics, and nothing that tracks you or sells anything about you.',
+	updated: '15 November 2026',
+	sections: [
+		{
+			heading: 'What stays on your computer',
+			body: "Your village, your best runs and your settings are kept on your computer, in the game's own folder, and never sent. Reset all progress, in Settings, clears the village and the runs."
+		},
+		{
+			heading: 'Checking for updates',
+			body: "On the title, once each time the game starts, it asks its own service, at api.tall-order.felterra.games.itrium.id, whether there's a newer version. It sends nothing but the asking, and the service keeps no logs. Settings, Check for updates, turns it off."
+		},
+		{
+			heading: 'Playing together',
+			body: "Hosting or joining by a room's code goes through the same service, only so the players can find each other, and it keeps no logs. After that, the game goes directly between the players' computers, so each one sees the others' internet addresses, as any game played directly does. Playing by address on a home network doesn't use the service at all."
+		},
+		{
+			heading: 'Discord',
+			body: "While Discord is running on your computer, the game tells it what you're playing: where (the village, the area you're freeing, or Endless), your level, and for how long. Discord shows it to your friends there, with a button to get the game. The game tells only the Discord app on your own computer; what Discord does with it is up to Discord's own privacy policy. With Discord closed, nothing is sent. It's on unless you turn it off: Settings, Discord activity."
+		},
+		{
+			heading: 'The run log',
+			body: "Off unless you turn it on; it's for playtesters. It keeps a line about each run on your computer (how it went, what you carried, how smoothly the game ran) and never sends it. Settings has a button to find the file, if you'd like to send it to us yourself."
+		},
+		{
+			heading: 'If this changes',
+			body: "We'll say so here, and in the game, before it happens. Questions are welcome at hello@itrium.id or on Itrium's Discord."
+		}
+	]
+};
+
+export const TALL_ORDER_TERMS = {
+	title: 'Terms of Felterra: Tall Order',
+	description:
+		'Felterra: Tall Order is free, and free software under the GNU General Public License, version 3. These are its terms.',
+	heading: 'Terms',
+	introduction:
+		"Tall Order is free to download and play, with nothing to buy in it. There isn't much to these terms, and they're in plain words.",
+	updated: '15 November 2026',
+	sections: [
+		{
+			heading: 'Free software',
+			body: 'Its code is free software under the GNU General Public License, version 3: you can read it, change it and share it, under that license. The source is on GitHub, at github.com/itriumid/felterra-tall-order.'
+		},
+		{
+			heading: 'The name and the logo',
+			body: "The name Felterra and the game's logo aren't covered by that license. Forks are welcome, under another name."
+		},
+		{
+			heading: 'No warranty',
+			body: "The game comes as it is, with no warranty, as far as the law allows, as the license says. It's a work in progress, and things can break; tell us when they do, and we'll fix them."
+		},
+		{
+			heading: 'Discord',
+			body: "Showing what you're playing on Discord is also under Discord's own terms. You can turn it off in Settings, Discord activity."
+		},
+		{
+			heading: 'Privacy',
+			body: 'What the game keeps and sends is in its privacy policy.'
+		},
+		{
+			heading: 'If this changes',
+			body: "We'll say so here before it happens. Questions are welcome at hello@itrium.id or on Itrium's Discord."
+		}
+	]
+};
+
 export const WORK = {
 	label: 'Our work',
 	more: 'Read the case study',
