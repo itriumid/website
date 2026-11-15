@@ -538,13 +538,13 @@ export const TALL_ORDER = {
 		},
 		{
 			title: 'Free the forest, area by area',
-			body: "Seven hand-made places, each with its own goal and its own boss: break the rat nests, free the caged, wreck the saws. Each looks wrecked while the company holds it, and grows green again once it's free. Or play Endless, a fresh clearing every run, for the highest score.",
+			body: 'Seven hand-made places, each with its own goal and its own boss: break the rat nests, free the caged, wreck the saws. Each looks wrecked while the company holds it. Free it, and the forest grows back, a little more every time you return. Or play Endless, a fresh clearing every run, alone or with up to three friends online.',
 			image: 'map',
 			alt: 'The map of the forest: five areas freed under our flags, the log slide still held by the company, the rest not yet found'
 		},
 		{
 			title: 'A village that comes back',
-			body: "Every cat you free comes home, and the story brings the village back with them: a smith for the forge, a weaver for new looks, a carpenter for the longhouse. Jogiboy, who lives next door to the Elder, finds you things while you're out.",
+			body: "Every cat you free comes home, and the story brings the village back with them: a smith for the forge, a weaver for new looks for you and the village, a carpenter for the longhouse. Jogiboy, who lives next door to the Elder, finds you things while you're out.",
 			image: 'village',
 			alt: 'The village restored: thatched huts, a well, a market stall, and the cats who live there'
 		},
@@ -558,7 +558,7 @@ export const TALL_ORDER = {
 	features: [
 		{
 			title: 'Honest physics',
-			body: 'Anything that moves, falls or breaks does it through the physics, never a canned animation. A felled giant crushes whatever is under him, his own dogs included.'
+			body: "Anything that moves, falls or breaks does it through the physics, never a canned animation. A felled giant crushes whatever is under him, his own dogs included, and a machine wears every hit it's taken until it breaks apart."
 		},
 		{
 			title: 'Fair warning',
@@ -575,7 +575,7 @@ export const TALL_ORDER = {
 	],
 	free: {
 		heading: 'Free, and how it will pay for itself',
-		body: "Tall Order is free to download and play, with no advertisements and nothing that tracks you. We haven't worked out yet how it can pay its own way. Whatever we choose, we'll say so plainly before it happens, and the game you can download stays free."
+		body: "Tall Order is free to download and play, with no advertisements and nothing that tracks you. What it does send, and how to turn each off, is on its Privacy and terms page, under Settings. We haven't worked out yet how it can pay its own way. Whatever we choose, we'll say so plainly before it happens, and the game you can download stays free."
 	},
 	art: {
 		heading: 'How the art is made, for now',
