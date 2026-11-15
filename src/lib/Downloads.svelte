@@ -22,6 +22,8 @@
 			moreUrl?: string;
 		};
 		allDownloads: { body: string; url: string };
+		/** The same builds in a store, such as itch.io, linked beside the releases. */
+		store?: { label: string; url: string };
 		/** A line under the heading, such as how the files come packed. */
 		note?: string;
 		/** The install command's hint, when every system shares one. */
@@ -29,7 +31,8 @@
 		sourceUrl?: string;
 	}
 
-	const { downloads, unsigned, allDownloads, note, installHint, sourceUrl }: Props = $props();
+	const { downloads, unsigned, allDownloads, store, note, installHint, sourceUrl }: Props =
+		$props();
 
 	const link =
 		'inline-flex min-h-11 items-center underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text';
@@ -105,6 +108,9 @@
 		<p class="mt-6 flex flex-wrap items-center gap-x-5 text-sm text-muted">
 			<span>{allDownloads.body}</span>
 			<a href={allDownloads.url} rel="external" class={link}>{DOWNLOADS.releases}</a>
+			{#if store}
+				<a href={store.url} rel="external" class={link}>{store.label}</a>
+			{/if}
 			{#if unsigned.moreUrl}
 				<a href={unsigned.moreUrl} rel="external" class={link}>{DOWNLOADS.fullSteps}</a>
 			{/if}

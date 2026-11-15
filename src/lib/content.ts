@@ -616,9 +616,10 @@ export const TALL_ORDER = {
 	],
 	downloadsNote: 'Each is a zip: unzip it and run the game inside.',
 	allDownloads: {
-		body: 'Every earlier version, and checksums for each download, are on the releases page.',
+		body: 'Every earlier version, and checksums for each download, are on the releases page. The same builds are on itch.io, whose app keeps the game up to date for you.',
 		url: 'https://github.com/itriumid/felterra-tall-order/releases'
 	},
+	store: { label: 'Get it on itch.io', url: 'https://itrium.itch.io/felterra-tall-order' },
 	unsigned: {
 		heading: 'Your computer will ask you to confirm, once',
 		body: "Signing certificates cost money every year, and Tall Order is free, so it isn't signed by a verified developer yet. It's built from its public source code, on GitHub's machines, but your system can't know that, so it asks the first time.",
