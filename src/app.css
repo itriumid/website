@@ -16,6 +16,8 @@
 	--muted: #aaaaaa;
 	--accent: #febfca;
 	--on-accent: #2b2b2b;
+	/* A step off the page, from @itrium/palettes: the panels' surface in light mode. */
+	--elevated: #3e3e3e;
 	/* Pink as a line. Light mode deepens it to deep rose, which reaches 3:1 on white. */
 	--accent-edge: #febfca;
 	/* The edge of a button, which people need to see to find it: 3:1 against both the page and a
@@ -41,6 +43,7 @@
 	:root {
 		--bg: #fafafa;
 		--surface: #ffffff;
+		--elevated: #f1f1f1;
 		--border: #e4e4e4;
 		--text: #2b2b2b;
 		/* #AAAAAA is too faint to read on white, so light mode uses a darker gray. */
@@ -120,21 +123,15 @@ html {
 }
 
 /*
- * A graphite band: the dark tokens, in either theme. In dark mode the page is graphite already, so
- * the band steps up to the card gray to stay visible. Muted gray on the band's cards (#3D3D3D)
- * is 4.6:1, still level AA.
+ * A panel (.band): it follows the theme, a step off the page either way. In light mode it steps
+ * down to the palette's elevated off-white (#F1F1F1), where everything it holds still passes: text
+ * 12.5:1, muted 4.7:1, rose text 4.8:1, the deep rose line 3.4:1, the control edge 4.0:1 and the
+ * focus outline 12.5:1. It was graphite in both themes until that made light mode a dark site with
+ * a light middle. In dark mode the page is graphite already, so the panel steps up to the card
+ * gray to stay visible. Muted gray on the panel's cards (#3D3D3D) is 4.6:1, still level AA.
  */
 .band {
-	--bg: #2b2b2b;
-	--surface: #343434;
-	--border: #474747;
-	--text: #f2f2f2;
-	--muted: #aaaaaa;
-	--accent-edge: #febfca;
-	--accent-text: #febfca;
-	--control-border: #8a8a8a;
-	--focus: #febfca;
-	color-scheme: dark;
+	--bg: var(--elevated);
 	background-color: var(--bg);
 	color: var(--text);
 }

@@ -89,7 +89,7 @@
 <Seo title={TITLE} description={DESCRIPTION} path="/" structuredData={organization} />
 
 <!-- The home page introduces us, not one project: a short signed note, then an index of what we
-     do, each row a door with a real picture. All of it sits in one graphite panel, which on wide
+     do, each row a door with a real picture. All of it sits in one panel, which on wide
      screens holds the work behind the note like enclosures. -->
 <section class="px-3 sm:px-5">
 	<div class="band mx-auto max-w-6xl overflow-hidden rounded-3xl">
@@ -273,7 +273,7 @@
 	</div>
 </section>
 
-<!-- Contact closes the page the way the hero opens it: a graphite panel. -->
+<!-- Contact closes the page the way the hero opens it: a panel. -->
 <section id="contact" class="scroll-mt-8 px-3 pb-12 sm:px-5">
 	<div class="band reveal mx-auto max-w-6xl rounded-3xl">
 		<div class="mx-auto max-w-5xl px-6 py-20 sm:px-10 sm:py-24">

@@ -17,7 +17,7 @@
 	const { title, tagline, introduction, actions, children, media }: Props = $props();
 </script>
 
-<!-- The top of every page but home: a graphite panel in both themes, like the home page's hero. -->
+<!-- The top of every page but home: a panel, like the home page's hero. -->
 <section class="px-3 sm:px-5">
 	<div class="band mx-auto max-w-6xl overflow-hidden rounded-3xl">
 		<div class="mx-auto max-w-5xl px-6 pt-14 sm:px-10 sm:pt-20 {media ? '' : 'pb-14 sm:pb-20'}">
