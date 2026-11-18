@@ -47,8 +47,8 @@ pink running through it.
   also on Instagram (`@itriumid`), Discord and GitHub.
 - Visitors arrive at a prerendered, script-free site on phones and computers. Every interaction is
   plain HTML: links, anchors, downloads, selectable text. Nothing on the page runs code.
-- Browser tools (Amber, the web tools) need JavaScript, so they run on their own subdomains
-  (`amber.itrium.id`, `tools.itrium.id`). The site links out to them and doesn't embed them.
+- Browser tools (Amber, Flint) need JavaScript, so they run on their own subdomains
+  (`amber.itrium.id`, `flint.itrium.id`). The site links out to them and doesn't embed them.
 - Desktop downloads come from GitHub releases. The `releases/latest/download/` links never need
   updating. Each page also gives package-manager commands (Homebrew, winget) and the steps to get
   past the unsigned-application warning on macOS and Windows.
