@@ -12,6 +12,7 @@ colors:
   pastel-pink: '#febfca'
   paper: '#fafafa'
   paper-surface: '#ffffff'
+  paper-elevated: '#f1f1f1'
   paper-border: '#e4e4e4'
   muted-gray-on-light: '#6b6b6b'
   control-edge-on-dark: '#8a8a8a'
@@ -157,7 +158,7 @@ the grays, because the gray is the message: very little in software is one size 
 the honest answer usually starts with "it depends".
 
 It reads like a specimen on a bench, and like a letter left on it. The home page opens with a
-short signed note from the studio inside the graphite panel, with real screenshots tucked behind
+short signed note from the studio inside the panel, with real screenshots tucked behind
 it like enclosures, and an index of what the studio does underneath: four rows, each a door with
 a picture, a big title, one line and a drawn arrow. The real work does the persuading: client
 sites, applications and a game, shown as screenshots in their own themes. Text is kept light:
@@ -174,7 +175,8 @@ label above it.
 
 **Key Characteristics:**
 
-- Graphite panels (`.band`) open and close every page, in both themes.
+- Panels (`.band`) open and close every page, a step off the page in either theme: graphite
+  surface in dark, paper elevated in light.
 - One accent, pastel pink, with a deep rose for text and a separate one for lines on light
   backgrounds.
 - Light and dark follow the visitor's system. There's no toggle, because there's no script.
@@ -209,8 +211,8 @@ the dark default and `prefers-color-scheme: light`. The binding rules come from 
 
 ### Neutral
 
-- **Graphite** (`graphite`): the dark theme's page, the color of every graphite panel in either
-  theme, the light theme's text, and the text on pink, always.
+- **Graphite** (`graphite`): the dark theme's page, the light theme's text, and the text on pink,
+  always.
 - **Graphite surface** (`graphite-surface`) and **graphite border** (`graphite-border`): cards and
   their edges on graphite, and the hover fill of an index row. Inside a panel in the dark theme,
   the panel steps up to graphite surface so it stays visible against the page. Its cards and rows
@@ -223,10 +225,13 @@ the dark default and `prefers-color-scheme: light`. The binding rules come from 
   surface it sits on.
 - **Control edge on dark** (`control-edge-on-dark`) and **control edge on light**
   (`control-edge-on-light`): the border of a secondary button (`--control-border`), which people
-  have to see to find it. It reaches 3:1 against the page, a card and a graphite panel, where the
+  have to see to find it. It reaches 3:1 against the page, a card and a panel, where the
   softer border colors are about 1.5:1.
 - **Paper** (`paper`), **paper surface** (`paper-surface`) and **paper border** (`paper-border`):
   the light theme's page, cards and dividers.
+- **Paper elevated** (`paper-elevated`, `--elevated`): the panels in the light theme, from
+  `@itrium/palettes`. A step down from paper, where everything a panel holds still passes: text
+  12.5:1, muted 4.7:1, rose text 4.8:1, the deep rose line 3.4:1, the control edge 4.0:1.
 
 The code colors (`--code-*` in `src/app.css`) exist only for the editor sample on `/rhodonite`.
 They mirror `@itrium/palettes` and don't belong anywhere else.
@@ -258,7 +263,7 @@ itself, and the Latin file is preloaded so the headings don't move when it arriv
 
 ### Hierarchy
 
-- **Display** (`display`): every page's title in its graphite panel, the home page's greeting
+- **Display** (`display`): every page's title in its panel, the home page's greeting
   included, 3rem on phones and the token size from 640 px, balanced. In the greeting, the studio's
   name is pink.
 - **Headline** (`headline`): section headings (`sectionHeading` in `src/lib/styles.ts`), the work
@@ -312,7 +317,7 @@ no eyebrow, no category label, no client name. Who or what it belongs to follows
   to its two most-needed links, "Free stuff" and "Contact".
 - **Breakpoints:** Tailwind's defaults, 640, 768 and 1024 px.
 
-**The Slab Rule.** Every page opens with a graphite panel and closes with one. Between them, the
+**The Slab Rule.** Every page opens with a panel and closes with one. Between them, the
 content sits on the page background in a narrower column.
 
 **The One Line Rule.** Text is as short as the job allows. Where a paragraph would explain, one
@@ -360,7 +365,9 @@ the current color, sized to the text beside it.
 Pressable pills. There are only two kinds, and pink is the main action.
 
 - **Shape:** fully rounded (`full`), with 0.75rem by 1.5rem of padding.
-- **Primary:** pastel pink with graphite text. One per view, for the main action. Wherever contact
+- **Primary:** pastel pink with graphite text, and a 1 px `--accent-edge` border: deep rose in the
+  light theme, where pastel pink alone is 1.4:1 on a panel, and the fill itself in the dark theme,
+  where it doesn't show. One per view, for the main action. Wherever contact
   appears, the primary is "Message us on Threads" and email is the secondary. The one exception is
   the download section, where each system's row has its own primary, since a visitor picks one.
 - **Secondary:** transparent with a 1 px control-edge border (`--control-border`) and medium
@@ -383,11 +390,14 @@ Pressable pills. There are only two kinds, and pink is the main action.
   whole card is the link. On `/free-stuff`, a muted "Source code" link sits under the card, outside
   it.
 
-### Graphite panel
+### Panel
 
 The signature component. `PageHero` and `ClosingPanel` in `src/lib/`, the home page and the 404
-page all use it. A `.band` gives the graphite tokens in either theme and is rounded, inset and
-wider than the content. A hero holds the title, an optional pink tagline, the introduction,
+page all use it. A `.band` is a step off the page in either theme, rounded, inset and wider than
+the content: graphite surface in dark mode, paper elevated in light. It was graphite in both
+themes until that made the light theme a dark site with a light middle, every page's darkest
+shape its title. The pink primary button carries a deep rose edge, which is what gives it a shape
+on a light panel. A hero holds the title, an optional pink tagline, the introduction,
 buttons, and optionally the page's main picture on the plain panel, or a list of destinations
 (404). It
 never holds a label above the title. A closing panel ends the page with the next step.
@@ -445,7 +455,7 @@ text with the arrow, which moves 4 px right on hover.
 
 ### Do:
 
-- **Do** open and close every page with a graphite panel, and keep the content between them in
+- **Do** open and close every page with a panel, and keep the content between them in
   the 64rem column.
 - **Do** set section headings with `sectionHeading`: a real heading in sentence case, a clear size
   step above the text under it.
