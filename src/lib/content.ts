@@ -82,7 +82,7 @@ export const FLINT: FreeItem = {
 	summary:
 		'Small tools for everyday jobs: a fair way to split a bill, and a WhatsApp chat link from any number. Works offline.',
 	platforms: 'In any browser',
-	url: 'https://tools.itrium.id',
+	url: 'https://flint.itrium.id',
 	label: 'Open Flint',
 	sourceUrl: 'https://github.com/itriumid/flint'
 };
