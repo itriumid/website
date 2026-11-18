@@ -77,13 +77,14 @@ export const AMBER: FreeItem = {
 	sourceUrl: 'https://github.com/itriumid/amber'
 };
 
-export const WEB_TOOLS: FreeItem = {
-	name: 'Web tools',
-	summary: 'A WhatsApp chat link from any number, and a fair way to split a bill.',
+export const FLINT: FreeItem = {
+	name: 'Flint',
+	summary:
+		'Small tools for everyday jobs: a fair way to split a bill, and a WhatsApp chat link from any number. Works offline.',
 	platforms: 'In any browser',
 	url: 'https://tools.itrium.id',
-	label: 'Open the tools',
-	sourceUrl: 'https://github.com/itriumid/website-tools'
+	label: 'Open Flint',
+	sourceUrl: 'https://github.com/itriumid/flint'
 };
 
 export const HONK_ITEM: FreeItem = {
@@ -136,7 +137,7 @@ export const FREE_STUFF = {
 			id: 'browser',
 			heading: 'In your browser',
 			body: 'Nothing to install. Open it on your phone or your computer, and start.',
-			items: [AMBER, WEB_TOOLS]
+			items: [AMBER, FLINT]
 		},
 		{
 			id: 'computer',

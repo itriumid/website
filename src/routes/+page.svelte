@@ -40,7 +40,7 @@
 		LETTER,
 		THREADS_URL,
 		TITLE,
-		WEB_TOOLS,
+		FLINT,
 		WORK
 	} from '#lib/content.js';
 
@@ -76,7 +76,7 @@
 			dark: honkDark
 		}
 	];
-	const others = [AMBER, WEB_TOOLS, RHODONITE_ITEM];
+	const others = [AMBER, FLINT, RHODONITE_ITEM];
 
 	// Each index row's picture, but Advice's, which is our mark on pink.
 	const pictures: Record<string, { light: Picture; dark?: Picture }> = {

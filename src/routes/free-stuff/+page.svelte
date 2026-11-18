@@ -25,7 +25,7 @@
 	// reads from the left.
 	const pictures: Record<string, { light: Picture; dark?: Picture; position?: string }> = {
 		Amber: { light: amberLight, dark: amberDark },
-		'Web tools': {
+		Flint: {
 			light: splitBillLight,
 			dark: splitBillDark,
 			position: 'object-bottom'
