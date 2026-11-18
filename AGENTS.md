@@ -86,10 +86,15 @@ Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers 
 - **Cloudflare must not add its analytics.** `_headers` sends `Cache-Control: … no-transform` on every page, which makes Cloudflare leave pages unchanged. Without it, Cloudflare's Web Analytics (enabled by default for sites it proxies) injects a script the policy then blocks, and "no analytics" would rest on the policy alone. `src/headers.test.ts` guards it.
 - **No inline styles or `data:` URLs.** The policy blocks them. Use Tailwind classes, and keep
   `build.assetsInlineLimit: 0` in `vite.config.ts`.
-- **Colors come from the tokens in `src/app.css`,** the same ones Honk uses. This site uses pink
-  more freely than the applications: the primary action and focus, and also section labels,
-  links and highlights. Pink text on light backgrounds is `--accent-text` (deep rose), never
-  pastel pink.
+- **Colors come from `@itrium/palettes`,** pinned to an exact version and imported at the top of
+  `src/app.css`: Rhodonite, the same as every Itrium application's. The site adds only
+  `--control-border`, `--accent-text` and the code sample's `--code-*` colors, in the package's
+  own selector pattern. `src/palettes.test.ts` runs the package's checker on them, keeps the code
+  colors equal to its `CODE_COLORS`, and checks Tailwind's pink line classes itself, since the
+  checker reads only CSS declarations. A color change belongs in the package, then a version bump
+  here. This site uses pink more freely than the applications: the primary action and focus, and
+  also section labels, links and highlights. Pink text on light backgrounds is `--accent-text`
+  (deep rose), never pastel pink.
 - **`static/.well-known/security.txt` expires.** A test fails a month before its `Expires`
   date; push it out another year when it does.
 - **Brand files** (`src/lib/*.svg`, the icons and `og-image.png` in `static/`) are copies from
