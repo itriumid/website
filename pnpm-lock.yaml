@@ -170,8 +170,8 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@itrium/palettes':
-        specifier: 0.2.0
-        version: 0.2.0(svelte@5.59.1(@typescript-eslint/types@8.74.0))
+        specifier: 0.3.0
+        version: 0.3.0(svelte@5.59.1(@typescript-eslint/types@8.74.0))
     devDependencies:
       '@eslint/compat':
         specifier: ^2.1.1
@@ -746,8 +746,8 @@ packages:
   '@isaacs/nonrecursive-glob-match@1.1.0':
     resolution: {integrity: sha512-GPm/Dbvk5RLmhRnxXIa7nTpK0xtl4E0wj0MslsuNiJ1FIROU+2+9lgUC/dgF7Ey4QCWhfEsgxilMRMCdHPfDfw==}
 
-  '@itrium/palettes@0.2.0':
-    resolution: {integrity: sha512-RVPTQfpKTGEtQtGgZdFC1yOMfLOeK29ASBuvDoMbEo8lYa1yrjEmpWA8MPdjvRu2x1h0uK9QLGfWAIRebrxxbg==}
+  '@itrium/palettes@0.3.0':
+    resolution: {integrity: sha512-+HQQ5p2yrS1C4VIbpJPnCvdNnT4qLZkU47X15a6NJewmYJr+1ms3hFtOqToBZJTDJxRWX8n9BU/CqntpWuLjEQ==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -2562,7 +2562,7 @@ snapshots:
 
   '@isaacs/nonrecursive-glob-match@1.1.0': {}
 
-  '@itrium/palettes@0.2.0(svelte@5.59.1(@typescript-eslint/types@8.74.0))':
+  '@itrium/palettes@0.3.0(svelte@5.59.1(@typescript-eslint/types@8.74.0))':
     dependencies:
       svelte: 5.59.1(@typescript-eslint/types@8.74.0)
 
