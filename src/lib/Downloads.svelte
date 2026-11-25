@@ -65,9 +65,9 @@
 						<p class="mt-1 text-sm text-muted">{download.note}</p>
 					</div>
 					<div>
-						<a href={download.primary.url} rel="external" class={primaryButton}
-							>{download.primary.label}</a
-						>
+						<a href={download.primary.url} rel="external" class={primaryButton}>
+							{download.primary.label}
+						</a>
 						{#if step}
 							<p class="mt-4 max-w-xl text-sm leading-relaxed text-muted">
 								<span class="font-semibold text-text">{DOWNLOADS.firstTime}</span>

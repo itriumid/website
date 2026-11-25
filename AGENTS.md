@@ -89,9 +89,9 @@ Cloudflare Workers through `@sveltejs/adapter-cloudflare`. Cloudflare's Workers 
 - **Colors come from `@itrium/palettes`,** pinned to an exact version and imported at the top of
   `src/app.css`: Rhodonite, the same as every Itrium application's. The site adds only
   `--control-border`, `--accent-text` and the code sample's `--code-*` colors, in the package's
-  own selector pattern. `src/palettes.test.ts` runs the package's checker on them, keeps the code
-  colors equal to its `CODE_COLORS`, and checks Tailwind's pink line classes itself, since the
-  checker reads only CSS declarations. A color change belongs in the package, then a version bump
+  own selector pattern. `src/palettes.test.ts` runs the package's checker on them, including the
+  pink lines drawn with Tailwind classes, and keeps the code colors equal to its `CODE_COLORS`.
+  A color change belongs in the package, then a version bump
   here. This site uses pink more freely than the applications: the primary action and focus, and
   also section labels, links and highlights. Pink text on light backgrounds is `--accent-text`
   (deep rose), never pastel pink.

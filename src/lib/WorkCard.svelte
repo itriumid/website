@@ -25,9 +25,9 @@
 >
 	<div class="flex flex-col p-8 sm:p-10">
 		<!-- The tagline is the heading; the client's name follows it as a byline, not above it. -->
-		<svelte:element this={level} class="text-3xl font-bold tracking-tight text-balance sm:text-4xl"
-			>{LINTECH.tagline}</svelte:element
-		>
+		<svelte:element this={level} class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+			{LINTECH.tagline}
+		</svelte:element>
 		<p class="mt-2 text-sm font-semibold text-accent-text">{LINTECH.name}</p>
 		<p class="mt-4 text-lg leading-relaxed text-muted">{LINTECH.summary}</p>
 		<ul class="mt-6 flex flex-wrap gap-2 text-sm">

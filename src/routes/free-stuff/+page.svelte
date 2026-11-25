@@ -40,6 +40,9 @@
 		}
 	};
 
+	/** A card: the same for a page of this site and for an outside one. */
+	const cardLink =
+		'group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-surface transition hover:border-accent-edge motion-safe:hover:-translate-y-1';
 	const link =
 		'inline-flex min-h-11 items-center underline decoration-accent-edge decoration-2 underline-offset-4 hover:text-accent-text';
 </script>
@@ -65,30 +68,32 @@
 			<ul class="mt-8 grid gap-6 sm:grid-cols-2">
 				{#each group.items as item (item.name)}
 					{@const picture = pictures[item.name]}
-					<li class="reveal flex flex-col">
-						<a
-							href={'page' in item ? resolve(item.page) : item.url}
-							rel={'page' in item ? undefined : 'external'}
-							class="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-surface transition hover:border-accent-edge motion-safe:hover:-translate-y-1"
-						>
-							<Screenshot
-								light={picture.light}
-								dark={picture.dark}
-								alt=""
-								sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 50vw, 100vw"
-								class="aspect-[4/3] border-b border-border object-cover {picture.position ??
-									'object-top'}"
-							/>
-							<span class="flex flex-1 flex-col p-6">
-								<span class="text-2xl font-bold tracking-tight">{item.name}</span>
-								<span class="mt-2 leading-relaxed text-muted">{item.summary}</span>
-								<span class="mt-2 text-sm text-muted">{item.platforms}</span>
-								<span class="mt-auto flex items-center gap-2 pt-5 font-semibold text-accent-text">
-									{item.label}
-									<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
-								</span>
+					<!-- A page of this site, or an outside one: two links, so an outside one always says so. -->
+					{#snippet card()}
+						<Screenshot
+							light={picture.light}
+							dark={picture.dark}
+							alt=""
+							sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 50vw, 100vw"
+							class="aspect-[4/3] border-b border-border object-cover {picture.position ??
+								'object-top'}"
+						/>
+						<span class="flex flex-1 flex-col p-6">
+							<span class="text-2xl font-bold tracking-tight">{item.name}</span>
+							<span class="mt-2 leading-relaxed text-muted">{item.summary}</span>
+							<span class="mt-2 text-sm text-muted">{item.platforms}</span>
+							<span class="mt-auto flex items-center gap-2 pt-5 font-semibold text-accent-text">
+								{item.label}
+								<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
 							</span>
-						</a>
+						</span>
+					{/snippet}
+					<li class="reveal flex flex-col">
+						{#if 'page' in item}
+							<a href={resolve(item.page)} class={cardLink}>{@render card()}</a>
+						{:else}
+							<a href={item.url} rel="external" class={cardLink}>{@render card()}</a>
+						{/if}
 						<a href={item.sourceUrl} rel="external" class="{link} self-start text-sm text-muted">
 							{DOWNLOADS.source}<span class="sr-only">: {item.name}</span>
 						</a>

@@ -46,30 +46,34 @@
 				<a
 					href="{home}#services"
 					class="-my-1 inline-flex min-h-11 items-center transition-colors hover:text-text"
-					>What we do</a
 				>
+					What we do
+				</a>
 			</li>
 			<!-- Hidden on phones with "What we do": four items don't fit beside the logo there. -->
 			<li class="hidden sm:block">
 				<a
 					href={resolve('/work')}
 					class="-my-1 inline-flex min-h-11 items-center transition-colors hover:text-text"
-					>Our work</a
 				>
+					Our work
+				</a>
 			</li>
 			<li>
 				<a
 					href={resolve('/free-stuff')}
 					class="-my-1 inline-flex min-h-11 items-center transition-colors hover:text-text"
-					>Free stuff</a
 				>
+					Free stuff
+				</a>
 			</li>
 			<li>
 				<a
 					href="{home}#contact"
 					class="-my-1 inline-flex min-h-11 items-center transition-colors hover:text-text"
-					>Contact</a
 				>
+					Contact
+				</a>
 			</li>
 		</ul>
 	</nav>
@@ -96,55 +100,62 @@
 				<a
 					href="mailto:{EMAIL}"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>{EMAIL}</a
 				>
+					{EMAIL}
+				</a>
 			</li>
 			<li>
 				<a
 					href={DISCORD_URL}
 					rel="external"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>Discord</a
 				>
+					Discord
+				</a>
 			</li>
 			<li>
 				<a
 					href={INSTAGRAM_URL}
 					rel="external"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>Instagram</a
 				>
+					Instagram
+				</a>
 			</li>
 			<li>
 				<a
 					href={THREADS_URL}
 					rel="external"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>Threads</a
 				>
+					Threads
+				</a>
 			</li>
 			<li>
 				<a
 					href={GITHUB_URL}
 					rel="external"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>GitHub</a
 				>
+					GitHub
+				</a>
 			</li>
 			<li>
 				<a
 					href={SOURCE_URL}
 					rel="external"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>This site's source</a
 				>
+					This site's source
+				</a>
 			</li>
 			<li>
 				<a
 					href="mailto:{SECURITY_EMAIL}"
 					class="inline-flex min-h-11 items-center transition-colors hover:text-text sm:min-h-0"
-					>Report a security problem</a
 				>
+					Report a security problem
+				</a>
 			</li>
 		</ul>
 	</div>
