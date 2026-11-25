@@ -183,9 +183,9 @@
 <figure class="reveal mx-auto max-w-4xl px-5 pt-16 pb-20 sm:px-8" aria-label={RHODONITE.sample}>
 	<div class="overflow-hidden rounded-xl border border-border bg-bg">
 		<div class="flex border-b border-border text-sm" aria-hidden="true">
-			<span class="border-t-2 border-r border-t-accent-edge border-r-border px-4 py-2"
-				>palette.ts</span
-			>
+			<span class="border-t-2 border-r border-t-accent-edge border-r-border px-4 py-2">
+				palette.ts
+			</span>
 			<span class="border-r border-border px-4 py-2 text-muted">README.md</span>
 		</div>
 		<pre class="overflow-x-auto p-5 font-mono text-sm leading-relaxed"><code
@@ -269,18 +269,18 @@
 					></pre>
 				<p class="mt-3 text-sm text-muted">{RHODONITE.install.openVsx.note}</p>
 				<p class="mt-5 text-sm text-muted">
-					<a href={RHODONITE.install.openVsx.url} rel="external" class={link}
-						>{RHODONITE.install.openVsx.linkLabel}</a
-					>
+					<a href={RHODONITE.install.openVsx.url} rel="external" class={link}>
+						{RHODONITE.install.openVsx.linkLabel}
+					</a>
 				</p>
 			</li>
 			<li class="flex min-w-0 flex-col rounded-2xl border border-border bg-surface p-6">
 				<h3 class="text-xl font-semibold">{RHODONITE.install.vscode.heading}</h3>
 				<p class="mt-3 text-muted">{RHODONITE.install.vscode.body}</p>
 				<div class="mt-5">
-					<a href={RHODONITE.install.vscode.url} rel="external" class={secondaryButton}
-						>{RHODONITE.install.vscode.linkLabel}</a
-					>
+					<a href={RHODONITE.install.vscode.url} rel="external" class={secondaryButton}>
+						{RHODONITE.install.vscode.linkLabel}
+					</a>
 				</div>
 			</li>
 		</ul>

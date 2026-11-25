@@ -77,6 +77,9 @@
 		}
 	];
 	const others = [AMBER, FLINT, RHODONITE_ITEM];
+	/** A row in the list of the rest: the same for a page of this site and for an outside one. */
+	const otherRow =
+		'group flex flex-col gap-1 px-6 py-4 transition-colors hover:bg-bg sm:flex-row sm:items-baseline sm:gap-4';
 
 	// Each index row's picture, but Advice's, which is our mark on pink.
 	const pictures: Record<string, { light: Picture; dark?: Picture }> = {
@@ -150,7 +153,7 @@
 				{#each INDEX as row (row.id)}
 					<li class="border-b border-border">
 						<a
-							href={'page' in row ? resolve(row.page) : row.hash}
+							href={'page' in row ? resolve(row.page) : resolve(`/${row.hash}`)}
 							class="group -mx-3 grid grid-cols-[4.5rem_1fr_auto] items-center gap-4 rounded-xl px-3 py-5 transition-colors hover:bg-surface sm:grid-cols-[8rem_1fr_auto] sm:gap-8 sm:py-6"
 						>
 							{#if row.id === 'advice'}
@@ -173,8 +176,9 @@
 							<span>
 								<span
 									class="block text-xl leading-tight font-bold tracking-tight text-balance sm:text-3xl lg:text-4xl"
-									>{row.title}</span
 								>
+									{row.title}
+								</span>
 								<span class="mt-1 block text-sm text-muted sm:text-base">{row.note}</span>
 							</span>
 							<Arrow
@@ -232,25 +236,27 @@
 		</ul>
 		<ul class="reveal mt-4 divide-y divide-border rounded-2xl border border-border bg-surface">
 			{#each others as item (item.name)}
+				<!-- A page of this site, or an outside one: two links, so an outside one always says so. -->
+				{#snippet other()}
+					<span class="font-semibold sm:w-44 sm:shrink-0">{item.name}</span>
+					<span class="flex-1 text-muted">{item.summary}</span>
+					<!-- Where it runs, and for what leaves this site, where it goes. -->
+					<span class="text-sm text-muted sm:w-56 sm:shrink-0 sm:text-right">
+						{item.platforms}
+						{#if 'url' in item}
+							<span class="whitespace-nowrap text-accent-text">
+								· {new URL(item.url).host}
+								<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
+							</span>
+						{/if}
+					</span>
+				{/snippet}
 				<li>
-					<a
-						href={'page' in item ? resolve(item.page) : item.url}
-						rel={'page' in item ? undefined : 'external'}
-						class="group flex flex-col gap-1 px-6 py-4 transition-colors hover:bg-bg sm:flex-row sm:items-baseline sm:gap-4"
-					>
-						<span class="font-semibold sm:w-44 sm:shrink-0">{item.name}</span>
-						<span class="flex-1 text-muted">{item.summary}</span>
-						<!-- Where it runs, and for what leaves this site, where it goes. -->
-						<span class="text-sm text-muted sm:w-56 sm:shrink-0 sm:text-right">
-							{item.platforms}
-							{#if 'url' in item}
-								<span class="whitespace-nowrap text-accent-text">
-									· {new URL(item.url).host}
-									<Arrow class="transition-transform motion-safe:group-hover:translate-x-1" />
-								</span>
-							{/if}
-						</span>
-					</a>
+					{#if 'page' in item}
+						<a href={resolve(item.page)} class={otherRow}>{@render other()}</a>
+					{:else}
+						<a href={item.url} rel="external" class={otherRow}>{@render other()}</a>
+					{/if}
 				</li>
 			{/each}
 		</ul>
@@ -267,8 +273,10 @@
 		<p class="mt-8 flex max-w-2xl items-center gap-4 leading-relaxed text-muted">
 			<span
 				class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-accent"
-				aria-hidden="true"><img src={mark} alt="" width="96" height="96" class="size-8" /></span
-			>{NAME_STORY}
+				aria-hidden="true"
+			>
+				<img src={mark} alt="" width="96" height="96" class="size-8" />
+			</span>{NAME_STORY}
 		</p>
 	</div>
 </section>

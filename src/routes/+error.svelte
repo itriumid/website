@@ -10,7 +10,7 @@
 	const places = [
 		{ label: 'Free stuff', href: resolve('/free-stuff') },
 		{ label: 'Our work', href: resolve('/work') },
-		{ label: 'Contact', href: `${resolve('/')}#contact` },
+		{ label: 'Contact', href: resolve('/#contact') },
 		{ label: 'Home', href: resolve('/') }
 	];
 </script>
